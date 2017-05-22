@@ -1,4 +1,27 @@
-set softtabstop=4
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Bundle 'Valloric/YouCompleteMe'
+
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+set smartindent
+set tabstop=4
 set shiftwidth=4
 set expandtab
 
@@ -14,6 +37,10 @@ set nu
 " paste in visual mode with p"
 vnoremap p "_dP
 
+" Clipboard sharing on mac osx, first run brew install vim
+set clipboard=unnamed
+
+
 "Downloaded TAB Hax:
 "Use TAB to complete when typing words, else inserts TABs as usual.
 "Uses dictionary and source files to find matching words to complete.
@@ -24,15 +51,15 @@ vnoremap p "_dP
 "Use the Linux dictionary when spelling is in doubt.
 "Window users can copy the file to their machine.
 
-function! Tab_Or_Complete()
-  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-          return "\<C-N>"
-	    else
-		    return "\<Tab>"
-		      endif
-		      endfunction
-:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
-:set dictionary="/usr/dict/words"
+"function! Tab_Or_Complete()
+"  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+"          return "\<C-N>"
+"        else
+"	    return "\<Tab>"
+"	      endif
+"	      endfunction
+":inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+":set dictionary="/usr/dict/words"
 
 "emacs in command line
 cnoremap <C-a> <Home>
@@ -47,76 +74,6 @@ cnoremap <M-f> <S-Right>
 "notes, to have a terminal window: 
 " :ConqueTerm bash
 "after: installing the vimball by opening it, then so %
-
-
-"==============================================================================
-" closepairs.vim - Auto closes pairs of characters
-"==============================================================================
-"
-" Author:   NoWhereMan (Edoardo Vacchi) <uncommonnonsense at gmail dot com>
-" Version:  0.1
-" URL: 	    http://www.flatpress.org/ 
-" License:  Public Domain
-"==============================================================================
-
-
-inoremap ( ()<left>
-inoremap { {}<left>
-inoremap [ []<left>
-
-vnoremap <leader>" "zdi"<c-r>z"
-vnoremap <leader>' "zdi'<c-r>z'
-vnoremap <leader>( "zdi(<c-r>z)
-vnoremap <leader>[ "zdi[<c-r>z]
-vnoremap <leader>{ "zdi{<c-r>z}
-
-inoremap <expr> <bs> <SID>delpair()
-
-inoremap <expr> ) <SID>escapepair(')')
-inoremap <expr> } <SID>escapepair('}')
-inoremap <expr> ] <SID>escapepair(']')
-
-inoremap <expr> " <SID>pairquotes('"')
-inoremap <expr> ' <SID>pairquotes("'")
-
-
-function! s:delpair()
-	let l:lst = ['""',"''",'{}','[]','()']
-	let l:col = col('.')
-	let l:line = getline('.')
-	let l:chr = l:line[l:col-2 : l:col-1]
-	if index(l:lst, l:chr) > -1
-		return "\<bs>\<del>"
-	else
-		let l:chr = l:line[l:col-3:l:col-2]
-		if (index(l:lst, l:chr)) > - 1
-			return "\<bs>\<bs>"
-		endif
-		return "\<bs>"
-endf
-
-function! s:escapepair(right)
-	let l:col = col('.')
-	let l:chr = getline('.')[l:col-1]
-	if a:right == l:chr 
-		return "\<right>"
-	else
-		return a:right
-
-endf
-
-function! s:pairquotes(pair)
-	let l:col = col('.')
-	let l:line = getline('.')
-	let l:chr = l:line[l:col-1]
-	if a:pair == l:chr 
-		return "\<right>"
-	else
-		return a:pair.a:pair."\<left>"
-
-endf
-"END OF CLOSEPAIRS"
-
 
 " Helpful keybindings for function keys on a mac
 "map! only does in command and insert mode.
@@ -153,9 +110,6 @@ if has("gui_running") && system('ps xw | grep "Vim -psn" | grep -vc grep') > 0
   endif
 endif
 
-" set our tabs to four spaces
-"set ts=4
-
 " turn color syntax highlighting on by default
 " set term=builtin_beos-ansi
 syntax on
@@ -169,15 +123,15 @@ set nocompatible
 " turn on the "visual bell" - which is much quieter than the "audio blink"
 set vb
 
-" do not highlight words when searching for them. it's distracting.
-set nohlsearch
+" highlight words when searching for them. it's distracting.
+set hlsearch
 
 " automatically show matching brackets. works like it does in bbedit.
 set showmatch
 
 " do NOT put a carriage return at the end of the last line! if you are programming
 " for the web the default will cause http headers to be sent. that's bad.
-set binary noeol
+    ""set binary noeol
 
 " make that backspace key work the way it should
 set backspace=indent,eol,start
@@ -188,13 +142,15 @@ set mousef
 "set wrapmargin=1
 
 " for coding
-set smartindent
+"set smartindent
 
 " Disable automatic comments.  These get annoying
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 
-
+" Pydiction:
+filetype plugin on
+let g:pydiction_location = '/Users/anton/.vim/bundle/pydiction/complete-dict'
 
 
 " Vim color file
@@ -228,4 +184,3 @@ hi VertSplit guifg=Gray
 hi Type gui=NONE
 hi Identifier guifg=Cyan
 hi Statement guifg=brown3 ctermfg=DarkRed
-hi Search guibg=Gold3 ctermfg=White
