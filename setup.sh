@@ -1,5 +1,7 @@
 #!/bin/sh
 
+dir=~/dotfiles
+
 read -p "Do you want to install .vimrc. Type [y] to OVERWRITE your old." -n 1 -r
 echo    # move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
@@ -18,3 +20,8 @@ then
     ln -s $dir/.zshrc ~/.zshrc
 fi
 
+
+source ~/.zshrc
+source ~/.vimrc
+
+echo "...done"
