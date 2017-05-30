@@ -3,6 +3,9 @@
 set nocompatible              " required
 filetype off                  " required
 
+" fixes error from youcompleteme:
+let g:ycm_path_to_python_interpreter="/usr/local/bin/python"
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
