@@ -21,7 +21,4 @@ then
 fi
 
 
-source ~/.zshrc
-source ~/.vimrc
-
 echo "...done"

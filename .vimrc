@@ -1,3 +1,5 @@
+"Vundle setup:
+
 set nocompatible              " required
 filetype off                  " required
 
@@ -9,15 +11,25 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'VundleVim/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'easymotion/vim-easymotion'
+"Plugin 'tope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 
 set smartindent
@@ -29,11 +41,11 @@ set nu
 
 "antons remaps:"
 "end line swedish layout
-:nmap ¤  $
+":nmap ¤ $
 "space to single char map
 :nmap <Space> i_<Esc>r
 " esc
-:imap <C-q> <Esc>
+":imap <C-q> <Esc>
 " paste in visual mode with p"
 vnoremap p "_dP
 
@@ -124,14 +136,14 @@ set nocompatible
 set vb
 
 " highlight words when searching for them. it's distracting.
-set hlsearch
+"set hlsearch
 
 " automatically show matching brackets. works like it does in bbedit.
 set showmatch
 
 " do NOT put a carriage return at the end of the last line! if you are programming
 " for the web the default will cause http headers to be sent. that's bad.
-    ""set binary noeol
+set binary noeol
 
 " make that backspace key work the way it should
 set backspace=indent,eol,start
@@ -169,12 +181,14 @@ if exists("syntax_on")
 endif
 "let g:colors_name = "BlackSea"
 
+"color desert
+
 hi Normal guibg=Black guifg=seashell ctermfg=White
 hi NonText guifg=LavenderBlush ctermfg=LightMagenta
-hi DiffDelete guibg=DarkRed guifg=Black ctermbg=DarkRed ctermfg=White
-hi DiffAdd guibg=DarkGreen ctermbg=DarkGreen ctermfg=White
-hi DiffChange guibg=Gray30 ctermbg=DarkCyan ctermfg=White
-hi DiffText gui=NONE guibg=DarkCyan ctermbg=DarkCyan ctermfg=Yellow
+hi DiffDelete guibg=DarkRed guifg=Black ctermbg=DarkRed ctermfg=Black
+hi DiffAdd guibg=DarkGreen ctermbg=DarkGreen ctermfg=Black
+hi DiffChange guibg=Gray30 ctermbg=DarkCyan ctermfg=Black
+hi DiffText gui=NONE guibg=Cyan ctermbg=Cyan ctermfg=Black
 hi Comment guifg=LightBlue
 hi Constant guifg=DeepPink
 hi PreProc guifg=Magenta ctermfg=Magenta
