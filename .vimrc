@@ -3,8 +3,8 @@
 set nocompatible              " required
 filetype off                  " required
 
-" fixes error from youcompleteme:
-let g:ycm_path_to_python_interpreter="/usr/local/bin/python"
+" fixes error from youcompleteme: NOTE - this ruined hotkey 'd'.
+"let g:ycm_path_to_python_interpreter="/usr/local/bin/python"
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -18,8 +18,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'easymotion/vim-easymotion'
+"Plugin 'Valloric/YouCompleteMe'
 "Plugin 'tope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
