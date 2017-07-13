@@ -10,6 +10,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Set key repeat on os x :
+# defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
+# defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+
+
 
 # Added by the sourabhbajaj.com tutorial:
 # Add env.sh
@@ -33,6 +38,7 @@ fi
 
 alias up="git pull --rebase"
 alias vim=nvim
+alias pc='open -a /Applications/PyCharm\ CE.app'
 
 
 # Added by jeromedalbert.com:

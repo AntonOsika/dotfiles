@@ -19,6 +19,11 @@ Plugin 'VundleVim/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
 Plugin 'easymotion/vim-easymotion'
+Plugin 'elzr/vim-json'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'tpope/vim-commentary'
+Plugin 'airblade/vim-gitgutter'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'tope/vim-fugitive'
 
@@ -35,12 +40,24 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
+let mapleader = ','
+
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+
+
 set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
 set nu
+
+" wrap markdown:
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
+
 
 "antons remaps:"
 "end line swedish layout
@@ -154,7 +171,9 @@ set backspace=indent,eol,start
 set mousef
 
 " set margin wrapping
-"set wrapmargin=1
+set wrapmargin=1
+
+
 
 " for coding
 "set smartindent
