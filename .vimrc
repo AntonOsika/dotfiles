@@ -59,13 +59,15 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 
 
 
-"antons remaps:"
+"Antons remaps:"
 "end line swedish layout
 ":nmap ¤ $
+
+"Escape terminal mode in neovim:
+:tnoremap <Esc> <C-\><C-n>
+
 "space to single char map
 :nmap <Space> i_<Esc>r
-" esc
-":imap <C-q> <Esc>
 " paste in visual mode with p"
 vnoremap p "_dP
 
