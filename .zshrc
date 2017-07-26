@@ -58,9 +58,14 @@ zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
 
+# Add shell integration for iterm2
+# source ~/.iterm2_shell_integration.`basename $SHELL`
+if [ -f '/Users/anton/.iterm2_shell_integration.'`basename $SHELL` ]; then source '/Users/anton/.iterm2_shell_integration.'`basename $SHELL`; fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/anton/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/anton/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/anton/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/anton/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

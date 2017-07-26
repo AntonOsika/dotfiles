@@ -55,6 +55,14 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
 
+
+# Safari: 
+
 # Set Safari’s home page to `about:blank` for faster loading
 defaults write com.apple.Safari HomePage -string "about:blank"
+
+# Press Tab to highlight each item on a web page
+defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
+
 

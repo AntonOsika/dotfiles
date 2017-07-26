@@ -1,10 +1,15 @@
+[user]
+	name = Anton Osika
+	email = anton.osika@gmail.com
+	signingkey = B064E86B2A6FAFFD
+
 [alias]
 
 	# Anton from Erik Olsson: git config --global alias.up "pull --rebase"
 	up = pull --rebase
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -n 20 --graph --abbrev-commit
 
 	# View the current working tree status using the short format
 	s = status -s
@@ -88,6 +93,8 @@
 	whitespace = fix
 
 [core]
+	# By Anton Osika:
+	editor = nvim
 
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
@@ -134,7 +141,7 @@
 [commit]
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
+	# gpgsign = true
 
 [diff]
 
@@ -158,6 +165,7 @@
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+	tool = vimdiff
 
 [push]
 
