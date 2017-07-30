@@ -1,33 +1,33 @@
 "Vundle setup:
 
-set nocompatible              " required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-
-Plugin 'easymotion/vim-easymotion' 	",,w = jump to wod
-Plugin 'elzr/vim-json'			 	"easier to read json
-Plugin 'tpope/vim-commentary'		"gcc = comment
-Plugin 'airblade/vim-gitgutter' 	"shows changes since commit on the left
-"Plugin 'Valloric/YouCompleteMe' 	"competion and goto
-
-"Plugin 'vim-pandoc/vim-pandoc' 	"markdown thing
-"Plugin 'vim-pandoc/vim-pandoc-syntax'
-"Plugin 'tope/vim-fugitive' 		"git wrapper
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+"set nocompatible              " required
+"filetype off                  " required
+"
+"" set the runtime path to include Vundle and initialize
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"
+"" alternatively, pass a path where Vundle should install plugins
+""call vundle#begin('~/some/path/here')
+"
+"" let Vundle manage Vundle, required
+"Plugin 'VundleVim/Vundle.vim'
+"
+"" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+"
+"Plugin 'easymotion/vim-easymotion' 	",,w = jump to wod
+"Plugin 'elzr/vim-json'			 	"easier to read json
+"Plugin 'tpope/vim-commentary'		"gcc = comment
+"Plugin 'airblade/vim-gitgutter' 	"shows changes since commit on the left
+""Plugin 'Valloric/YouCompleteMe' 	"competion and goto
+"
+""Plugin 'vim-pandoc/vim-pandoc' 	"markdown thing
+""Plugin 'vim-pandoc/vim-pandoc-syntax'
+""Plugin 'tope/vim-fugitive' 		"git wrapper
+"
+"" All of your Plugins must be added before the following line
+"call vundle#end()            " required
+"filetype plugin indent on    " required
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
