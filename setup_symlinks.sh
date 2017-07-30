@@ -19,3 +19,17 @@ do
 done
 
 echo "...done"
+
+
+echo ""
+read -p "Do you want to symlink the prezto runcoms in $PWD/prezto/runcoms?" -n 1 -r
+echo ""
+
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	echo "Trying to symlink prezto runcoms in $HOME to $PWD/prezto/runcoms"
+	setopt EXTENDED_GLOB
+	for rcfile in "$PWD"/prezto/runcoms/^README.md(.N); do
+	    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+	done
+fi

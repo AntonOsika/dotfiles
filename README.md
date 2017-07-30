@@ -10,3 +10,14 @@ prezto is assumed, but will use the submodule of this directory in the future.
 
 there are some nice gitconfig aliases
 
+## Reinstall brew
+
+From [http://zanshin.net/2012/07/31/uninstalling-brew-to-re-install-brew/].
+
+````$ cd `brew --prefix`
+$ rm -rf Cellar
+$ brew prune
+$ rm -rf Library .git .gitignore bin/brew README.md share/man/man1/brew
+$ rm -rf ~/Library/Caches/Homebrew
+````
+
