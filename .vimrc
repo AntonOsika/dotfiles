@@ -3,9 +3,6 @@
 set nocompatible              " required
 filetype off                  " required
 
-" fixes error from youcompleteme: NOTE - this ruined hotkey 'd'.
-"let g:ycm_path_to_python_interpreter="/usr/local/bin/python"
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -18,14 +15,14 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
-Plugin 'easymotion/vim-easymotion'
-Plugin 'elzr/vim-json'
-"Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'easymotion/vim-easymotion' 	",,w = jump to wod
+Plugin 'elzr/vim-json'			 	"easier to read json
+"Plugin 'vim-pandoc/vim-pandoc' 	"markdown thing
 "Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'tpope/vim-commentary'
-Plugin 'airblade/vim-gitgutter'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'tope/vim-fugitive'
+Plugin 'tpope/vim-commentary'		"gcc = comment
+Plugin 'airblade/vim-gitgutter' 	"shows changes since commit on the left
+Plugin 'Valloric/YouCompleteMe' 	"competion and goto
+"Plugin 'tope/vim-fugitive' 		"git wrapper
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
