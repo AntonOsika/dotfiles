@@ -64,7 +64,9 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 ":nmap ¤ $
 
 "Escape terminal mode in neovim:
-:tnoremap <Esc> <C-\><C-n>
+if exists(':tnoremap')
+	tnoremap <Esc> <C-\><C-n>
+endif
 
 "space to single char map
 :nmap <Space> i_<Esc>r

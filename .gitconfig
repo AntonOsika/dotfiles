@@ -1,12 +1,11 @@
 [user]
 	name = Anton Osika
 	email = anton.osika@gmail.com
-	signingkey = B064E86B2A6FAFFD
 
 [alias]
 
 	# Anton from Erik Olsson: git config --global alias.up "pull --rebase"
-	up = pull --rebase
+	up = pull --rebase --autostash
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -n 20 --graph --abbrev-commit
