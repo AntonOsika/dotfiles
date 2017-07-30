@@ -32,13 +32,27 @@ if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
   sudo pmset -a hibernatemode 0
 fi
 
+# UI #
+
 # Automatically hide and show the Dock (default: false).
 defaults write com.apple.dock autohide -bool true
 
 # Finder: allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
+echo "Hide the Spotlight icon? (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+fi
+
 # Keyboard and mouse #
+
+# Set initial key repeat fast
+defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
+
+# set repeat after that even faster
+defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
@@ -92,7 +106,8 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	Privileges -bool true
 
 
-# Change minimize/maximize window effect
+echo ""
+echo "Changing minimize/maximize window effect"
 defaults write com.apple.dock mineffect -string "scale"
 
 
