@@ -20,8 +20,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'easymotion/vim-easymotion'
 Plugin 'elzr/vim-json'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
+"Plugin 'vim-pandoc/vim-pandoc'
+"Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
 "Plugin 'Valloric/YouCompleteMe'
@@ -57,6 +57,8 @@ set nu
 " wrap markdown:
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
+"makes command use aliases, i.e. a user terminal session
+set shellcmdflag+=i
 
 
 "Antons remaps:"
@@ -177,18 +179,13 @@ set mousef
 " set margin wrapping
 set wrapmargin=1
 
-
-
-" for coding
-"set smartindent
-
 " Disable automatic comments.  These get annoying
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 
 " Pydiction:
-filetype plugin on
-let g:pydiction_location = '/Users/anton/.vim/bundle/pydiction/complete-dict'
+"filetype plugin on
+"let g:pydiction_location = '/Users/anton/.vim/bundle/pydiction/complete-dict'
 
 
 " Vim color file
