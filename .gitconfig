@@ -29,7 +29,7 @@
 	ca = !git add -A && git commit -av
 
 	#ct = "!f() { git commit -m \"$1\" ; } f;"
-	ct = !echo "git status -s" && git status -s && echo "" && echo "Enter commit message:" && read MSG && echo "" && echo "git add -A" && git add -A && echo "" && echo "git commit -m $MSG" && git commit -m \"$MSG\" && echo "" && echo "git status -s" && git status -s
+	ct = !echo "> git status -s" && git status -s && echo "" && echo "Enter commit message:" && read MSG && echo "" && echo "> git add -A" && git add -A && echo "" && echo "> git commit -m $MSG" && git commit -m \"$MSG\" && echo "" && echo "> git status -s" && git status -s
 
 	#ct = !echo "Enter commit message:" && read MSG && echo "" && echo "Status before chagnes:" && echo "======================" && git status && echo "" && echo "Adding all..." && echo "=============" && git add -A && echo "" && echo "Committing..." && echo "=============" && git commit -m \"$MSG\" && echo "" && echo "New status:" && echo "===========" && git status
 
