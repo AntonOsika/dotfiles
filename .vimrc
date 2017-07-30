@@ -17,11 +17,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'easymotion/vim-easymotion' 	",,w = jump to wod
 Plugin 'elzr/vim-json'			 	"easier to read json
-"Plugin 'vim-pandoc/vim-pandoc' 	"markdown thing
-"Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'tpope/vim-commentary'		"gcc = comment
 Plugin 'airblade/vim-gitgutter' 	"shows changes since commit on the left
-Plugin 'Valloric/YouCompleteMe' 	"competion and goto
+"Plugin 'Valloric/YouCompleteMe' 	"competion and goto
+
+"Plugin 'vim-pandoc/vim-pandoc' 	"markdown thing
+"Plugin 'vim-pandoc/vim-pandoc-syntax'
 "Plugin 'tope/vim-fugitive' 		"git wrapper
 
 " All of your Plugins must be added before the following line

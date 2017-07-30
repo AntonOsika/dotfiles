@@ -5,3 +5,8 @@ setup.sh will symlink files from home folder to dotfiles in this repo, if they a
 macos.macos needs to be sourced separately.
 
 Neovim is assumed and alias `vim=nvim` is set.
+
+prezto is assumed, but will use the submodule of this directory in the future.
+
+there are some nice gitconfig aliases
+
