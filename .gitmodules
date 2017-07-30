@@ -1,0 +1,4 @@
+[submodule "prezto"]
+	path = prezto
+	url = https://github.com/AntonOsika/prezto.git
+
