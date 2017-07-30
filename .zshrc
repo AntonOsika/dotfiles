@@ -35,8 +35,7 @@ else
   export EDITOR='vimr'
 fi
 
-
-alias up="git pull --rebase"
+alias g=git
 alias vim=nvim
 alias pc='open -a /Applications/PyCharm\ CE.app'
 

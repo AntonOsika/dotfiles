@@ -28,6 +28,18 @@
 	# Commit all changes
 	ca = !git add -A && git commit -av
 
+	#ct = "!f() { git commit -m \"$1\" ; } f;"
+	ct = !echo "Enter commit message:" && read MSG && echo "" && echo "Status before chagnes:" && echo "======================" && git status && echo "" && echo "Adding all..." && echo "=============" && git add -A && echo "" && echo "Committing..." && echo "=============" && git commit -m \"$MSG\" && echo "" && echo "New status:" && echo "===========" && git status
+
+
+	# Commit all changes with message
+	ac = !"f() { echo '"enter commit message : "' && read MSG && git add -A && git commit -m '"'$MSG'"'; } f;"
+	#ac = !'f() { git add -A && git commit -av -m "'$@'"; }; f'
+
+	# Commit and push all changes with message
+	ac = !"f() { echo '"enter commit message : "' && read MSG && git add -A && git commit -m '"'$MSG'"' && git push origin master; } f;"
+	# acp = !"f() { git add -A && git commit -av -m \"$@\" && git push origin master; }; f"
+
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
@@ -93,7 +105,7 @@
 
 [core]
 	# By Anton Osika:
-	editor = nvim
+	editor = nano
 
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
