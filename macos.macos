@@ -2,8 +2,8 @@
 # https://gist.github.com/brandonb927/3195465
 
 echo ""
-cecho "Have you read through the script you're about to run and " $red
-cecho "understood that it will make changes to your computer? (y/n)" $red
+echo "Have you read through the script you're about to run and " $red
+echo "understood that it will make changes to your computer? (y/n)" $red
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
   CONTINUE=true
@@ -11,7 +11,7 @@ fi
 
 if ! $CONTINUE; then
   # Check if we're continuing and output a message if not
-  cecho "Please go read the script, it only takes a few minutes" $red
+  echo "Please go read the script, it only takes a few minutes" $red
   exit
 fi
 
