@@ -36,6 +36,7 @@ $ rm -rf ~/Library/Caches/Homebrew
 ````
 
 ## Todo
+- Set ZDOTDIR according to what prezto wants
 - Install Vundle
 - Config fzf (see eleijonmarck)
 - See if I missed any important vim config

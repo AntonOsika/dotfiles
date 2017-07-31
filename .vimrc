@@ -42,7 +42,7 @@ let mapleader = ','
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" 2 ways to follow tags without pinky finger:
+" 2 ways to follow tags without pinky finger (todo, remove the second):
 map gk <C-]>
 map <C-k> <C-]>
 
@@ -168,7 +168,13 @@ set nocompatible
 set vb
 
 " highlight words when searching for them. it's distracting.
-"set hlsearch
+set hlsearch
+
+" case insensitive. Put \C anywhere in search to do case sensitive (opposite of \c) 
+set ignorecase
+
+" automatically use case sensitive if it contains upper case chars (unless \c or \C is used)
+set smartcase
 
 " automatically show matching brackets. works like it does in bbedit.
 set showmatch
