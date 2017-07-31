@@ -21,3 +21,7 @@ $ rm -rf Library .git .gitignore bin/brew README.md share/man/man1/brew
 $ rm -rf ~/Library/Caches/Homebrew
 ````
 
+## Todo
+- Config fzf (see eleijonmarck)
+- See if I missed any important vim config
+- Create ctags for entire python installation?
