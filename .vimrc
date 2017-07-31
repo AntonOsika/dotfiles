@@ -15,13 +15,13 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
-"Plugin 'easymotion/vim-easymotion' 	",,w = jump to wod
 Plugin 'elzr/vim-json'			 	"easier to read json
-"Plugin 'vim-pandoc/vim-pandoc' 	"markdown thing
-"Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'tpope/vim-commentary'		"gcc = comment
 Plugin 'airblade/vim-gitgutter' 	"shows changes since commit on the left
 Plugin 'Valloric/YouCompleteMe' 	"competion and goto
+"Plugin 'easymotion/vim-easymotion' ",,w = jump to wod
+"Plugin 'vim-pandoc/vim-pandoc' 	"markdown thing
+"Plugin 'vim-pandoc/vim-pandoc-syntax'
 "Plugin 'tope/vim-fugitive' 		"git wrapper
 
 " All of your Plugins must be added before the following line
@@ -42,6 +42,9 @@ let mapleader = ','
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+" 2 ways to follow tags without pinky finger:
+map gk <C-]>
+map <C-k> <C-]>
 
 
 set smartindent
@@ -57,7 +60,6 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 "makes command use aliases, i.e. a user terminal session
 set shellcmdflag+=i
 
-
 "Antons remaps:"
 "end line swedish layout
 ":nmap ¤ $
@@ -67,14 +69,21 @@ if exists(':tnoremap')
 	tnoremap <Esc> <C-\><C-n>
 endif
 
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+
 "space to single char map
 :nmap <Space> i_<Esc>r
+
 " paste in visual mode with p"
 vnoremap p "_dP
 
 " Clipboard sharing on mac osx, first run brew install vim
 set clipboard=unnamed
 
+" look for tags in parent dir if not found
+set tags=./tags;/
 
 "Downloaded TAB Hax:
 "Use TAB to complete when typing words, else inserts TABs as usual.
@@ -212,7 +221,7 @@ hi DiffText gui=NONE guibg=Cyan ctermbg=Cyan ctermfg=Black
 hi Comment guifg=LightBlue
 hi Constant guifg=DeepPink
 hi PreProc guifg=Magenta ctermfg=Magenta
-hi StatusLine guibg=#1f001f guifg=DarkSeaGreen cterm=NONE ctermfg=White ctermbg=DarkGreen
+hi StatusLine guibg=Black guifg=Gray30 cterm=NONE ctermfg=Black ctermbg=LightGray
 hi StatusLineNC guifg=Gray
 hi VertSplit guifg=Gray
 hi Type gui=NONE

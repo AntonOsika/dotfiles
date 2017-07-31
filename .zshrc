@@ -33,10 +33,15 @@ fi
 
 alias g=git
 alias pc='open -a /Applications/PyCharm\ CE.app'
+alias tags=ctags -R .
 
-if test $(which nvim); then
-	alias vim=nvim
-fi
+if has('nvim')
+    alias vim=nvim
+endif
+
+#if test $(which nvim); then
+#    alias vim=nvim
+#fi
 
 
 # Added by jeromedalbert.com:
