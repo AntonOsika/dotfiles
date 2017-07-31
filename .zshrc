@@ -16,8 +16,8 @@ fi
 # Add env.sh
 # source ~/Projects/config/env.sh
 
-export PATH="/usr/local/bin:/usr/local/python:/usr/bin:/bin:/usr/sbin:/sbin"
-# export PYTHONPATH=$PYTHONPATH
+export PATH="/usr/local/bin:/usr/local/python:/usr/local/sbin:/usr/bin:/bin:/sbin"
+export PYTHONPATH=$PYTHONPATH
 export MANPATH="/usr/local/man:$MANPATH"
 
 # Find functions
