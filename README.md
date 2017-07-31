@@ -36,6 +36,7 @@ $ rm -rf ~/Library/Caches/Homebrew
 ````
 
 ## Todo
+- Install Vundle
 - Config fzf (see eleijonmarck)
 - See if I missed any important vim config
 - Create ctags for entire python installation?
