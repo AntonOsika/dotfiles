@@ -10,6 +10,20 @@ prezto is assumed, but will use the submodule of this directory in the future.
 
 there are some nice gitconfig aliases
 
+## Updating things
+
+Prezto: 
+
+git pull --rebase 
+(or more secure interactive merge version)
+
+brew outdated
+brew upgrade --all
+
+
+pip list --outdated
+pip install --upgrade pip
+
 ## Reinstall brew
 
 From [http://zanshin.net/2012/07/31/uninstalling-brew-to-re-install-brew/].

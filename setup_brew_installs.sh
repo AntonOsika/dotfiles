@@ -14,9 +14,24 @@ fi
 
 # Check for Homebrew,
 # Install if we don't have it
-if test !$(which brew); then
+if test $(which brew); then
 	echo "Installing homebrew..."
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+echo "brew doctor"
+brew doctor
+
+echo "do you want to continue?"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  CONTINUE=true
+fi
+
+if ! $CONTINUE; then
+  # Check if we're continuing and output a message if not
+  echo "skipping more installs, please brew health and fix with brew doctor" $red
+  exit
 fi
 
 # Make sure we’re using the latest Homebrew.
@@ -29,7 +44,9 @@ brew update
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
 #sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
-ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+
+# Need to back this up before uncommenting:
+#ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
 
 # Install some other useful utilities like `vidir` (https://joeyh.name/code/moreutils/)
@@ -63,9 +80,6 @@ brew tap neovim/neovim
 brew install --HEAD neovim
 
 brew install ctags
-
-brew install python
-brew install python3
 
 # Install other useful binaries.
 brew install git
@@ -118,7 +132,26 @@ brew cask install --appdir="/Applications" latexian
 #brew cask install --appdir="/Applications" virtualbox
 #brew cask install --appdir="/Applications" vagrant
 
+
 brew cask install caskroom/fonts/font-hack
+echo "installing python with brew, should end up in /usr/local/bin/python"
+brew install python
+brew install python3
+echo "python ended up in:"
+which python
+
+echo "do you want to continue?"
+
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  CONTINUE=true
+fi
+
+if ! $CONTINUE; then
+  # Check if we're continuing and output a message if not
+  echo "skipping more python installs, please check brew health and python installation" $red
+  exit
+fi
 
 # pip and setuptools was installed with python, upgrade it:
 pip install --upgrade setuptools
