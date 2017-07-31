@@ -19,6 +19,7 @@ Plugin 'elzr/vim-json'			 	"easier to read json
 Plugin 'tpope/vim-commentary'		"gcc = comment
 Plugin 'airblade/vim-gitgutter' 	"shows changes since commit on the left
 Plugin 'Valloric/YouCompleteMe' 	"competion and goto
+Plugin 'vim-scripts/taglist.vim'
 "Plugin 'easymotion/vim-easymotion' ",,w = jump to wod
 "Plugin 'vim-pandoc/vim-pandoc' 	"markdown thing
 "Plugin 'vim-pandoc/vim-pandoc-syntax'

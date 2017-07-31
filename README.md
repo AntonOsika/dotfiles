@@ -37,7 +37,8 @@ $ rm -rf ~/Library/Caches/Homebrew
 
 ## Todo
 - Set ZDOTDIR according to what prezto wants
-- Install Vundle
+- Install Vundle script
 - Config fzf (see eleijonmarck)
-- See if I missed any important vim config
-- Create ctags for entire python installation?
+- See if I missed any important vim config (eleoijon etc)
+- Create ctags for entire python installation. put all tags in one place and let vim
+look there. See other dotfiles

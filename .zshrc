@@ -33,7 +33,7 @@ fi
 
 alias g=git
 alias pc='open -a /Applications/PyCharm\ CE.app'
-alias tags=ctags -R .
+alias t='ctags -R .'
 
 #if has('nvim')
 #    alias vim=nvim
