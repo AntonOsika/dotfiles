@@ -57,8 +57,8 @@ set nu
 " wrap markdown:
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
-"makes command use aliases, i.e. a user terminal session
-set shellcmdflag+=i
+"makes command use aliases, i.e. a user terminal session. this hack makes vim crash a lot
+"set shellcmdflag+=i
 
 "Antons remaps:"
 "end line swedish layout
