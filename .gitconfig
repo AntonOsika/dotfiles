@@ -33,13 +33,13 @@
 
 	# By Anton Osika:
 	# Commit all changes with message. Confirm each executed line with return key.
-	ac = !echo "git status" && git status && echo "" && echo "Enter commit message:" && read MSG && echo "" && echo "git add -A" && read tmp && git add -A && \
-		echo "git commit -m \"$MSG\"" && read tmp && git commit -m \"$MSG\" && echo "" && echo "git status -s" && read tmp && git status -s
+	ac = !echo "git status" && git status && echo "" && echo "Enter commit message:" && read MSG && echo "" && echo "git add -A" && git add -A && \
+		echo "git commit -m \"$MSG\"" && read tmp && git commit -m \"$MSG\" && echo "" && echo "git status -s" && git status -s
 
 	# By Anton Osika:
 	# Commit and push all changes with message
-	acp = !echo "git status" && git status && echo "" && echo "Enter commit message:" && read MSG && echo "" && echo "git add -A" && read tmp && git add -A && \
-		echo "git commit -m \"$MSG\"" && read tmp && git commit -m \"$MSG\" && echo "" && echo "git status -s" && read tmp && git status -s && echo "" && \
+	acp = !echo "git status" && git status && echo "" && echo "Enter commit message:" && read MSG && echo "" && echo "git add -A" && git add -A && \
+		echo "git commit -m \"$MSG\"" && read tmp && git commit -m \"$MSG\" && echo "" && echo "git status -s" && git status -s && echo "" && \
 		echo "git pull --rebase origin master" && read tmp && git pull --rebase origin master && echo "" && \
 		echo "git push origin master" && read tmp && git push origin master
 
