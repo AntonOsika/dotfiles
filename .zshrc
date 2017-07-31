@@ -32,9 +32,11 @@ else
 fi
 
 alias g=git
-alias vimm=vim
-alias vim=nvim
 alias pc='open -a /Applications/PyCharm\ CE.app'
+
+if test $(which nvim); then
+	alias vim=nvim
+fi
 
 
 # Added by jeromedalbert.com:

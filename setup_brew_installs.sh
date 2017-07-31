@@ -51,8 +51,8 @@ chsh -s /usr/local/bin/zsh
 
 # cli tools
 brew install tree
-#brew install the_silver_searcher # like ack but faster (ack codesnippet .)
 brew install fzf
+#brew install the_silver_searcher # like ack but faster (ack codesnippet .)
 
 brew install vim --override-system-vi
 
@@ -73,12 +73,11 @@ brew install git
 # large file storage:
 #brew install git-lfs
 
+# too many by useful commands, e.g. fork https://github.com/tj/git-extras/blob/master/Commands.md
 # brew install git-extras
 
 # very strict aliases for developing with feature branches https://danielkummer.github.io/git-flow-cheatsheet/
 brew install git-flow 
-
-# too many by useful commands, e.g. fork https://github.com/tj/git-extras/blob/master/Commands.md
 
 #brew install ssh-copy-id
 
@@ -89,7 +88,7 @@ brew install git-flow
 #brew link libxslt --force
 
 # frontend tools
-# brew install node
+brew install node
 
 # database
 brew install postgresql
@@ -126,8 +125,8 @@ pip install --upgrade setuptools
 pip install --upgrade pip
 
 #from @eleijonmarck:
-#pip install gsutil
-#pip install ansible
+#pip install gsutil #google cloud
+#pip install ansible #automate apps and infrastructure
 
 pip install virtualenv
 pip install nose
