@@ -17,7 +17,8 @@ fi
 # source ~/Projects/config/env.sh
 
 export PATH="/usr/local/bin:/usr/local/python:/usr/local/sbin:/usr/bin:/bin:/sbin"
-export PYTHONPATH=$PYTHONPATH
+export PATH="/usr/local/opt/python/libexec/bin:$PATH" 	# needed by macbook air for brew python
+#export PYTHONPATH=$PYTHONPATH
 export MANPATH="/usr/local/man:$MANPATH"
 
 # Find functions

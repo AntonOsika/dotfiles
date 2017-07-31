@@ -69,31 +69,28 @@ chsh -s /usr/local/bin/zsh
 # cli tools
 brew install tree
 brew install fzf
-#brew install the_silver_searcher # like ack but faster (ack codesnippet .)
+brew install the_silver_searcher # like ack but faster (ack codesnippet .)
+
+# Install git
+brew install git
+
+brew install git-flow 		# very strict aliases for developing with feature branches https://danielkummer.github.io/git-flow-cheatsheet/
+# brew install git-lfs 		# large file storage
+# brew install git-extras 	# too many (useful) commands, e.g. 'git fork', https://github.com/tj/git-extras/blob/master/Commands.md
+# brew install ssh-copy-id
 
 brew install vim --override-system-vi
+
+# install Vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # install vim-plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 brew tap neovim/neovim
-brew install --HEAD neovim
+brew install neovim
 
 brew install ctags
-
-# Install other useful binaries.
-brew install git
-
-# large file storage:
-#brew install git-lfs
-
-# too many by useful commands, e.g. fork https://github.com/tj/git-extras/blob/master/Commands.md
-# brew install git-extras
-
-# very strict aliases for developing with feature branches https://danielkummer.github.io/git-flow-cheatsheet/
-brew install git-flow 
-
-#brew install ssh-copy-id
 
 # XML parsers:
 #brew install libxml2
@@ -129,16 +126,20 @@ brew cask install --appdir="/Applications" spectacle #panes for mac
 brew cask install --appdir="/Applications" flux
 brew cask install --appdir="/Applications" vlc
 brew cask install --appdir="/Applications" latexian
+brew cask install --appdir="/Applications" anki
 #brew cask install --appdir="/Applications" virtualbox
 #brew cask install --appdir="/Applications" vagrant
 
-
 brew cask install caskroom/fonts/font-hack
+brew cask install caskroom/fonts/font-source-code-pro
+
 echo "installing python with brew, should end up in /usr/local/bin/python"
 brew install python
 brew install python3
-echo "python ended up in:"
+
+echo "python and pip ended up in:"
 which python
+which pip
 
 echo "do you want to continue?"
 
