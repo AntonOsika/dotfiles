@@ -36,9 +36,11 @@ $ rm -rf ~/Library/Caches/Homebrew
 ````
 
 ## Todo
-- Set ZDOTDIR according to what prezto wants
+- See if new prezto syntax highlighting is what I want
 - Install Vundle script
 - Config fzf (see eleijonmarck)
 - See if I missed any important vim config (eleoijon etc)
 - Create ctags for entire python installation. put all tags in one place and let vim
 look there. See other dotfiles
+- Use personalized sorin theme (or other theme) that is not made for vim, and
+does not shorten paths (unless necessary)

@@ -1,6 +1,6 @@
 "Vundle setup:
 
-set nocompatible              " required
+set nocompatible              " required (not comp old vi)
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -161,10 +161,7 @@ endif
 syntax on
 
 " set auto-indenting on for programming
-"set ai
-
-" turn off compatibility with the old vi
-set nocompatible
+set ai
 
 " turn on the "visual bell" - which is much quieter than the "audio blink"
 set vb

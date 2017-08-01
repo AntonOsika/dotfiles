@@ -1,35 +1,60 @@
-#!/bin/sh
+#!/bin/bash
 
 FILES=".vimrc
 .zshrc
+.zprezto/
 .gitconfig
 .gitignore
 .gitattributes"
 
+echo "not sure this will indeed overwrite, perhaps change setup_symlinks.sh to use: ln -f"
+
 for f in $FILES
 do
-	read -p "Do you want to symlink $PWD/$f from home dir? Type [y] to OVERWRITE your old." -n 1 -r
-	echo    # move to a new line
-	if [[ $REPLY =~ ^[Yy]$ ]]
-	then
-		echo Backing up $f and then overwriting.
-		mv $HOME/$f $HOME/${f}BACKUP
-		ln -s $PWD/$f $HOME/$f
-	fi
+    read -p "Do you want to symlink $PWD/$f from home dir? Type [y] to OVERWRITE your old." -n 1 -r
+    echo    # move to a new line
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo Backing up $f to $HOME/${f}BACKUP and then overwriting.
+        mv $HOME/$f $HOME/${f}BACKUP
+        ln -sv $PWD/$f $HOME/$f
+    fi
 done
 
 echo "...done"
 
 
-echo ""
-read -p "Do you want to symlink the prezto runcoms in $PWD/prezto/runcoms?" -n 1 -r
-echo ""
+read -p "Do you want to symlink prezto and necessary prezto runcoms from home dir? Old .zprezto will be moved to .zprezto_old" -n 1 -r
+echo    # move to a new line
 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-	echo "Trying to symlink prezto runcoms in $HOME to $PWD/prezto/runcoms"
-	setopt EXTENDED_GLOB
-	for rcfile in "$PWD"/prezto/runcoms/^README.md(.N); do
-	    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-	done
+    mv -r $HOME/.zprezto HOME/${f}_old
+    ln -sv $PWD/prezto $HOME/.zprezto
+
+    RUNCOM_FILES="zlogin
+    zlogout
+    zshenv
+    zpreztorc
+    zshrc
+    zprofile"
+
+    for f in $RUNCOM_FILES
+    do
+        ln -sv $PWD/.zprezto/runcoms/$f $HOME/.$f
+    done
 fi
+
+# the following is zsh script:
+#echo ""
+#read -p "Do you want to symlink the prezto runcoms in $PWD/prezto/runcoms?" -n 1 -r
+#echo ""
+#
+#if [[ $REPLY =~ ^[Yy]$ ]]
+#then
+#   echo "Trying to symlink prezto runcoms in $HOME to $PWD/prezto/runcoms"
+#   setopt EXTENDED_GLOB
+#   for rcfile in "$PWD"/prezto/runcoms/^README.md(.N); do
+#       ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+#   done
+#fi
