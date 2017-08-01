@@ -128,13 +128,14 @@ brew cask install --appdir="/Applications" vlc
 brew cask install --appdir="/Applications" latexian
 brew cask install --appdir="/Applications" anki
 brew cask install --appdir="/Applications" spotify
+brew cask install --appdir="/Applications" vimr
 #brew cask install --appdir="/Applications" virtualbox
 #brew cask install --appdir="/Applications" vagrant
 
 brew cask install caskroom/fonts/font-hack
 brew cask install caskroom/fonts/font-source-code-pro
 
-echo "installing python with brew, should end up in /usr/local/bin/python"
+echo "installing python with brew, should end up in /usr/local/bin/python."
 brew install python
 brew install python3
 
@@ -142,7 +143,7 @@ echo "python and pip ended up in:"
 which python
 which pip
 
-echo "do you want to continue?"
+echo "do you want to continue? You can use pyenv instead (recommended) to manage python installations."
 
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
@@ -151,9 +152,11 @@ fi
 
 if ! $CONTINUE; then
   # Check if we're continuing and output a message if not
-  echo "skipping more python installs, please check brew health and python installation" $red
+  echo "skipping further python installs, might be good to brew uninstall python and use pyenv (and brew doctor)" $red
   exit
 fi
+
+# brew install pyenv
 
 # pip and setuptools was installed with python, upgrade it:
 pip install --upgrade setuptools

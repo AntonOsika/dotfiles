@@ -29,7 +29,7 @@
 	c = clone --recursive
 
 	# Commit all changes
-	ca = !git add -A && git commit -av
+    #ca = !git add -A && git commit -av
 
 	# By Anton Osika:
 	# Commit all changes with message. Confirm each executed line with return key.
