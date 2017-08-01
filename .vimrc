@@ -180,7 +180,7 @@ set showmatch
 
 " do NOT put a carriage return at the end of the last line! if you are programming
 " for the web the default will cause http headers to be sent. that's bad.
-set binary noeol
+set noeol
 
 " make that backspace key work the way it should
 set backspace=indent,eol,start
