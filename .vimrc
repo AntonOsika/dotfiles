@@ -3,33 +3,42 @@
 set nocompatible              " required (not comp old vi)
 filetype off                  " required
 
+
+" Changed from vundle to vim-plug. Should cleanup vundle references below, delete vundle repo, and put in brew_installs
+
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"call plug#begin('/.vim/plugged')
+call plug#begin()
 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Plugin 'VundleVim/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
-Plugin 'elzr/vim-json'			 	"easier to read json
-Plugin 'tpope/vim-commentary'		"gcc = comment
-Plugin 'airblade/vim-gitgutter' 	"shows changes since commit on the left
-Plugin 'Valloric/YouCompleteMe' 	"competion and goto
-Plugin 'vim-scripts/taglist.vim'	"split window to see all tags for GUI vim
-Plugin 'xolox/vim-easytags'			"auto update of global tags https://github.com/xolox/vim-easytags
+Plug 'elzr/vim-json'			"easier to read json
+Plug 'tpope/vim-commentary'		"gcc = comment
+Plug 'airblade/vim-gitgutter' 	"shows changes since commit on the left
+Plug 'Valloric/YouCompleteMe' 	"competion and goto
+Plug 'vim-scripts/taglist.vim'	"split window to see all tags for GUI vim
+Plug 'xolox/vim-easytags'			"auto update of global tags https://github.com/xolox/vim-easytags
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF
+Plug 'junegunn/fzf.vim'
 "Plugin 'easymotion/vim-easymotion' ",,w = jump to wod
 "Plugin 'vim-pandoc/vim-pandoc' 	"markdown thing
 "Plugin 'vim-pandoc/vim-pandoc-syntax'
 "Plugin 'tope/vim-fugitive' 		"git wrapper
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
+" call vundle#end()            " required
+" filetype plugin indent on    " required
 " Brief help
+" Plugin -> Plug
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
@@ -43,6 +52,9 @@ let mapleader = ','
 
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" from eleijonmarck:
+nnoremap <C-p> :FZF! <CR>
 
 " 2 ways to follow tags without pinky finger (todo, remove the second):
 map gk <C-]>
