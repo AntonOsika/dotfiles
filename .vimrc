@@ -20,13 +20,15 @@ call plug#begin()
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
+Plug 'Valloric/YouCompleteMe'   "competion and goto
 Plug 'elzr/vim-json'            "easier to read json
 Plug 'tpope/vim-commentary'     "gcc = comment
 Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
-Plug 'Valloric/YouCompleteMe'   "competion and goto
 Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
 Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
+Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this 
+Plug 'ivanov/vim-ipython'
 
 "Plug 'xolox/vim-misc'           "prereq for vim-easytags
 "Plug 'xolox/vim-easytags'       "auto update of global tags https://github.com/xolox/vim-easytags
