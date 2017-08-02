@@ -20,18 +20,19 @@ call plug#begin()
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
-Plug 'elzr/vim-json'			"easier to read json
-Plug 'tpope/vim-commentary'		"gcc = comment
-Plug 'airblade/vim-gitgutter' 	"shows changes since commit on the left
-Plug 'Valloric/YouCompleteMe' 	"competion and goto
-Plug 'vim-scripts/taglist.vim'	"split window to see all tags for GUI vim
-Plug 'xolox/vim-easytags'			"auto update of global tags https://github.com/xolox/vim-easytags
+Plug 'elzr/vim-json'            "easier to read json
+Plug 'tpope/vim-commentary'     "gcc = comment
+Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
+Plug 'Valloric/YouCompleteMe'   "competion and goto
+Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim
+Plug 'xolox/vim-misc'           "prereq for vim-easytags
+Plug 'xolox/vim-easytags'       "auto update of global tags https://github.com/xolox/vim-easytags
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF
 Plug 'junegunn/fzf.vim'
 "Plugin 'easymotion/vim-easymotion' ",,w = jump to wod
-"Plugin 'vim-pandoc/vim-pandoc' 	"markdown thing
+"Plugin 'vim-pandoc/vim-pandoc'     "markdown thing
 "Plugin 'vim-pandoc/vim-pandoc-syntax'
-"Plugin 'tope/vim-fugitive' 		"git wrapper
+"Plugin 'tope/vim-fugitive'         "git wrapper
 
 " All of your Plugins must be added before the following line
 call plug#end()
@@ -61,7 +62,7 @@ map gk <C-]>
 map <C-k> <C-]>
 
 
-set smartindent
+"set smartindent " Comments makes comments not be indented
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -80,7 +81,7 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 
 "Escape terminal mode in neovim:
 if exists(':tnoremap')
-	tnoremap <Esc> <C-\><C-n>
+    tnoremap <Esc> <C-\><C-n>
 endif
 
 " Clear highlighting on escape in normal mode
@@ -113,9 +114,9 @@ set tags=./tags;/
 "  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
 "          return "\<C-N>"
 "        else
-"	    return "\<Tab>"
-"	      endif
-"	      endfunction
+"       return "\<Tab>"
+"         endif
+"         endfunction
 ":inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 ":set dictionary="/usr/dict/words"
 
