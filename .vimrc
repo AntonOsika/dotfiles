@@ -25,13 +25,13 @@ Plug 'tpope/vim-commentary'     "gcc = comment
 Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
 Plug 'Valloric/YouCompleteMe'   "competion and goto
 Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim
-Plug 'xolox/vim-misc'           "prereq for vim-easytags
-Plug 'xolox/vim-easytags'       "auto update of global tags https://github.com/xolox/vim-easytags
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF
-Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ?
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
+Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
 
+"Plug 'xolox/vim-misc'           "prereq for vim-easytags
+"Plug 'xolox/vim-easytags'       "auto update of global tags https://github.com/xolox/vim-easytags
 "Plug 'chrisbra/Recover.vim'     " adds option to diff when swap file exists. Does not display message or Delete option in neovim atm.
-"Plugin 'easymotion/vim-easymotion' ",,w = jump to wod
+"Plugin 'easymotion/vim-easymotion' ",,w = jump to word
 "Plugin 'vim-pandoc/vim-pandoc'     "markdown thing
 "Plugin 'vim-pandoc/vim-pandoc-syntax'
 "Plugin 'tope/vim-fugitive'         "git wrapper
