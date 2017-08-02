@@ -28,7 +28,9 @@ Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim
 Plug 'xolox/vim-misc'           "prereq for vim-easytags
 Plug 'xolox/vim-easytags'       "auto update of global tags https://github.com/xolox/vim-easytags
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ?
+
+"Plug 'chrisbra/Recover.vim'     " adds option to diff when swap file exists. Does not display message or Delete option in neovim atm.
 "Plugin 'easymotion/vim-easymotion' ",,w = jump to wod
 "Plugin 'vim-pandoc/vim-pandoc'     "markdown thing
 "Plugin 'vim-pandoc/vim-pandoc-syntax'
@@ -59,7 +61,11 @@ nnoremap <C-p> :FZF! <CR>
 
 " 2 ways to follow tags without pinky finger (todo, remove the second):
 map gk <C-]>
-map <C-k> <C-]>
+"map <C-k> <C-]>
+
+map <leader>t :!ctags -R -f ./tags . &<CR>
+
+
 
 
 "set smartindent " Comments makes comments not be indented

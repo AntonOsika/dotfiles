@@ -129,6 +129,7 @@ brew cask install --appdir="/Applications" latexian
 brew cask install --appdir="/Applications" anki
 brew cask install --appdir="/Applications" spotify
 brew cask install --appdir="/Applications" vimr
+brew cask install --appdir="/Applications" disk-inventory-x
 #brew cask install --appdir="/Applications" virtualbox
 #brew cask install --appdir="/Applications" vagrant
 
