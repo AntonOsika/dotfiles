@@ -37,7 +37,7 @@ $ rm -rf ~/Library/Caches/Homebrew
 
 ## Todo
 - fix macosdefaults.sh from running when answer is no (test bash behaviour)
-- tag commit and then cleanup
+- change to pandoc (?) for markdown-composer
 - See if I missed any important vim config (eleoijon etc)
 - Use personalized sorin theme (or other theme) that is not made for vim, and
 does not shorten paths (unless necessary)

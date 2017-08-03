@@ -100,6 +100,7 @@ brew install ctags
 
 # frontend tools
 brew install node
+brew install rust
 
 # database
 brew install postgresql
@@ -120,16 +121,18 @@ brew cask install betterzipql
 brew cask install webpquicklook
 brew cask install suspicious-package
 
+brew cask install --appdir="/Applications" iterm2
 brew cask install --appdir="/Applications" google-chrome
 brew cask install --appdir="/Applications" evernote
 brew cask install --appdir="/Applications" spectacle #panes for mac
 brew cask install --appdir="/Applications" flux
 brew cask install --appdir="/Applications" vlc
-brew cask install --appdir="/Applications" latexian
+brew cask install --appdir="/Applications" latexian         # ?
 brew cask install --appdir="/Applications" anki
 brew cask install --appdir="/Applications" spotify
 brew cask install --appdir="/Applications" vimr
 brew cask install --appdir="/Applications" disk-inventory-x
+brew cask install --appdir="/Applications" MacDown          # markdown
 #brew cask install --appdir="/Applications" virtualbox
 #brew cask install --appdir="/Applications" vagrant
 

@@ -11,13 +11,14 @@ call plug#begin('~/.vim/plugged')
 
 " Add all your plugins here 
 
-Plug 'Valloric/YouCompleteMe'   "competion and goto
+Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/bundle/YouCompleteMe', 'do': './install.py' }   "competion and goto. Can add flags to install for more languages!
 Plug 'elzr/vim-json'            "easier to read json
 Plug 'tpope/vim-commentary'     "gcc = comment
 Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
 Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
 Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this 
+"Plug 'suan/vim-instant-markdown'
 
 "Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
 "Plug 'ivanov/vim-ipython'      "should send commands to most recent ipython, not working.
@@ -28,6 +29,20 @@ Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this
 "Plugin 'vim-pandoc/vim-pandoc'     "markdown thing
 "Plugin 'vim-pandoc/vim-pandoc-syntax'
 "Plugin 'tope/vim-fugitive'         "git wrapper
+
+" Fast rust markdown to browser
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release --manifest-path ~/.vim/plugged/vim-markdown-composer
+    else
+      !cargo build --release --manifest-path ~/.vim/plugged/vim-markdown-composer --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+
 
 " All of your Plugins must be added before the following line
 call plug#end()
