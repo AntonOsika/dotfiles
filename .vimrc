@@ -54,6 +54,8 @@ call plug#end()
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+"let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
+
 
 let mapleader = ','
 

@@ -14,26 +14,33 @@ there are some nice gitconfig aliases
 
 Prezto: 
 
+```bash
 git pull --rebase 
+```
 (or more secure interactive merge version)
 
+```bash
 brew outdated
 brew upgrade --all
+```
 
 
+```bash
 pip list --outdated
 pip install --upgrade pip
+```
 
 ## Reinstall brew
 
 From [http://zanshin.net/2012/07/31/uninstalling-brew-to-re-install-brew/].
 
-````$ cd `brew --prefix`
-$ rm -rf Cellar
-$ brew prune
-$ rm -rf Library .git .gitignore bin/brew README.md share/man/man1/brew
-$ rm -rf ~/Library/Caches/Homebrew
-````
+```bash
+cd `brew --prefix`
+rm -rf Cellar
+brew prune
+rm -rf Library .git .gitignore bin/brew README.md share/man/man1/brew
+rm -rf ~/Library/Caches/Homebrew
+```
 
 ## Todo
 - fix macosdefaults.sh from running when answer is no (test bash behaviour)
