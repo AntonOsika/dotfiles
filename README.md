@@ -44,7 +44,9 @@ rm -rf ~/Library/Caches/Homebrew
 
 ## Todo
 - fix macosdefaults.sh from running when answer is no (test bash behaviour)
-- change to pandoc (?) for markdown-composer
+- vim command to split to zsh terminal
+- fix markdown to render as html (as pycharm or vim-compose-markdown when server
+is turned off)
 - See if I missed any important vim config (eleoijon etc)
 - Use personalized sorin theme (or other theme) that is not made for vim, and
 does not shorten paths (unless necessary)
