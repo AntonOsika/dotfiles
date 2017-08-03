@@ -7,17 +7,9 @@ filetype off                  " required
 " Changed from vundle to vim-plug. Should cleanup vundle references below, delete vundle repo, and put in brew_installs
 
 " set the runtime path to include Vundle and initialize
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
 call plug#begin('~/.vim/plugged')
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-" Plugin 'VundleVim/Vundle.vim'
-
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+" Add all your plugins here 
 
 Plug 'Valloric/YouCompleteMe'   "competion and goto
 Plug 'elzr/vim-json'            "easier to read json
@@ -25,9 +17,9 @@ Plug 'tpope/vim-commentary'     "gcc = comment
 Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
 Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
-Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
 Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this 
 
+"Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
 "Plug 'ivanov/vim-ipython'      "should send commands to most recent ipython, not working.
 "Plug 'xolox/vim-misc'           "prereq for vim-easytags
 "Plug 'xolox/vim-easytags'       "auto update of global tags https://github.com/xolox/vim-easytags
@@ -39,14 +31,10 @@ Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this
 
 " All of your Plugins must be added before the following line
 call plug#end()
-" call vundle#end()            " required
-" filetype plugin indent on    " required
 " Brief help
-" Plugin -> Plug
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" :PlugSnapshot   - lists configured plugins
+" :PlugInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PlugClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
@@ -60,19 +48,22 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " from eleijonmarck:
 nnoremap <C-p> :FZF! <CR>
 
-" 2 ways to follow tags without pinky finger (todo, remove the second):
+" follow tags without pinky finger 
 map gk <C-]>
-"map <C-k> <C-]>
 
 map <leader>t :!ctags -R -f ./tags . &<CR>
-
-
-
 
 "set smartindent " Comments makes comments not be indented
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" set auto-indenting on for programming
+set ai
+
+" Disable automatic comments.  These get annoying
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 
 set nu
 
@@ -81,10 +72,6 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 
 "makes command use aliases, i.e. a user terminal session. this hack makes vim crash a lot
 "set shellcmdflag+=i
-
-"Antons remaps:"
-"end line swedish layout
-":nmap ¤ $
 
 "Escape terminal mode in neovim:
 if exists(':tnoremap')
@@ -107,25 +94,6 @@ set clipboard=unnamed
 " look for tags in parent dir if not found
 set tags=./tags;/
 
-"Downloaded TAB Hax:
-"Use TAB to complete when typing words, else inserts TABs as usual.
-"Uses dictionary and source files to find matching words to complete.
-
-"See help completion for source,
-"Note: usual completion is on <C-n> but more trouble to press all the time.
-"Never type the same word twice and maybe learn a new spellings!
-"Use the Linux dictionary when spelling is in doubt.
-"Window users can copy the file to their machine.
-
-"function! Tab_Or_Complete()
-"  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-"          return "\<C-N>"
-"        else
-"       return "\<Tab>"
-"         endif
-"         endfunction
-":inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
-":set dictionary="/usr/dict/words"
 
 "emacs in command line
 cnoremap <C-a> <Home>
@@ -137,9 +105,6 @@ cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
-"notes, to have a terminal window: 
-" :ConqueTerm bash
-"after: installing the vimball by opening it, then so %
 
 " Helpful keybindings for function keys on a mac
 "map! only does in command and insert mode.
@@ -158,6 +123,8 @@ cnoremap <M-f> <S-Right>
 
 
 
+
+" DONT know what the below does, should figure out:
 
 " System vimrc file for Mac OS X
 " Author:  Benji Fisher <benji@member.AMS.org>
@@ -179,9 +146,6 @@ endif
 " turn color syntax highlighting on by default
 " set term=builtin_beos-ansi
 syntax on
-
-" set auto-indenting on for programming
-set ai
 
 " turn on the "visual bell" - which is much quieter than the "audio blink"
 set vb
@@ -213,9 +177,6 @@ set mousef
 " set margin wrapping
 set wrapmargin=1
 
-" Disable automatic comments.  These get annoying
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
 
 " Pydiction:
 "filetype plugin on
@@ -236,9 +197,6 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
-"let g:colors_name = "BlackSea"
-
-"color desert
 
 hi Normal guibg=Black guifg=seashell ctermfg=White
 hi NonText guifg=LavenderBlush ctermfg=LightMagenta
