@@ -173,6 +173,7 @@ pip install pyparsing
 pip install python-dateutil
 pip install pep8
 
+pip install notedown
 
 brew tap samueljohn/python
 brew tap homebrew/science

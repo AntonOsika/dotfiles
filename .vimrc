@@ -9,8 +9,7 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 "set rtp+=~/.vim/bundle/Vundle.vim
 "call vundle#begin()
-"call plug#begin('/.vim/plugged')
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -28,8 +27,8 @@ Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
 Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
 Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this 
-Plug 'ivanov/vim-ipython'
 
+"Plug 'ivanov/vim-ipython'      "should send commands to most recent ipython, not working.
 "Plug 'xolox/vim-misc'           "prereq for vim-easytags
 "Plug 'xolox/vim-easytags'       "auto update of global tags https://github.com/xolox/vim-easytags
 "Plug 'chrisbra/Recover.vim'     " adds option to diff when swap file exists. Does not display message or Delete option in neovim atm.
@@ -195,6 +194,9 @@ set ignorecase
 
 " automatically use case sensitive if it contains upper case chars (unless \c or \C is used)
 set smartcase
+
+" case-insensitive vim command line completion. vim-ambicmd does this and more.
+set wildignorecase
 
 " automatically show matching brackets. works like it does in bbedit.
 set showmatch
