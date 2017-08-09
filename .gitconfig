@@ -4,8 +4,8 @@
 
 [alias]
 
-	# Anton from Erik Olsson: git config --global alias.up "pull --rebase"
-	up = pull --rebase --autostash
+	# Anton from Erik Olsson: git config --global alias.up "pull --rebase --autostash"
+	up = pull --rebase 
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -n 20 --graph --abbrev-commit
