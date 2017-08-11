@@ -36,6 +36,8 @@ alias g=git
 alias pc='open -a /Applications/PyCharm\ CE.app'
 alias t='ctags -R .'
 
+function tb() { tensorboard --logdir "$1" --host=localhost }
+
 #if has('nvim')
 #    alias vim=nvim
 #endif

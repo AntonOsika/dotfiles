@@ -23,7 +23,7 @@
 	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
 	# Pull in remote changes for the current repository and all its submodules
-	p = !"git pull; git submodule foreach git pull origin master"
+	p = !"git pull --rebase; git submodule foreach git pull origin master"
 
 	# Clone a repository including all submodules
 	c = clone --recursive
@@ -40,8 +40,8 @@
 	# Commit and push all changes with message
 	acp = !echo "git status" && git status && echo "" && echo "git add -A" && echo "" && echo "Enter commit message, or abort add:" && read MSG && echo "" && git add -A && \
 		echo "git commit -m \"$MSG\"" && read tmp && git commit -m \"$MSG\" && echo "" && echo "git status -s" && git status -s && echo "" && \
-		echo "git pull --rebase origin master" && read tmp && git pull --rebase origin master && echo "" && \
-		echo "git push origin master" && read tmp && git push origin master
+		echo "git pull --rebase" && read tmp && git pull --rebase && echo "" && \
+		echo "git push" && read tmp && git push 
 
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
