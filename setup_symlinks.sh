@@ -12,10 +12,12 @@ echo "not sure this will indeed overwrite, perhaps change setup_symlinks.sh to u
 for f in $FILES
 do
     read -p "Do you want to symlink $PWD/$f from home dir? Type [y] to OVERWRITE your old." -n 1 -r
-    echo    # move to a new line
+    # move to a new line:
+    echo   
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         echo Backing up $f to $HOME/${f}BACKUP and then overwriting.
+        # Todo: check if it exists first
         mv $HOME/$f $HOME/${f}BACKUP
         ln -sv $PWD/$f $HOME/$f
     fi
@@ -29,7 +31,7 @@ echo    # move to a new line
 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    mv -r $HOME/.zprezto HOME/${f}_old
+    mv $HOME/.zprezto HOME/${f}_old
     ln -sv $PWD/prezto $HOME/.zprezto
 
     RUNCOM_FILES="zlogin
