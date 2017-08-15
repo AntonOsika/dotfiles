@@ -11,14 +11,15 @@ call plug#begin('~/.vim/plugged')
 
 " Add all your plugins here 
 
-Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/bundle/YouCompleteMe', 'do': './install.py' }   "competion and goto. Can add flags to install for more languages!
+Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py' }   "competion and goto. Can add flags to install for more languages!
 Plug 'elzr/vim-json'            "easier to read json
 Plug 'tpope/vim-commentary'     "gcc = comment
 Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
 Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
-Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this 
+Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this should do som
 
+" Plug 'bling/vim-airline' " a smooth status/tabline for vim
 "Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
 "Plug 'ivanov/vim-ipython'      "should send commands to most recent ipython, not working.
 "Plug 'xolox/vim-misc'           "prereq for vim-easytags
@@ -67,7 +68,16 @@ nnoremap <C-p> :FZF! <CR>
 " follow tags without pinky finger 
 map gk <C-]>
 
+" create tag
 map <leader>t :!ctags -R -f ./tags . &<CR>
+
+" Open zsh terminal
+map <leader>z :vs term://zsh<CR>i
+
+" Tab between buffers
+noremap <tab> <c-w>w
+noremap <S-tab> <c-w>W
+
 
 "set smartindent " Comments makes comments not be indented
 set tabstop=4
@@ -80,7 +90,7 @@ set ai
 " Disable automatic comments.  These get annoying
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-
+" set line numbers
 set nu
 
 " wrap markdown:
@@ -111,6 +121,43 @@ set clipboard=unnamed
 set tags=./tags;/
 
 
+
+" turn color syntax highlighting on by default
+" set term=builtin_beos-ansi
+syntax on
+
+" turn on the "visual bell" - which is much quieter than the "audio blink"
+set vb
+
+" highlight words when searching for them. it's distracting.
+set hlsearch
+
+" case insensitive. Put \C anywhere in search to do case sensitive (opposite of \c)
+set ignorecase
+
+" automatically use case sensitive if it contains upper case chars (unless \c or \C is used)
+set smartcase
+
+" case-insensitive vim command line completion. vim-ambicmd does this and more.
+set wildignorecase
+
+" automatically show matching brackets. works like it does in bbedit.
+set showmatch
+
+" do NOT put a carriage return at the end of the last line! if you are programming
+" for the web the default will cause http headers to be sent. that's bad.
+set noeol
+
+" make that backspace key work the way it should
+set backspace=indent,eol,start
+
+set mousef
+
+" set margin wrapping
+set wrapmargin=1
+
+set splitbelow splitright    " spawn vertical splits to the right instead of left"
+
 "emacs in command line
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
@@ -137,8 +184,9 @@ cnoremap <M-f> <S-Right>
 "map! <Esc>[F <End>  
 
 
-
-
+" Pydiction:
+"filetype plugin on
+"let g:pydiction_location = '/Users/anton/.vim/bundle/pydiction/complete-dict'
 
 " DONT know what the below does, should figure out:
 
@@ -158,45 +206,6 @@ if has("gui_running") && system('ps xw | grep "Vim -psn" | grep -vc grep') > 0
     let $PATH = matchstr(s:path, 'VIMPATH\zs.\{-}\ze\n')
   endif
 endif
-
-" turn color syntax highlighting on by default
-" set term=builtin_beos-ansi
-syntax on
-
-" turn on the "visual bell" - which is much quieter than the "audio blink"
-set vb
-
-" highlight words when searching for them. it's distracting.
-set hlsearch
-
-" case insensitive. Put \C anywhere in search to do case sensitive (opposite of \c) 
-set ignorecase
-
-" automatically use case sensitive if it contains upper case chars (unless \c or \C is used)
-set smartcase
-
-" case-insensitive vim command line completion. vim-ambicmd does this and more.
-set wildignorecase
-
-" automatically show matching brackets. works like it does in bbedit.
-set showmatch
-
-" do NOT put a carriage return at the end of the last line! if you are programming
-" for the web the default will cause http headers to be sent. that's bad.
-set noeol
-
-" make that backspace key work the way it should
-set backspace=indent,eol,start
-
-set mousef
-
-" set margin wrapping
-set wrapmargin=1
-
-
-" Pydiction:
-"filetype plugin on
-"let g:pydiction_location = '/Users/anton/.vim/bundle/pydiction/complete-dict'
 
 
 " Vim color file
