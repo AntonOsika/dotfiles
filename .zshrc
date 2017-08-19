@@ -34,7 +34,7 @@ fi
 
 alias g=git
 alias pc='open -a /Applications/PyCharm\ CE.app'
-alias t='ctags -R .'
+alias ct='ctags -R .'
 
 function tb() { tensorboard --logdir "$1" --host=localhost }
 

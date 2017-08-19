@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 
 " Add all your plugins here 
 
-Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py' }   "competion and goto. Can add flags to install for more languages!
+Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py' }   "completion and goto. Can add flags to install for more languages!
 Plug 'elzr/vim-json'            "easier to read json
 Plug 'tpope/vim-commentary'     "gcc = comment
 Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
