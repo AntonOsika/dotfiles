@@ -108,7 +108,7 @@
 
 [core]
 	# By Anton Osika:
-	editor = nano
+	editor = vim
 
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
