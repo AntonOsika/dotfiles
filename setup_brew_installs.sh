@@ -166,6 +166,9 @@ fi
 pip install --upgrade setuptools
 pip install --upgrade pip
 
+pip install --upgrade vim
+pip install --upgrade neovim
+
 #from @eleijonmarck:
 #pip install gsutil #google cloud
 #pip install ansible #automate apps and infrastructure

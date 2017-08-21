@@ -2,7 +2,6 @@
 
 FILES=".vimrc
 .zshrc
-.zprezto/
 .gitconfig
 .gitignore
 .gitattributes"
@@ -31,7 +30,7 @@ echo    # move to a new line
 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    mv $HOME/.zprezto HOME/${f}_old
+    mv $HOME/.zprezto $HOME/.zprezto_old
     ln -sv $PWD/prezto $HOME/.zprezto
 
     RUNCOM_FILES="zlogin
@@ -43,7 +42,7 @@ then
 
     for f in $RUNCOM_FILES
     do
-        ln -sv $PWD/.zprezto/runcoms/$f $HOME/.$f
+        ln -sv $HOME/.zprezto/runcoms/$f $HOME/.$f
     done
 fi
 

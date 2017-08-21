@@ -38,9 +38,9 @@ alias ct='ctags -R .'
 
 function tb() { tensorboard --logdir "$1" --host=localhost }
 
-#if has('nvim')
-#    alias vim=nvim
-#endif
+# if has('nvim')
+#     alias vim=nvim
+# endif
 
 if test $(which nvim); then
     alias vim=nvim

@@ -6,20 +6,25 @@ filetype off                  " required
 
 " Changed from vundle to vim-plug. Should cleanup vundle references below, delete vundle repo, and put in brew_installs
 
-" set the runtime path to include Vundle and initialize
+" set the runtime path to include vim-olug and initialize
 call plug#begin('~/.vim/plugged')
 
 " Add all your plugins here 
 
 Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py' }   "completion and goto. Can add flags to install for more languages!
+Plug 'junegunn/vim-plug'        " package manager
 Plug 'elzr/vim-json'            "easier to read json
 Plug 'tpope/vim-commentary'     "gcc = comment
 Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
 Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
-Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this should do som
+Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this should do something useful ?
+
+Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this 
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " Plug 'bling/vim-airline' " a smooth status/tabline for vim
+"Plug 'suan/vim-instant-markdown' " like compose but slower
 "Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
 "Plug 'ivanov/vim-ipython'      "should send commands to most recent ipython, not working.
 "Plug 'xolox/vim-misc'           "prereq for vim-easytags
