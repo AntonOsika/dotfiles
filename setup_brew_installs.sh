@@ -173,6 +173,13 @@ pip install --upgrade neovim
 #pip install gsutil #google cloud
 #pip install ansible #automate apps and infrastructure
 
+# Installing Qt4 for matplotlib
+brew tap cartr/qt4
+brew tap-pin cartr/qt4
+brew install qt
+brew install pyside
+
+
 pip install virtualenv
 pip install nose
 pip install pyparsing
