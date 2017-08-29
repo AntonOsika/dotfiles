@@ -211,3 +211,5 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+[credential]
+	helper = cache --timeout=3600

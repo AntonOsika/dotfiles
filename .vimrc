@@ -19,8 +19,9 @@ Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
 Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
 Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this should do something useful ?
-Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'tpope/vim-surround'	" yss) cs]} ds' etc to change surround etc
 
+"Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Plug 'bling/vim-airline' " a smooth status/tabline for vim
 "Plug 'suan/vim-instant-markdown' " like compose but slower
 "Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
