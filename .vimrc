@@ -16,7 +16,7 @@ Plug 'junegunn/vim-plug'        " package manager
 Plug 'elzr/vim-json'            "easier to read json
 Plug 'tpope/vim-commentary'     "gcc = comment
 Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
-Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim
+Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim :TlistOpen
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
 Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this should do something useful ?
 Plug 'tpope/vim-surround'	" yss) cs]} ds' etc to change surround etc
@@ -74,6 +74,9 @@ map gk <C-]>
 
 " create tag
 map <leader>t :!ctags -R -f ./tags . &<CR>
+
+" open tlist
+noremap <leader>l :TlistOpen
 
 " Open zsh terminal
 map <leader>z :vs term://zsh<CR>i
@@ -160,7 +163,7 @@ set mousef
 " set margin wrapping
 set wrapmargin=1
 
-set splitbelow splitright    " spawn vertical splits to the right instead of left"
+set splitright    " spawn vertical splits to the right instead of left"
 
 "emacs in command line
 cnoremap <C-a> <Home>
