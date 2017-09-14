@@ -19,7 +19,7 @@ fi
 export PATH="/usr/local/bin:/usr/local/python:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 # needed by macbook air for brew python:
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+# broke python3: export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 export MANPATH="/usr/local/man:$MANPATH"
 
 # Find functions
