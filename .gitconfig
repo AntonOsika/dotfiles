@@ -126,6 +126,7 @@
 	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
+	autocrlf = false
 
 [color]
 
@@ -212,4 +213,4 @@
 
 	insteadOf = "gist:"
 [credential]
-	helper = cache --timeout=3600
+	helper = cache --timeout=48000
