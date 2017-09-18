@@ -85,10 +85,6 @@ noremap <leader>n :NERDTreeToggle
 " Open zsh terminal
 map <leader>z :vs term://zsh<CR>i
 
-" Tab between buffers
-noremap <tab> <c-w>w
-noremap <S-tab> <c-w>W
-
 
 "set smartindent " Comments makes comments not be indented
 set tabstop=4
