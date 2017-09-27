@@ -954,13 +954,13 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>1615 374 445 77 0 0 2560 1417 </string>
+	<string>1615 240 445 77 0 0 2560 1418 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 139 606 456 0 0 1440 877 </string>
+	<string>638 347 606 456 0 0 2560 1418 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1352 589 796 473 0 0 2560 1418 </string>
+	<string>402 265 937 465 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>413 225 1274 747 0 0 2560 1418 </string>
+	<string>0 964 2560 454 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>176 71 650 477 0 0 1440 878 </string>
 	<key>NavigatePanesInReadingOrder</key>
@@ -2285,7 +2285,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>6A4D892A-DB41-4F7D-8CCC-32AFB960AAE2</string>
 	<key>NoSyncLastTipTime</key>
-	<real>523268153.68361098</real>
+	<real>524147972.59427899</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2353,10 +2353,22 @@
 		<string>0053</string>
 		<string>0054</string>
 		<string>0055</string>
+		<string>0056</string>
+		<string>0057</string>
+		<string>0058</string>
+		<string>0059</string>
+		<string>0060</string>
+		<string>0061</string>
+		<string>0062</string>
+		<string>0063</string>
+		<string>0064</string>
+		<string>0065</string>
 	</array>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
+	<false/>
+	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
 	<key>PointerActions</key>
 	<dict>
@@ -2393,6 +2405,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/anton/Dotfiles</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -2402,7 +2416,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-07-28T18:49:39Z</date>
+	<date>2017-09-17T23:23:52Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>

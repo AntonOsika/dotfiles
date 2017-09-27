@@ -22,6 +22,8 @@ Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this should do somet
 Plug 'tpope/vim-surround'	" yss) cs]} ds' etc to change surround etc
 Plug 'scrooloose/nerdtree'      " File system explorer
 
+Plug 'w0rp/ale'                 " Async lint engine, for all languages
+
 "Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Plug 'bling/vim-airline' " a smooth status/tabline for vim
 "Plug 'suan/vim-instant-markdown' " like compose but slower
@@ -65,7 +67,10 @@ call plug#end()
 let mapleader = ','
 
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Toggle ale linter
+map <leader>a :ALEToggle <CR>
 
 " from eleijonmarck:
 nnoremap <C-p> :FZF! <CR>
@@ -77,10 +82,10 @@ map gk <C-]>
 map <leader>t :!ctags -R -f ./tags . &<CR>
 
 " open tlist
-noremap <leader>l :TlistOpen
+noremap <leader>l :TlistOpen<CR>
 
 " open nerdtree
-noremap <leader>n :NERDTreeToggle
+noremap <leader>n :NERDTreeToggle<CR>
 
 " Open zsh terminal
 map <leader>z :vs term://zsh<CR>i
