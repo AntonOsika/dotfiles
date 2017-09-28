@@ -39,9 +39,6 @@ Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and 
 "Plugin 'tope/vim-fugitive'         "git wrapper
 
 
-" yankstack config:
-call yankstack#setup()
-
 
 " Fast rust markdown to browser
 function! BuildComposer(info)
