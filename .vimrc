@@ -23,6 +23,7 @@ Plug 'tpope/vim-surround'	" yss) cs]} ds' etc to change surround etc
 Plug 'scrooloose/nerdtree'      " File system explorer
 
 Plug 'w0rp/ale'                 " Async lint engine, for all languages
+Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
 
 "Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Plug 'bling/vim-airline' " a smooth status/tabline for vim
@@ -36,6 +37,11 @@ Plug 'w0rp/ale'                 " Async lint engine, for all languages
 "Plugin 'vim-pandoc/vim-pandoc'     "markdown thing
 "Plugin 'vim-pandoc/vim-pandoc-syntax'
 "Plugin 'tope/vim-fugitive'         "git wrapper
+
+
+" yankstack config:
+call yankstack#setup()
+
 
 " Fast rust markdown to browser
 function! BuildComposer(info)
