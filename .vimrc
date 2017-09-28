@@ -79,7 +79,7 @@ nnoremap <C-p> :FZF! <CR>
 map gk <C-]>
 
 " create tag
-map <leader>t :!ctags -R -f ./tags . &<CR>
+" map <leader>t :!ctags -R -f ./tags . &<CR>
 
 " open tlist
 noremap <leader>l :TlistOpen<CR>
@@ -163,6 +163,7 @@ set noeol
 " make that backspace key work the way it should
 set backspace=indent,eol,start
 
+set mouse=a
 set mousef
 
 " set margin wrapping
