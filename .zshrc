@@ -20,6 +20,9 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
 # broke python3: export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+
+
 # Find functions
 function f() { find . -iname "*$1*" ${@:2} }
 function fr() { grep "$1" ${@:2} -R . }

@@ -69,10 +69,13 @@ call plug#end()
 
 let mapleader = ','
 
+"Default is same-buffer, but does not work with unsaved changes:
+"let g:ycm_goto_buffer_command = 'same-buffer'
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Toggle ale linter
+autocmd VimEnter * ALEDisable
 map <leader>a :ALEToggle <CR>
 
 " from eleijonmarck:
