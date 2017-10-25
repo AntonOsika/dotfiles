@@ -71,3 +71,5 @@ if [ -f '/Users/anton/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/
 
 # source fzf:
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias nofzf="export FZF_CTRL_R_OPTS='--exact'"
