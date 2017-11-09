@@ -77,3 +77,7 @@ if [ -f ~'/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source ~'/Downloads/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias nofzf="export FZF_CTRL_R_OPTS='--exact'"
+
+#Fix python locale error
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
