@@ -13,6 +13,9 @@ fi
 # Add env.sh
 # source ~/Projects/config/env.sh
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 export PATH="/usr/local/bin:/usr/local/python:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 
 # needed by macbook air for brew python:

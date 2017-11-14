@@ -43,6 +43,9 @@
 		echo "git pull --rebase" && read tmp && git pull --rebase && echo "" && \
 		echo "git push" && read tmp && git push 
 
+    graph = log --oneline --graph --decorate --all
+
+
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
