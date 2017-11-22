@@ -81,3 +81,9 @@ alias nofzf="export FZF_CTRL_R_OPTS='--exact'"
 #Fix python locale error
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+#Pyenv guide from: https://medium.com/@henriquebastos/the-definitive-guide-to-setup-my-python-workspace-628d68552e14
+export WORKON_HOME=~/.ve
+export PROJECT_HOME=~/coding
+eval "$(pyenv init -)"
+#pyenv virtualenvwrapper_lazy
