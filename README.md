@@ -15,10 +15,16 @@ there are some nice gitconfig aliases
 Prezto: 
 
 ```bash
+cd prezto
 git pull --rebase 
 ```
-(or more secure interactive merge version)
+or interactively and secure:
+```bash
+git pull --no-commit --strategy=recursive -X ours upstream master
+git add --patch
+```
 
+Brew and pip:
 ```bash
 brew outdated
 brew upgrade --all
