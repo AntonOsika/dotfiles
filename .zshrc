@@ -44,6 +44,7 @@ alias sp='pbp|xargs say -r 500'
 
 function tb() { tensorboard --logdir "$1" --host=localhost }
 
+# bash:
 # if has('nvim')
 #     alias vim=nvim
 # endif
@@ -51,6 +52,10 @@ function tb() { tensorboard --logdir "$1" --host=localhost }
 if test $(which nvim); then
     alias vim=nvim
 fi
+
+alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+
+
 
 
 # Added by jeromedalbert.com:
@@ -73,7 +78,7 @@ if [ -f ~'/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source ~'/Downloads/
 # This is too slow:
 # if [ -f '/Users/anton/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/anton/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-# source fzf:
+# activates fzf, use **<TAB> (or e.g. kill -9 <TAB>) to start searching:
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias nofzf="export FZF_CTRL_R_OPTS='--exact'"
@@ -87,3 +92,4 @@ export WORKON_HOME=~/.ve
 export PROJECT_HOME=~/coding
 eval "$(pyenv init -)"
 #pyenv virtualenvwrapper_lazy
+

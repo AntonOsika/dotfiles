@@ -18,13 +18,15 @@ Plug 'tpope/vim-commentary'     "gcc = comment
 Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
 Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim :TlistOpen
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
-Plug 'goerz/ipynb_notedown.vim' " When opening .ipynb files this should do something useful ?
-Plug 'tpope/vim-surround'	" yss) cs]} ds' etc to change surround etc
-Plug 'scrooloose/nerdtree'      " File system explorer
+Plug 'goerz/ipynb_notedown.vim'  " When opening .ipynb files this should do something useful ?
+Plug 'tpope/vim-surround'	     " yss) cs]} ds' etc to change surround etc
+Plug 'scrooloose/nerdtree'       " File system explorer
+Plug 'Vimjas/vim-python-pep8-indent' 
 
-Plug 'w0rp/ale'                 " Async lint engine, for all languages
 Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
+Plug 'w0rp/ale'                 " Async lint engine, for all languages
 
+" Plug 'nvie/vim-flake8'            " python lint, use F7 or: autocmd BufWritePost *.py call Flake8()
 "Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Plug 'bling/vim-airline' " a smooth status/tabline for vim
 "Plug 'suan/vim-instant-markdown' " like compose but slower
@@ -36,7 +38,7 @@ Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and 
 "Plugin 'easymotion/vim-easymotion' ",,w = jump to word
 "Plugin 'vim-pandoc/vim-pandoc'     "markdown thing
 "Plugin 'vim-pandoc/vim-pandoc-syntax'
-"Plugin 'tope/vim-fugitive'         "git wrapper
+" Plug 'tope/vim-fugitive'         "git wrapper
 
 
 
@@ -78,6 +80,15 @@ map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 autocmd VimEnter * ALEDisable
 map <leader>a :ALEToggle <CR>
 
+let g:ale_maximum_file_size = 500000                " Don't lint large files (> 500KB), it can slow things down
+let g:ale_linters = {}
+let g:ale_linters.javascript = ['eslint', 'xo']
+let g:ale_linters.python = ['flake8']
+let g:ale_linters.html = []
+let g:ale_fixers = {}
+let g:ale_fixers.javascript = ['prettier']
+let g:ale_python_flake8_options = "max-line-length = 160"
+
 " from eleijonmarck:
 nnoremap <C-p> :FZF! <CR>
 
@@ -95,6 +106,9 @@ noremap <leader>n :NERDTreeToggle<CR>
 
 " Open zsh terminal
 map <leader>z :vs term://zsh<CR>i
+
+" open vimrc
+nmap <leader>, :e ~/.vimrc<CR>
 
 
 "set smartindent " Comments makes comments not be indented
@@ -127,7 +141,7 @@ nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 
 "space to single char map
-:nmap <Space> i_<Esc>r
+" :nmap <Space> i_<Esc>r
 
 " paste in visual mode with p"
 vnoremap p "_dP
@@ -257,3 +271,8 @@ hi VertSplit guifg=Gray
 hi Type gui=NONE
 hi Identifier guifg=Cyan
 hi Statement guifg=brown3 ctermfg=DarkRed
+
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
