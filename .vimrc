@@ -22,9 +22,9 @@ Plug 'goerz/ipynb_notedown.vim'  " When opening .ipynb files this should do some
 Plug 'tpope/vim-surround'	     " yss) cs]} ds' etc to change surround etc
 Plug 'scrooloose/nerdtree'       " File system explorer
 Plug 'Vimjas/vim-python-pep8-indent' 
+Plug 'w0rp/ale'                  " Async lint engine, for all languages
 
 Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
-Plug 'w0rp/ale'                 " Async lint engine, for all languages
 
 " Plug 'nvie/vim-flake8'            " python lint, use F7 or: autocmd BufWritePost *.py call Flake8()
 "Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -77,8 +77,8 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Toggle ale linter
-autocmd VimEnter * ALEDisable
 map <leader>a :ALEToggle <CR>
+" autocmd VimEnter * ALEDisable
 
 let g:ale_maximum_file_size = 500000                " Don't lint large files (> 500KB), it can slow things down
 let g:ale_linters = {}
@@ -124,6 +124,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " set line numbers
 set nu
+
+" Reload file when changed (e.g. with git) 
+set autoread
 
 " wrap markdown:
 au BufRead,BufNewFile *.md setlocal textwidth=80
@@ -272,6 +275,7 @@ hi Type gui=NONE
 hi Identifier guifg=Cyan
 hi Statement guifg=brown3 ctermfg=DarkRed
 
+" Colors for vimdiff:
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red

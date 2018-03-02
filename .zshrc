@@ -55,9 +55,6 @@ fi
 
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
-
-
-
 # Added by jeromedalbert.com:
 
 export LSCOLORS="exfxcxdxbxegedabagacad"
@@ -92,4 +89,6 @@ export WORKON_HOME=~/.ve
 export PROJECT_HOME=~/coding
 eval "$(pyenv init -)"
 #pyenv virtualenvwrapper_lazy
+
+export GOPATH=~/go
 

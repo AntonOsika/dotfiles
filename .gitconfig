@@ -217,3 +217,5 @@
 	insteadOf = "gist:"
 [credential]
 	helper = cache --timeout=48000
+[mergetool]
+	keepBackup = false
