@@ -4,8 +4,6 @@ set nocompatible              " required (not comp old vi)
 filetype off                  " required
 
 
-" Changed from vundle to vim-plug. Should cleanup vundle references below, delete vundle repo, and put in brew_installs
-
 " set the runtime path to include vim-olug and initialize
 call plug#begin('~/.vim/plugged')
 
@@ -35,12 +33,10 @@ Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and 
 "Plug 'xolox/vim-misc'           "prereq for vim-easytags
 "Plug 'xolox/vim-easytags'       "auto update of global tags https://github.com/xolox/vim-easytags
 "Plug 'chrisbra/Recover.vim'     " adds option to diff when swap file exists. Does not display message or Delete option in neovim atm.
-"Plugin 'easymotion/vim-easymotion' ",,w = jump to word
-"Plugin 'vim-pandoc/vim-pandoc'     "markdown thing
-"Plugin 'vim-pandoc/vim-pandoc-syntax'
+"Plug 'easymotion/vim-easymotion' ",,w = jump to word
+"Plug 'vim-pandoc/vim-pandoc'     "markdown thing
+"Plug 'vim-pandoc/vim-pandoc-syntax'
 " Plug 'tope/vim-fugitive'         "git wrapper
-
-
 
 " Fast rust markdown to browser
 function! BuildComposer(info)
@@ -55,7 +51,6 @@ endfunction
 
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
-
 " All of your Plugins must be added before the following line
 call plug#end()
 " Brief help
@@ -67,6 +62,10 @@ call plug#end()
 " Put your non-Plugin stuff after this line
 
 "let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
+
+" YouCompleteMe requires python. It should be enough to run:
+" pip2 install --user --upgrade neovim
+" pip3 install --user --upgrade neovim
 
 
 let mapleader = ','
