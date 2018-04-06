@@ -60,3 +60,4 @@ pip install --upgrade pip
 - Clipy
 - Mendeley
 - Rescue Time
+- translate shell [github](https://github.com/soimort/translate-shell)
