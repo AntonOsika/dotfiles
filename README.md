@@ -1,14 +1,24 @@
-# Antons dotfiles
+# Anton dotfiles
 
-setup.sh will symlink files from home folder to dotfiles in this repo, if they are in ~/dotfiles.
+This repo contains:
+- macos setup scripts
+- .vimrc
+- .zshrc
+- prezto (zsh setup) fork, as submodule
+- gitconfig aliases
+- iterm preferences
 
-macos.macos needs to be sourced separately.
+## Installation
 
-Neovim is assumed and alias `vim=nvim` is set.
+setup.sh will create symbolic links in home folder targeting dotfiles in ~/dotfiles.
 
-prezto is assumed, but will use the submodule of this directory in the future.
+macos.macos confiugres mac and needs to be sourced separately.
 
-there are some nice gitconfig aliases
+Alias `vim=nvim` is set if possible.
+
+This repo needs to be cloned recursively (our run `git submodule init; git submodule update`) to get prezto for zsh.
+
+Iterm2 needs to manually be set to sync with this folder to use the settings.
 
 ## Updating things
 
@@ -18,7 +28,7 @@ Prezto:
 cd prezto
 git pull --rebase 
 ```
-or interactively and secure:
+or interactively to be safe:
 ```bash
 git pull --no-commit --strategy=recursive -X ours upstream master
 git add --patch
@@ -36,23 +46,3 @@ pip list --outdated
 pip install --upgrade pip
 ```
 
-## Reinstall brew
-
-From [http://zanshin.net/2012/07/31/uninstalling-brew-to-re-install-brew/].
-
-```bash
-cd `brew --prefix`
-rm -rf Cellar
-brew prune
-rm -rf Library .git .gitignore bin/brew README.md share/man/man1/brew
-rm -rf ~/Library/Caches/Homebrew
-```
-
-## Todo
-- fix macosdefaults.sh from running when answer is no (test bash behaviour)
-- vim command to split to zsh terminal
-- fix markdown to render as html (as pycharm or vim-compose-markdown when server
-is turned off)
-- See if I missed any important vim config (eleoijon etc)
-- Use personalized sorin theme (or other theme) that is not made for vim, and
-does not shorten paths (unless necessary)

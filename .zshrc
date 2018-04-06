@@ -62,19 +62,6 @@ export LSCOLORS="exfxcxdxbxegedabagacad"
 alias ll="ls -lh"
 alias la="ls -A"
 
-
-# Add shell integration for iterm2
-# source ~/.iterm2_shell_integration.`basename $SHELL`
-# if [ -f '/Users/anton/.iterm2_shell_integration.'`basename $SHELL` ]; then source '/Users/anton/.iterm2_shell_integration.'`basename $SHELL`; fi
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f ~'/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source ~'/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-# This is too slow:
-# if [ -f '/Users/anton/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/anton/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 # activates fzf, use **<TAB> (or e.g. kill -9 <TAB>) to start searching:
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -87,8 +74,23 @@ export LANG=en_US.UTF-8
 #Pyenv guide from: https://medium.com/@henriquebastos/the-definitive-guide-to-setup-my-python-workspace-628d68552e14
 export WORKON_HOME=~/.ve
 export PROJECT_HOME=~/coding
-eval "$(pyenv init -)"
+
+# eval "$(pyenv init -)"
 #pyenv virtualenvwrapper_lazy
 
 export GOPATH=~/go
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/anton/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/anton/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+# if [ -f '/Users/anton/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/anton/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Matplotlib fix for virtualenvs:
+function frameworkpython {
+    if [[ ! -z "$VIRTUAL_ENV" ]]; then
+        PYTHONHOME=$VIRTUAL_ENV /usr/local/opt/python/libexec/bin/python "$@"
+    else
+        /usr/local/opt/python/libexec/bin/python "$@"
+    fi
+}
