@@ -46,3 +46,17 @@ pip list --outdated
 pip install --upgrade pip
 ```
 
+## Manual installations
+
+### Browser extensions
+- uBlock
+- Pocket
+- Evernote
+- Snipe (search browser tabs with cmd+`)
+- WasteNoTime
+- Grammarly
+
+### Useful mac apps
+- Clipy
+- Mendeley
+- Rescue Time

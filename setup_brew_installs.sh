@@ -124,7 +124,6 @@ brew cask install --appdir="/Applications" iterm2
 brew cask install --appdir="/Applications" google-chrome
 brew cask install --appdir="/Applications" evernote
 brew cask install --appdir="/Applications" spectacle #panes for mac
-brew cask install --appdir="/Applications" flux
 brew cask install --appdir="/Applications" vlc
 brew cask install --appdir="/Applications" latexian         # ?
 brew cask install --appdir="/Applications" anki
@@ -147,7 +146,7 @@ echo "python and pip ended up in:"
 which python
 which pip
 
-echo "do you want to continue? You can use pyenv instead (recommended) to manage python installations."
+echo "do you want to continue? You can use pyenv instead to manage python installations."
 
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
@@ -169,9 +168,7 @@ pip install --upgrade pip
 pip install --upgrade vim
 pip install --upgrade neovim
 
-#from @eleijonmarck:
-#pip install gsutil #google cloud
-#pip install ansible #automate apps and infrastructure
+pip install gsutil #google cloud
 
 # Installing Qt4 for matplotlib
 brew tap cartr/qt4
