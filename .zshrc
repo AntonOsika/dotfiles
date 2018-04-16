@@ -40,7 +40,7 @@ fi
 alias g=git
 alias pc='open -a /Applications/PyCharm\ CE.app'
 alias ct='ctags -R .'
-alias sp='pbp|xargs say -r 500'
+alias sp='pbp|xargs say -r 500 --'
 
 function tb() { tensorboard --logdir "$1" --host=localhost }
 

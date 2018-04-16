@@ -178,6 +178,7 @@ brew install pyside
 
 
 pip install virtualenv
+pip install virtualenvwrapper
 pip install nose
 pip install pyparsing
 pip install python-dateutil

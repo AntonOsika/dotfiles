@@ -10,15 +10,19 @@ This repo contains:
 
 ## Installation
 
-setup.sh will create symbolic links in home folder targeting dotfiles in ~/dotfiles.
+- `setup_symlinks.sh` will create symbolic links in home folder targeting dotfiles in ~/dotfiles
+- `setup_brew_installs.sh` installs useful apps with brew and pip
+- `macosdefaults.sh` confiugres mac
 
-macos.macos confiugres mac and needs to be sourced separately.
+To change shell to `zsh` use: 
+   
+    chsh -s /usr/local/bin/zsh
 
-Alias `vim=nvim` is set if possible.
-
-This repo needs to be cloned recursively (our run `git submodule init; git submodule update`) to get prezto for zsh.
+This repo needs to be cloned recursively (or run `git submodule init; git submodule update`) to get prezto for zsh.
 
 Iterm2 needs to manually be set to sync with this folder to use the settings.
+
+Note that `.zsh` will set `vim=nvim` if it exists.
 
 ## Updating things
 
@@ -28,7 +32,7 @@ Prezto:
 cd prezto
 git pull --rebase 
 ```
-or interactively to be safe:
+or interactively (for security reasons):
 ```bash
 git pull --no-commit --strategy=recursive -X ours upstream master
 git add --patch
@@ -47,6 +51,7 @@ pip install --upgrade pip
 ```
 
 ## Manual installations
+Useful things that are not installed with these scripts.
 
 ### Browser extensions
 - uBlock
