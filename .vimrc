@@ -9,26 +9,28 @@ call plug#begin('~/.vim/plugged')
 
 " Add all your plugins here 
 
-Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py' }   "completion and goto. Can add flags to install for more languages!
+Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
 Plug 'junegunn/vim-plug'        " package manager
 Plug 'elzr/vim-json'            "easier to read json
 Plug 'tpope/vim-commentary'     "gcc = comment
+Plug 'tpope/vim-surround'	     " yss) cs]} ds' etc to change surround etc
+Plug 'tpope/vim-sleuth'	            " detects indentation style for buffer
 Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
 Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim :TlistOpen
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
-Plug 'goerz/ipynb_notedown.vim'  " When opening .ipynb files this should do something useful ?
-Plug 'tpope/vim-surround'	     " yss) cs]} ds' etc to change surround etc
 Plug 'scrooloose/nerdtree'       " File system explorer
 Plug 'Vimjas/vim-python-pep8-indent' 
 Plug 'w0rp/ale'                  " Async lint engine, for all languages
+Plug 'mileszs/ack.vim'           " Search file content with :Ack [options] {pattern} [{directories}]
 
+Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
 Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
 
+" Plug 'goerz/ipynb_notedown.vim'  " When opening .ipynb files this should do something useful ?
 " Plug 'nvie/vim-flake8'            " python lint, use F7 or: autocmd BufWritePost *.py call Flake8()
 "Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Plug 'bling/vim-airline' " a smooth status/tabline for vim
 "Plug 'suan/vim-instant-markdown' " like compose but slower
-"Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
 "Plug 'ivanov/vim-ipython'      "should send commands to most recent ipython, not working.
 "Plug 'xolox/vim-misc'           "prereq for vim-easytags
 "Plug 'xolox/vim-easytags'       "auto update of global tags https://github.com/xolox/vim-easytags
@@ -63,12 +65,27 @@ call plug#end()
 
 "let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
 
-" YouCompleteMe requires python. It should be enough to run:
+" YouCompleteMe requires python.
 " pip2 install --user --upgrade neovim
 " pip3 install --user --upgrade neovim
 
+" It also has to be built. This is done by running `install.py` in:
+" `~/.vim/plugged/YouCompleteMe`
+
+" Let ack use silver searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 let mapleader = ','
+
+" Search file content
+nnoremap <Leader>a :Ack!<Space>
+
+" fzf.vim searching
+" nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
 
 "Default is same-buffer, but does not work with unsaved changes:
 "let g:ycm_goto_buffer_command = 'same-buffer'
@@ -76,7 +93,8 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Toggle ale linter
-map <leader>a :ALEToggle <CR>
+map <leader>e :ALEToggle <CR>
+map <leader>; :ALENext<CR>
 " autocmd VimEnter * ALEDisable
 
 let g:ale_maximum_file_size = 500000                " Don't lint large files (> 500KB), it can slow things down
@@ -87,6 +105,12 @@ let g:ale_linters.html = []
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
 let g:ale_python_flake8_options = "max-line-length = 160"
+
+let g:ale_sign_error = '💣'
+let g:ale_sign_warning = '⚠'
+
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 
 " from eleijonmarck:
 nnoremap <C-p> :FZF! <CR>

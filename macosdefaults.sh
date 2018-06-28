@@ -42,8 +42,13 @@ fi
 
 # UI #
 
-# Automatically hide and show the Dock (default: false).
-defaults write com.apple.dock autohide -bool true
+echo "Set Dock to auto-hide and remove the auto-hiding delay? (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  defaults write com.apple.dock autohide -bool true
+  defaults write com.apple.dock autohide-delay -float 0
+  defaults write com.apple.dock autohide-time-modifier -float 0
+fi
 
 # Finder: allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true
@@ -79,6 +84,9 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
 
 # Finder #
+
+# Finder: show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
 
 # Finder: show path bar
 defaults write com.apple.finder ShowPathbar -bool true

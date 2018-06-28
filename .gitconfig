@@ -4,8 +4,8 @@
 
 [alias]
 
-	# Anton from Erik Olsson: git config --global alias.up "pull --rebase --autostash"
-    up = pull --rebase=preserve
+	# Always use rebase
+	up = pull --rebase=preserve
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -n 20 --graph --abbrev-commit
@@ -190,7 +190,6 @@
 	# Use the Git 1.x.x default to avoid errors on machines with old Git
 	# installations. To use `simple` instead, add this to your `~/.extra` file:
 	# `git config --global push.default simple`. See http://git.io/mMah-w.
-	default = matching
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 

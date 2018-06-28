@@ -913,6 +913,8 @@
 	<integer>8</integer>
 	<key>IncludePasteHistoryInAdvancedPaste</key>
 	<true/>
+	<key>KillJobsInServersOnQuit</key>
+	<false/>
 	<key>LeftOption</key>
 	<integer>2</integer>
 	<key>LoadPrefsFromCustomFolder</key>
@@ -960,13 +962,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1516 301 445 77 0 0 2560 1440 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>644 52 400 129 0 0 1440 878 </string>
+	<string>644 52 400 129 0 0 2560 1418 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>410 365 620 392 0 0 1440 878 </string>
+	<string>410 364 620 392 0 0 1440 878 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>638 347 606 469 0 0 2560 1418 </string>
+	<string>258 174 606 469 0 0 1440 878 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1161 614 796 473 0 0 2560 1418 </string>
+	<string>682 827 1018 447 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 2560 1418 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -2484,7 +2486,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-04-07T17:07:54Z</date>
+	<date>2018-05-29T09:32:07Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2492,7 +2494,7 @@
 	<key>Secure Input</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>SplitPaneDimmingAmount</key>
@@ -2524,7 +2526,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.5</string>
+	<string>3.1.6</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
