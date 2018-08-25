@@ -26,6 +26,8 @@ Plug 'mileszs/ack.vim'           " Search file content with :Ack [options] {patt
 Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
 Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
 
+" Pip instal black and flak8 instead
+" Plug 'ambv/black'                " Autofix python code
 " Plug 'goerz/ipynb_notedown.vim'  " When opening .ipynb files this should do something useful ?
 " Plug 'nvie/vim-flake8'            " python lint, use F7 or: autocmd BufWritePost *.py call Flake8()
 "Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -79,13 +81,16 @@ endif
 
 let mapleader = ','
 
-" Search file content
+" Search file content (ack uses ag)
 nnoremap <Leader>a :Ack!<Space>
 
 " fzf.vim searching
 " nmap ; :Buffers<CR>
-nmap <Leader>t :Files<CR>
-nmap <Leader>r :Tags<CR>
+" nmap <Leader>t :Files<CR>
+" nmap <Leader>r :Tags<CR>
+
+" Autofix python:
+nmap <Leader>f :Black<CR>
 
 "Default is same-buffer, but does not work with unsaved changes:
 "let g:ycm_goto_buffer_command = 'same-buffer'
@@ -94,9 +99,11 @@ map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Toggle ale linter
 map <leader>e :ALEToggle <CR>
-map <leader>; :ALENext<CR>
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " autocmd VimEnter * ALEDisable
 
+let g:ale_fix_on_save = 1
 let g:ale_maximum_file_size = 500000                " Don't lint large files (> 500KB), it can slow things down
 let g:ale_linters = {}
 let g:ale_linters.javascript = ['eslint', 'xo']
@@ -104,7 +111,8 @@ let g:ale_linters.python = ['flake8']
 let g:ale_linters.html = []
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
-let g:ale_python_flake8_options = "max-line-length = 160"
+let g:ale_fixers.python = ['yapf', 'trim_whitespace'] ", 'isort']
+let g:ale_python_flake8_options = "max-line-length = 88"
 
 let g:ale_sign_error = '💣'
 let g:ale_sign_warning = '⚠'

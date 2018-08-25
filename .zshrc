@@ -30,6 +30,9 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 function f() { find . -iname "*$1*" ${@:2} }
 function fr() { grep "$1" ${@:2} -R . }
 
+# Kill process listening on port
+function killport { pid=$(lsof -i:"$1" -t); kill -TERM $pid || kill -KILL $pid }
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -102,17 +105,6 @@ function frameworkipython {
     fi
 }
 
-# VSCode shortcut:
-function code {
-    if [[ $# = 0 ]]
-    then
-        open -a "Visual Studio Code"
-    else
-        local argPath="$1"
-        [[ $1 = /* ]] && argPath="$1" || argPath="$PWD/${1#./}"
-        open -a "Visual Studio Code" "$argPath"
-    fi
-}
 export PATH="$GOPATH/bin:$PATH"
 
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
