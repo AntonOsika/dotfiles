@@ -29,16 +29,16 @@
 	c = clone --recursive
 
 	# Commit all changes
-    #ca = !git add -A && git commit -av
+    #ca = !git add -u && git commit -av
 
 	# By Anton Osika:
 	# Commit all changes with message. Confirm each executed line with return key.
-	ac = !echo "git status" && git status && echo "" && echo "git add -A" && echo "" && echo "Enter commit message, or abort add:" && read MSG && echo "" && git add -A && \
+	ac = !echo "git status" && git status && echo "" && echo "git add -u" && echo "" && echo "Enter commit message, or abort add:" && read MSG && echo "" && git add -u && \
 		echo "git commit -m \"$MSG\"" && read tmp && git commit -m \"$MSG\" && echo "" && echo "git status -s" && git status -s
 
 	# By Anton Osika:
 	# Commit and push all changes with message
-	acp = !echo "git status" && git status && echo "" && echo "git add -A" && echo "" && echo "Enter commit message, or abort add:" && read MSG && echo "" && git add -A && \
+	acp = !echo "git status" && git status && echo "" && echo "git add -u" && echo "" && echo "Enter commit message, or abort add:" && read MSG && echo "" && git add -u && \
 		echo "git commit -m \"$MSG\"" && read tmp && git commit -m \"$MSG\" && echo "" && echo "git status -s" && git status -s && echo "" && \
 		echo "git pull --rebase" && read tmp && git pull --rebase && echo "" && \
 		echo "git push" && read tmp && git push 

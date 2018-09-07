@@ -112,7 +112,7 @@ let g:ale_linters.html = []
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
 let g:ale_fixers.python = ['yapf', 'trim_whitespace'] ", 'isort']
-let g:ale_python_flake8_options = "max-line-length = 88"
+let g:ale_python_flake8_options = "max-line-length = 81"
 
 let g:ale_sign_error = '💣'
 let g:ale_sign_warning = '⚠'
@@ -158,6 +158,8 @@ set nu
 
 " Reload file when changed (e.g. with git) 
 set autoread
+au CursorHold,CursorHoldI * checktime
+au FocusGained,BufEnter * :checktime
 
 " wrap markdown:
 au BufRead,BufNewFile *.md setlocal textwidth=80
