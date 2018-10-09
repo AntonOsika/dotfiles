@@ -24,8 +24,8 @@ Plug 'w0rp/ale'                  " Async lint engine, for all languages
 Plug 'mileszs/ack.vim'           " Search file content with :Ack [options] {pattern} [{directories}]
 
 Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
-Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
 
+" Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
 " Pip instal black and flak8 instead
 " Plug 'ambv/black'                " Autofix python code
 " Plug 'goerz/ipynb_notedown.vim'  " When opening .ipynb files this should do something useful ?
@@ -120,13 +120,17 @@ let g:ale_sign_warning = '⚠'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 
-" from eleijonmarck:
+" Fuzzy search file
 nnoremap <C-p> :FZF! <CR>
+
+" Switch tabs
+nnoremap <C-h> :tabp <CR>
+nnoremap <C-l> :tabn <CR>
 
 " follow tags without pinky finger 
 map gk <C-]>
 
-" create tag
+" create tags
 " map <leader>t :!ctags -R -f ./tags . &<CR>
 
 " open tlist
@@ -187,7 +191,6 @@ set clipboard=unnamed
 
 " look for tags in parent dir if not found
 set tags=./tags;/
-
 
 
 " turn color syntax highlighting on by default

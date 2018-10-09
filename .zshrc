@@ -7,12 +7,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-
-
-# Added by the sourabhbajaj.com tutorial:
-# Add env.sh
-# source ~/Projects/config/env.sh
-
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
@@ -21,10 +15,8 @@ export PATH="/usr/local/bin:/usr/local/python:/usr/local/sbin:/usr/bin:/usr/sbin
 # needed by macbook air for brew python:
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
-# broke python3: export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-
 
 # Find functions
 function f() { find . -iname "*$1*" ${@:2} }
@@ -86,7 +78,7 @@ export GOPATH=~/go
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/anton/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/anton/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
+# The next line enables shell command completion for gcloud. Very slow!
 # if [ -f '/Users/anton/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/anton/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Matplotlib fix for virtualenvs:
@@ -109,3 +101,35 @@ export PATH="$GOPATH/bin:$PATH"
 
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
+# This is not working with prezto for some reason:
+# eval "$(direnv hook zsh)"
+
+# Adds conda to current path:
+# (Only using conda for this now)
+# function path_contains() {
+#   [[ ":$PATH:" == *":$1:"* ]]
+# }
+
+# function remove_from_path() {
+#   local remove="$1"
+#   readonly remove
+#   local work=:$PATH:
+#   work=${work/:$remove:/:}
+#   work=${work#:}
+#   work=${work%:}
+#   export PATH=$work
+# }
+
+# function prepend_path() {
+#   path_contains "$1" || export PATH="$1${PATH:+":$PATH"}"
+# }
+
+# function condify() {
+#   prepend_path "$HOME/anaconda3/bin"
+# }
+
+# function decondify() {
+#   remove_from_path "$HOME/anaconda3/bin"
+# }
+
+. $HOME/anaconda3/etc/profile.d/conda.sh
