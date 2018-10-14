@@ -22,6 +22,7 @@ Plug 'scrooloose/nerdtree'       " File system explorer
 Plug 'Vimjas/vim-python-pep8-indent' 
 Plug 'w0rp/ale'                  " Async lint engine, for all languages
 Plug 'mileszs/ack.vim'           " Search file content with :Ack [options] {pattern} [{directories}]
+Plug 'tpope/vim-fugitive'         "git wrapper
 
 Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
 
@@ -40,7 +41,6 @@ Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto com
 "Plug 'easymotion/vim-easymotion' ",,w = jump to word
 "Plug 'vim-pandoc/vim-pandoc'     "markdown thing
 "Plug 'vim-pandoc/vim-pandoc-syntax'
-" Plug 'tope/vim-fugitive'         "git wrapper
 
 " Fast rust markdown to browser
 function! BuildComposer(info)
