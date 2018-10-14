@@ -7,6 +7,7 @@ This repo contains:
 - prezto (zsh setup) fork, as submodule
 - gitconfig aliases
 - iterm preferences
+- (depracted files for windows etc)
 
 ## Installation
 
@@ -57,12 +58,12 @@ Useful things that are not installed with these scripts.
 - uBlock
 - Pocket
 - Evernote
-- Snipe (search browser tabs with cmd+`)
-- WasteNoTime
-- Grammarly
+- Quick Tabs/Snipe (search browser tabs)
+- The Great Suspender
 
 ### Useful mac apps
-- Clipy
+- Alfred 3, with snippets for math utf8 characters
+- (Clipy or Alfred PowerPack)
 - Mendeley
 - Rescue Time
 - translate shell [github](https://github.com/soimort/translate-shell)
