@@ -24,6 +24,14 @@ done
 
 echo "...done"
 
+read -p "Do you want to symlink karabiner.json?" -n 1 -r
+echo    # move to a new line
+
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    ln -sv $PWD/karabiner.json $HOME/.config/karabiner/karabiner.json
+
+fi
 
 read -p "Do you want to symlink prezto and necessary prezto runcoms from home dir? Old .zprezto will be moved to .zprezto_old" -n 1 -r
 echo    # move to a new line
