@@ -24,6 +24,8 @@ function fr() { grep "$1" ${@:2} -R . }
 
 # Kill process listening on port
 function killport { pid=$(lsof -i:"$1" -t); kill -TERM $pid || kill -KILL $pid }
+#
+function bashman { man bash | less -p "^       $1 "; }
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -75,6 +77,8 @@ export PROJECT_HOME=~/coding
 
 export GOPATH=~/go
 
+export PATH="$GOPATH/bin:$PATH"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/anton/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/anton/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -96,8 +100,6 @@ function frameworkipython {
         /usr/local/bin/ipython "$@"
     fi
 }
-
-export PATH="$GOPATH/bin:$PATH"
 
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
@@ -133,3 +135,28 @@ alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance
 # }
 
 . $HOME/anaconda3/etc/profile.d/conda.sh
+
+# Kaggle submit
+ksub() {
+  C=`basename $(pwd)`
+  S="$(pwd)/submission.csv" 
+  kaggle competitions submit -c $C -f $S -m $1
+}
+
+kscore() {
+  C=`basename $(pwd)`
+  kaggle competitions submissions -c $C
+}
+
+# Edit / source dotfiles
+ezh() {
+  vim ~/.zshrc
+}
+
+szh() {
+  source ~/.zshrc
+}
+
+evi() {
+  vim ~/.vimrc
+}
