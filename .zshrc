@@ -13,7 +13,7 @@ export LANG=en_US.UTF-8
 export PATH="/usr/local/bin:/usr/local/python:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 
 # needed by macbook air for brew python:
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
