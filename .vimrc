@@ -3,13 +3,11 @@
 set nocompatible              " required (not comp old vi)
 filetype off                  " required
 
-
 " set the runtime path to include vim-olug and initialize
 call plug#begin('~/.vim/plugged')
 
 " Add all your plugins here 
 
-Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
 Plug 'junegunn/vim-plug'        " package manager
 Plug 'elzr/vim-json'            "easier to read json
 Plug 'tpope/vim-commentary'     "gcc = comment
@@ -23,9 +21,23 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'w0rp/ale'                  " Async lint engine, for all languages
 Plug 'mileszs/ack.vim'           " Search file content with :Ack [options] {pattern} [{directories}]
 Plug 'tpope/vim-fugitive'         "git wrapper
-
 Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
+" Completion Engine
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'ncm2/ncm2-vim-lsp'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " old way to complete with language client
+
+" Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
 " Pip instal black and flak8 instead
 " Plug 'ambv/black'                " Autofix python code
@@ -74,6 +86,59 @@ call plug#end()
 " It also has to be built. This is done by running `install.py` in:
 " `~/.vim/plugged/YouCompleteMe`
 
+
+" Language Server plugins
+
+if executable('pyls')
+  " pip install python-language-server
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+
+if executable('docker-langserver')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'docker-langserver',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'docker-langserver --stdio']},
+        \ 'whitelist': ['dockerfile'],
+        \ })
+endif
+
+if executable('go-langserver')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'go-langserver',
+        \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
+        \ 'whitelist': ['go'],
+        \ })
+endif
+
+if executable('flow-language-server')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'flow-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'flow-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
+        \ 'whitelist': ['javascript', 'javascript.jsx'],
+        \ })
+endif
+
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
+nnoremap K :LspHover<CR>
+nnoremap gd :LspDefinition<CR>
+
+" NOTE: you need to install completion sources to get completions. Check
+" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " Let ack use silver searcher
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -85,25 +150,37 @@ let mapleader = ','
 nnoremap <Leader>a :Ack!<Space>
 
 " fzf.vim searching
-" nmap ; :Buffers<CR>
+nmap ; :Buffers<CR>
 " nmap <Leader>t :Files<CR>
 " nmap <Leader>r :Tags<CR>
 
-" Autofix python:
-nmap <Leader>f :Black<CR>
-
 "Default is same-buffer, but does not work with unsaved changes:
 "let g:ycm_goto_buffer_command = 'same-buffer'
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" let g:ycm_autoclose_preview_window_after_completion=1
+" map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+let g:LanguageClient_serverCommands = {
+      \ 'haskell': ['hie', '--lsp'],
+      \ 'python': ['pyls'],
+      \ "javascript": ['node', '/Users/jonval/WARNING/LSPS/javascript-typescript-langserver/lib/language-server-stdio.js'],
+      \ 'sh': ['bash-language-server', 'start']
+      \}
+
+let g:deoplete#enable_at_startup = 1
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <leader>g :call LanguageClient_textDocument_definition()<CR>
 
 " Toggle ale linter
 map <leader>e :ALEToggle <CR>
+map <leader>f :ALEFix <CR>
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " autocmd VimEnter * ALEDisable
 
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
+let g:ale_completion_enabled = 0
 let g:ale_maximum_file_size = 500000                " Don't lint large files (> 500KB), it can slow things down
 let g:ale_linters = {}
 let g:ale_linters.javascript = ['eslint', 'xo']
@@ -240,7 +317,6 @@ cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
-
 " Helpful keybindings for function keys on a mac
 "map! only does in command and insert mode.
 "use read in bash to see what to map (like <esc>[5~
@@ -255,6 +331,15 @@ cnoremap <M-f> <S-Right>
 "map! <Esc>[H <Home>
 "map! <Esc>[F <End>  
 
+" Jonas valfridssons {}:
+
+inoremap (<CR> ()<Esc>i
+inoremap {<CR> {<CR>}<Esc>O
+inoremap {; {<CR>};<Esc>O
+inoremap {, {<CR>},<Esc>O
+inoremap [<CR> []<Esc>i
+inoremap [; [];<Esc>i<Esc>i
+inoremap [, [],<Esc>i<Esc>i
 
 " Pydiction:
 "filetype plugin on

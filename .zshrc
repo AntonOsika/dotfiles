@@ -10,7 +10,7 @@ fi
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export PATH="/usr/local/bin:/usr/local/python:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+export PATH="$HOME/anaconda3/bin:/usr/local/bin:/usr/local/python:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 
 # needed by macbook air for brew python:
 # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
@@ -24,7 +24,8 @@ function fr() { grep "$1" ${@:2} -R . }
 
 # Kill process listening on port
 function killport { pid=$(lsof -i:"$1" -t); kill -TERM $pid || kill -KILL $pid }
-#
+
+# Get manual of builtin commands
 function bashman { man bash | less -p "^       $1 "; }
 
 # Preferred editor for local and remote sessions
@@ -36,15 +37,14 @@ fi
 
 alias g=git
 alias pc='open -a /Applications/PyCharm\ CE.app'
+
+# Creating tags for vim
 alias ct='ctags -R .'
+
+# TTS pasted content 500 wpm
 alias sp='pbp|xargs say -r 500 --'
 
 function tb() { tensorboard --logdir "$1" --host=localhost }
-
-# bash:
-# if has('nvim')
-#     alias vim=nvim
-# endif
 
 if test $(which nvim); then
     alias vim=nvim
@@ -52,7 +52,7 @@ fi
 
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
-# Added by jeromedalbert.com:
+# Style by jeromedalbert.com:
 
 export LSCOLORS="exfxcxdxbxegedabagacad"
 
@@ -155,8 +155,4 @@ ezh() {
 
 szh() {
   source ~/.zshrc
-}
-
-evi() {
-  vim ~/.vimrc
 }
