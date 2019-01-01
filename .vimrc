@@ -17,27 +17,22 @@ Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
 Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim :TlistOpen
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
 Plug 'scrooloose/nerdtree'       " File system explorer
-Plug 'Vimjas/vim-python-pep8-indent' 
 Plug 'w0rp/ale'                  " Async lint engine, for all languages
 Plug 'mileszs/ack.vim'           " Search file content with :Ack [options] {pattern} [{directories}]
 Plug 'tpope/vim-fugitive'         "git wrapper
 Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 
 " Completion Engine
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-vim-lsp'
 Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " old way to complete with language client
 
 " Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
+" Plug 'Vimjas/vim-python-pep8-indent' 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
 " Pip instal black and flak8 instead
 " Plug 'ambv/black'                " Autofix python code
@@ -69,6 +64,7 @@ Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
 " All of your Plugins must be added before the following line
 call plug#end()
+
 " Brief help
 " :PlugSnapshot   - lists configured plugins
 " :PlugInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -88,6 +84,8 @@ call plug#end()
 
 
 " Language Server plugins
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
 
 if executable('pyls')
   " pip install python-language-server
@@ -122,9 +120,6 @@ if executable('flow-language-server')
         \ 'whitelist': ['javascript', 'javascript.jsx'],
         \ })
 endif
-
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
 
 " :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
@@ -162,11 +157,10 @@ nmap ; :Buffers<CR>
 let g:LanguageClient_serverCommands = {
       \ 'haskell': ['hie', '--lsp'],
       \ 'python': ['pyls'],
-      \ "javascript": ['node', '/Users/jonval/WARNING/LSPS/javascript-typescript-langserver/lib/language-server-stdio.js'],
       \ 'sh': ['bash-language-server', 'start']
       \}
 
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 " nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
@@ -317,21 +311,8 @@ cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
-" Helpful keybindings for function keys on a mac
-"map! only does in command and insert mode.
-"use read in bash to see what to map (like <esc>[5~
 
-"map <Esc>[5~ <C-B>
-"map <Esc>[6~ <C-F>
-"map <Esc>[3~ x
-"map! <Esc>[3~ <Del>
-
-"map <Esc>[H 0
-"map <Esc>[F $
-"map! <Esc>[H <Home>
-"map! <Esc>[F <End>  
-
-" Jonas valfridssons {}:
+" Jonas valfridssons {} creation:
 
 inoremap (<CR> ()<Esc>i
 inoremap {<CR> {<CR>}<Esc>O
@@ -380,21 +361,22 @@ if exists("syntax_on")
   syntax reset
 endif
 
-hi Normal guibg=Black guifg=seashell ctermfg=White
-hi NonText guifg=LavenderBlush ctermfg=LightMagenta
-hi DiffDelete guibg=DarkRed guifg=Black ctermbg=DarkRed ctermfg=Black
-hi DiffAdd guibg=DarkGreen ctermbg=DarkGreen ctermfg=Black
-hi DiffChange guibg=Gray30 ctermbg=DarkCyan ctermfg=Black
-hi DiffText gui=NONE guibg=Cyan ctermbg=Cyan ctermfg=Black
-hi Comment guifg=LightBlue
-hi Constant guifg=DeepPink
-hi PreProc guifg=Magenta ctermfg=Magenta
-hi StatusLine guibg=Black guifg=Gray30 cterm=NONE ctermfg=Black ctermbg=LightGray
-hi StatusLineNC guifg=Gray
-hi VertSplit guifg=Gray
-hi Type gui=NONE
-hi Identifier guifg=Cyan
-hi Statement guifg=brown3 ctermfg=DarkRed
+" Works poorly for git diffs:
+" hi Normal guibg=Black guifg=seashell ctermfg=White
+" hi NonText guifg=LavenderBlush ctermfg=LightMagenta
+" hi DiffDelete guibg=DarkRed guifg=Black ctermbg=DarkRed ctermfg=Black
+" hi DiffAdd guibg=DarkGreen ctermbg=DarkGreen ctermfg=Black
+" hi DiffChange guibg=Gray30 ctermbg=DarkCyan ctermfg=Black
+" hi DiffText gui=NONE guibg=Cyan ctermbg=Cyan ctermfg=Black
+" hi Comment guifg=LightBlue
+" hi Constant guifg=DeepPink
+" hi PreProc guifg=Magenta ctermfg=Magenta
+" hi StatusLine guibg=Black guifg=Gray30 cterm=NONE ctermfg=Black ctermbg=LightGray
+" hi StatusLineNC guifg=Gray
+" hi VertSplit guifg=Gray
+" hi Type gui=NONE
+" hi Identifier guifg=Cyan
+" hi Statement guifg=brown3 ctermfg=DarkRed
 
 " Colors for vimdiff:
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red

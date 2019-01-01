@@ -47,7 +47,8 @@ alias sp='pbp|xargs say -r 500 --'
 function tb() { tensorboard --logdir "$1" --host=localhost }
 
 if test $(which nvim); then
-    alias vim=nvim
+  alias vim=nvim
+  alias vimdiff='nvim -d'
 fi
 
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
