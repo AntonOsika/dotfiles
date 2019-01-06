@@ -23,15 +23,15 @@ Plug 'tpope/vim-fugitive'         "git wrapper
 Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
 
 " Completion Engine
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-vim-lsp'
-Plug 'ncm2/ncm2'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'roxma/nvim-yarp'
+" Plug 'ncm2/ncm2-vim-lsp'
+" Plug 'ncm2/ncm2'
 
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " old way to complete with language client
 
-" Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
+Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
 " Plug 'Vimjas/vim-python-pep8-indent' 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
 " Pip instal black and flak8 instead
@@ -85,7 +85,7 @@ call plug#end()
 
 " Language Server plugins
 " enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
+" autocmd BufEnter * call ncm2#enable_for_buffer()
 
 let mapleader = ','
 
@@ -154,9 +154,9 @@ nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 
 "Default is same-buffer, but does not work with unsaved changes:
-"let g:ycm_goto_buffer_command = 'same-buffer'
-" let g:ycm_autoclose_preview_window_after_completion=1
-" map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_goto_buffer_command = 'same-buffer'
+ let g:ycm_autoclose_preview_window_after_completion=1
+ map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 let g:LanguageClient_serverCommands = {
       \ 'haskell': ['hie', '--lsp'],
