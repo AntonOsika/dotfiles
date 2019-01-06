@@ -32,8 +32,8 @@ Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto com
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " old way to complete with language client
 
 Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
-" Plug 'Vimjas/vim-python-pep8-indent' 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
+" Plug 'Vimjas/vim-python-pep8-indent' 
 " Pip instal black and flak8 instead
 " Plug 'ambv/black'                " Autofix python code
 " Plug 'goerz/ipynb_notedown.vim'  " When opening .ipynb files this should do something useful ?
@@ -200,8 +200,9 @@ let g:ale_sign_warning = '⚠'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 
+
 " Fuzzy search file
-nnoremap <C-p> :FZF! <CR>
+nnoremap <C-f> :FZF! <CR>
 
 " Switch tabs
 nnoremap <C-h> :tabp <CR>
