@@ -264,8 +264,8 @@ nnoremap <esc>^[ <esc>^[
 " paste in visual mode with p"
 vnoremap p "_dP
 
-" Clipboard sharing on mac osx, first run brew install vim
-" set clipboard=unnamed
+" Clipboard sharing on mac osx (requires later versions)
+set clipboard=unnamed
 
 " look for tags in parent dir if not found
 set tags=./tags;/
