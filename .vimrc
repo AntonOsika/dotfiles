@@ -330,29 +330,6 @@ inoremap [<CR> []<Esc>i
 inoremap [; [];<Esc>i<Esc>i
 inoremap [, [],<Esc>i<Esc>i
 
-" Pydiction:
-"filetype plugin on
-"let g:pydiction_location = '/Users/anton/.vim/bundle/pydiction/complete-dict'
-
-" DONT know what the below does, should figure out:
-
-" System vimrc file for Mac OS X
-" Author:  Benji Fisher <benji@member.AMS.org>
-" Last modified:  8 May 2006
-
-" Note:  Do not move this to the gvimrc file, else this value of $PATH will
-" not be available to plugin scripts.
-if has("gui_running") && system('ps xw | grep "Vim -psn" | grep -vc grep') > 0
-  " Get the value of $PATH from a login shell.
-  " If your shell is not on this list, it may be just because we have not
-  " tested it.  Try adding it to the list and see if it works.  If so,
-  " please post a note to the vim-mac list!
-  if $SHELL =~ '/\(sh\|csh\|bash\|tcsh\|zsh\)$'
-    let s:path = system("echo echo VIMPATH'${PATH}' | $SHELL -l")
-    let $PATH = matchstr(s:path, 'VIMPATH\zs.\{-}\ze\n')
-  endif
-endif
-
 
 " Set tab width etc
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
