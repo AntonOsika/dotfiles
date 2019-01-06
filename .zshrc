@@ -11,6 +11,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 export PATH="$HOME/anaconda3/bin:/usr/local/bin:/usr/local/python:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+export PYTHONPATH=$PYTHONPATH:"$HOME/anaconda3/bin/lib/python3.6/site-packages"
 
 # needed by macbook air for brew python:
 # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
@@ -32,7 +33,7 @@ function bashman { man bash | less -p "^       $1 "; }
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='vimr'
+  export EDITOR='nvim'
 fi
 
 alias g=git

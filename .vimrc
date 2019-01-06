@@ -60,7 +60,7 @@ function! BuildComposer(info)
   endif
 endfunction
 
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+" Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
 " All of your Plugins must be added before the following line
 call plug#end()
@@ -86,6 +86,8 @@ call plug#end()
 " Language Server plugins
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
+
+let mapleader = ','
 
 if executable('pyls')
   " pip install python-language-server
@@ -125,7 +127,7 @@ endif
 set completeopt=noinsert,menuone,noselect
 
 nnoremap K :LspHover<CR>
-nnoremap gd :LspDefinition<CR>
+nnoremap <leader>d :LspDefinition<CR>
 
 " NOTE: you need to install completion sources to get completions. Check
 " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
@@ -139,15 +141,16 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-let mapleader = ','
-
 " Search file content (ack uses ag)
 nnoremap <Leader>a :Ack!<Space>
 
 " fzf.vim searching
-nmap ; :Buffers<CR>
+" nmap ; :Buffers<CR>
 " nmap <Leader>t :Files<CR>
 " nmap <Leader>r :Tags<CR>
+
+" Fast saving
+nmap <leader>w :w<CR>
 
 "Default is same-buffer, but does not work with unsaved changes:
 "let g:ycm_goto_buffer_command = 'same-buffer'
@@ -164,13 +167,16 @@ let g:LanguageClient_serverCommands = {
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 " nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <leader>g :call LanguageClient_textDocument_definition()<CR>
+" nnoremap <leader>g :call LanguageClient_textDocument_definition()<CR>
 
 " Toggle ale linter
 map <leader>e :ALEToggle <CR>
 map <leader>f :ALEFix <CR>
+
+" Go to next error/warning
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <leader>g <Plug>(ale_go_to_definition)
 " autocmd VimEnter * ALEDisable
 
 let g:ale_fix_on_save = 0
@@ -178,7 +184,7 @@ let g:ale_completion_enabled = 0
 let g:ale_maximum_file_size = 500000                " Don't lint large files (> 500KB), it can slow things down
 let g:ale_linters = {}
 let g:ale_linters.javascript = ['eslint', 'xo']
-let g:ale_linters.python = ['flake8']
+let g:ale_linters.python = ['pylint', 'flake8']
 let g:ale_linters.html = []
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
@@ -230,6 +236,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " set line numbers
 set nu
+
+" make :diffsplit {filename} split vertically
+set diffopt+=vertical
 
 " Reload file when changed (e.g. with git) 
 set autoread
@@ -346,20 +355,43 @@ if has("gui_running") && system('ps xw | grep "Vim -psn" | grep -vc grep') > 0
 endif
 
 
-" Vim color file
-" Maintainer:   Gerald S. Williams
-" Last Change:  2003 Mar 20
+" Set tab width etc
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
-" This is a dark version/opposite of "seashell". The cterm version of this is
-" very similar to "evening".
-"
-" Only values that differ from defaults are specified.
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable 
+
+try
+    colorscheme desert
+catch
+endtry
 
 set background=dark
-hi clear
-if exists("syntax_on")
-  syntax reset
+
+" Set extra options when running in GUI mode
+if has("gui_running")
+    set guioptions-=T
+    set guioptions-=e
+    set t_Co=256
+    set guitablabel=%M\ %t
 endif
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
 
 " Works poorly for git diffs:
 " hi Normal guibg=Black guifg=seashell ctermfg=White
@@ -378,12 +410,9 @@ endif
 " hi Identifier guifg=Cyan
 " hi Statement guifg=brown3 ctermfg=DarkRed
 
+
 " Colors for vimdiff:
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
-
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
