@@ -260,14 +260,11 @@ endif
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 
-"space to single char map
-" :nmap <Space> i_<Esc>r
-
 " paste in visual mode with p"
 vnoremap p "_dP
 
 " Clipboard sharing on mac osx, first run brew install vim
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " look for tags in parent dir if not found
 set tags=./tags;/
@@ -302,13 +299,15 @@ set noeol
 " make that backspace key work the way it should
 set backspace=indent,eol,start
 
+" Mouse. Really necessary in nvim?
 set mouse=a
 set mousef
 
 " set margin wrapping
-set wrapmargin=1
+set wrap
 
-set splitright    " spawn vertical splits to the right instead of left"
+set splitright   " spawn vertical splits to the right instead of left"
+set splitbelow   " spawn splits below
 
 "emacs in command line
 cnoremap <C-a> <Home>
