@@ -171,6 +171,7 @@ map <leader>e :ALEToggle <CR>
 map <leader>f :ALEFix <CR>
 
 " Go to next error/warning
+" TODO(ao): Maybe replace this with only 'errors' or lsp bindings
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " nmap <leader>g <Plug>(ale_go_to_definition) " Not working
