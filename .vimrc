@@ -177,20 +177,22 @@ map <leader>f :ALEFix <CR>
 " Go to next error/warning
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-nmap <leader>g <Plug>(ale_go_to_definition)
-" autocmd VimEnter * ALEDisable
+" nmap <leader>g <Plug>(ale_go_to_definition) " Not working
 
 let g:ale_fix_on_save = 0
 let g:ale_completion_enabled = 0
 let g:ale_maximum_file_size = 500000                " Don't lint large files (> 500KB), it can slow things down
 let g:ale_linters = {}
-let g:ale_linters.javascript = ['eslint', 'xo']
 let g:ale_linters.python = ['pylint', 'flake8']
+let g:ale_linters.go = ['go', 'golint', 'errcheck']
+let g:ale_linters.javascript = ['eslint', 'xo']
 let g:ale_linters.html = []
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
-let g:ale_fixers.python = ['yapf', 'trim_whitespace'] ", 'isort']
+let g:ale_fixers.python = ['yapf', 'trim_whitespace']
+
 let g:ale_python_flake8_options = "max-line-length = 81"
+let g:ale_python_pylint_options = "max-line-length = 81"
 
 let g:ale_sign_error = '💣'
 let g:ale_sign_warning = '⚠'
