@@ -28,8 +28,10 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-vim-lsp'
 Plug 'ncm2/ncm2'
-
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " old way to complete with language client
+Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
+Plug 'ncm2/ncm2-path'  " filepath completion
+Plug 'davidhalter/jedi-vim'   " jedi for python
+" Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
 
 " Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
 " Plug 'Vimjas/vim-python-pep8-indent' 
@@ -115,27 +117,37 @@ if executable('go-langserver')
         \ })
 endif
 
-if executable('flow-language-server')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'flow-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'flow-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
-        \ 'whitelist': ['javascript', 'javascript.jsx'],
-        \ })
-endif
-
 " :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
-
-nnoremap K :LspHover<CR>
-nnoremap <leader>d :LspDefinition<CR>
 
 " NOTE: you need to install completion sources to get completions. Check
 " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
 
-" Use <TAB> to select the popup menu:
+" ncm2 settings
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=menuone,noselect,noinsert
+" make it FAST
+let ncm2#popup_delay = 5
+let ncm2#complete_length = [[1,1]]
+let g:ncm2#matcher = 'substrfuzzy'
+
+set pumheight=5
+
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Jedi disable features (using ncm2 for those):
+let g:jedi#auto_initialization = 1
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_command = ""
+let g:jedi#show_call_signatures = "1"
+let g:jedi#show_call_signatures_delay = 0
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#show_call_signatures_modes = 'i'  " ni = also in normal mode
+let g:jedi#enable_speed_debugging=0
 
 " Let ack use silver searcher
 if executable('ag')
@@ -154,6 +166,11 @@ nnoremap <Leader>a :Ack!<Space>
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 
+" map paste, yank and delete to named register so the content
+" will not be overwritten
+nnoremap x "_x
+vnoremap x "_x
+
 "Default is same-buffer, but does not work with unsaved changes:
 "let g:ycm_goto_buffer_command = 'same-buffer'
 " let g:ycm_autoclose_preview_window_after_completion=1
@@ -165,10 +182,10 @@ let g:LanguageClient_serverCommands = {
       \ 'sh': ['bash-language-server', 'start']
       \}
 
-" let g:deoplete#enable_at_startup = 1
-
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" Below is handled by jedi with ,g and ,d
+" nnoremap K :LspHover<CR>
+" nnoremap <leader>d :LspDefinition<CR>
+" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 " nnoremap <leader>g :call LanguageClient_textDocument_definition()<CR>
 
 " Toggle ale linter
