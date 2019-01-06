@@ -89,45 +89,45 @@ call plug#end()
 
 let mapleader = ','
 
-if executable('pyls')
-  " pip install python-language-server
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
+" if executable('pyls')
+"   " pip install python-language-server
+"   au User lsp_setup call lsp#register_server({
+"         \ 'name': 'pyls',
+"         \ 'cmd': {server_info->['pyls']},
+"         \ 'whitelist': ['python'],
+"         \ })
+" endif
 
-if executable('docker-langserver')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'docker-langserver',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'docker-langserver --stdio']},
-        \ 'whitelist': ['dockerfile'],
-        \ })
-endif
+" if executable('docker-langserver')
+"   au User lsp_setup call lsp#register_server({
+"         \ 'name': 'docker-langserver',
+"         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'docker-langserver --stdio']},
+"         \ 'whitelist': ['dockerfile'],
+"         \ })
+" endif
 
-if executable('go-langserver')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'go-langserver',
-        \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
-        \ 'whitelist': ['go'],
-        \ })
-endif
+" if executable('go-langserver')
+"   au User lsp_setup call lsp#register_server({
+"         \ 'name': 'go-langserver',
+"         \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
+"         \ 'whitelist': ['go'],
+"         \ })
+" endif
 
-if executable('flow-language-server')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'flow-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'flow-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
-        \ 'whitelist': ['javascript', 'javascript.jsx'],
-        \ })
-endif
+" if executable('flow-language-server')
+"   au User lsp_setup call lsp#register_server({
+"         \ 'name': 'flow-language-server',
+"         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'flow-language-server --stdio']},
+"         \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.flowconfig'))},
+"         \ 'whitelist': ['javascript', 'javascript.jsx'],
+"         \ })
+" endif
 
 " :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
 
 nnoremap K :LspHover<CR>
-nnoremap <leader>d :LspDefinition<CR>
+" nnoremap <leader>d :LspDefinition<CR>
 
 " NOTE: you need to install completion sources to get completions. Check
 " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
@@ -154,15 +154,15 @@ nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 
 "Default is same-buffer, but does not work with unsaved changes:
-let g:ycm_goto_buffer_command = 'same-buffer'
- let g:ycm_autoclose_preview_window_after_completion=1
- map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" let g:ycm_goto_buffer_command = 'same-buffer'
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-let g:LanguageClient_serverCommands = {
-      \ 'haskell': ['hie', '--lsp'],
-      \ 'python': ['pyls'],
-      \ 'sh': ['bash-language-server', 'start']
-      \}
+" let g:LanguageClient_serverCommands = {
+"       \ 'haskell': ['hie', '--lsp'],
+"       \ 'python': ['pyls'],
+"       \ 'sh': ['bash-language-server', 'start']
+"       \}
 
 " let g:deoplete#enable_at_startup = 1
 
