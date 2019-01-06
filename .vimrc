@@ -149,8 +149,9 @@ nnoremap <Leader>a :Ack!<Space>
 " nmap <Leader>t :Files<CR>
 " nmap <Leader>r :Tags<CR>
 
-" Fast saving
+" Fast saving (less using pinky finger)
 nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
 
 "Default is same-buffer, but does not work with unsaved changes:
 "let g:ycm_goto_buffer_command = 'same-buffer'
