@@ -31,8 +31,9 @@ Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
 Plug 'ncm2/ncm2-path'  " filepath completion
 Plug 'ncm2/ncm2-jedi'  " fast python completion compared to pyls
-Plug 'davidhalter/jedi-vim'   " some additional features from pure jedi
 
+
+" Plug 'davidhalter/jedi-vim'   " some additional features from pure jedi. Broken in virtualenvs with current installation
 " Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
 " Plug 'Vimjas/vim-python-pep8-indent' 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
@@ -151,7 +152,7 @@ if executable('ag')
 endif
 
 " Search file content (ack uses ag)
-nnoremap <Leader>a :Ack!<Space>
+nnoremap <leader>a :Ack!<Space>
 
 " fzf.vim searching
 " nmap ; :Buffers<CR>
@@ -179,17 +180,18 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_fix_on_save = 0
 let g:ale_completion_enabled = 0
 let g:ale_maximum_file_size = 500000                " Don't lint large files (> 500KB), it can slow things down
+
 let g:ale_linters = {}
-let g:ale_linters.python = ['pylint', 'flake8']
+let g:ale_linters.python = ['pylint']
 let g:ale_linters.go = ['go', 'golint', 'errcheck']
 let g:ale_linters.javascript = ['eslint', 'xo']
 let g:ale_linters.html = []
+
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
 let g:ale_fixers.python = ['yapf', 'trim_whitespace']
 
 let g:ale_python_flake8_options = "max-line-length = 81"
-let g:ale_python_pylint_options = "max-line-length = 81"
 
 let g:ale_sign_error = '💣'
 let g:ale_sign_warning = '⚠'
@@ -342,15 +344,6 @@ inoremap [, [],<Esc>i<Esc>i
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-set nobackup
-set nowb
-set noswapfile
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
