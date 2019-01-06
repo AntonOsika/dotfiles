@@ -81,21 +81,12 @@ brew install git-flow 		# very strict aliases for developing with feature branch
 
 brew install vim --override-system-vi
 
-# install Vundle
-# git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
 # install vim-plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 brew tap neovim/neovim
 brew install neovim
 
 brew install ctags
-
-# XML parsers:
-#brew install libxml2
-#brew install libxslt
-#brew link libxml2 --force
-#brew link libxslt --force
 
 # frontend tools
 brew install node
@@ -183,6 +174,8 @@ pip install nose
 pip install pyparsing
 pip install python-dateutil
 pip install pep8
+pip install pylint
+pip install flak8
 
 pip install notedown
 
