@@ -30,9 +30,9 @@ Plug 'ncm2/ncm2-vim-lsp'
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
 Plug 'ncm2/ncm2-path'  " filepath completion
-Plug 'davidhalter/jedi-vim'   " jedi for python
+Plug 'ncm2/ncm2-jedi'  " fast python completion compared to pyls
+Plug 'davidhalter/jedi-vim'   " some additional features from pure jedi
 
-" Plug 'ncm2/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
 " Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
 " Plug 'Vimjas/vim-python-pep8-indent' 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
@@ -80,15 +80,6 @@ let mapleader = ','
 
 " Language Server plugins
 
-if executable('pyls')
-  " pip install python-language-server
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
-
 if executable('docker-langserver')
   au User lsp_setup call lsp#register_server({
         \ 'name': 'docker-langserver',
@@ -104,6 +95,17 @@ if executable('go-langserver')
         \ 'whitelist': ['go'],
         \ })
 endif
+
+" jedi is much faster than pyls so we use that instead:
+" if executable('pyls')
+"   " pip install python-language-server
+"   au User lsp_setup call lsp#register_server({
+"         \ 'name': 'pyls',
+"         \ 'cmd': {server_info->['pyls']},
+"         \ 'whitelist': ['python'],
+"         \ })
+" endif
+
 
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
