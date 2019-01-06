@@ -31,8 +31,8 @@ Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
 Plug 'ncm2/ncm2-path'  " filepath completion
 Plug 'davidhalter/jedi-vim'   " jedi for python
-" Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
 
+" Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
 " Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
 " Plug 'Vimjas/vim-python-pep8-indent' 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
@@ -176,17 +176,9 @@ vnoremap x "_x
 " let g:ycm_autoclose_preview_window_after_completion=1
 " map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-let g:LanguageClient_serverCommands = {
-      \ 'haskell': ['hie', '--lsp'],
-      \ 'python': ['pyls'],
-      \ 'sh': ['bash-language-server', 'start']
-      \}
-
 " Below is handled by jedi with ,g and ,d
 " nnoremap K :LspHover<CR>
 " nnoremap <leader>d :LspDefinition<CR>
-" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-" nnoremap <leader>g :call LanguageClient_textDocument_definition()<CR>
 
 " Toggle ale linter
 map <leader>e :ALEToggle <CR>
