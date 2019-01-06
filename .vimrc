@@ -32,7 +32,7 @@ Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
 Plug 'ncm2/ncm2-path'  " filepath completion
 Plug 'davidhalter/jedi-vim'   " jedi for python
 
-" Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
+" Plug 'ncm2/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
 " Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
 " Plug 'Vimjas/vim-python-pep8-indent' 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
@@ -65,32 +65,20 @@ endfunction
 
 " Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
-" All of your Plugins must be added before the following line
-call plug#end()
-
-" Brief help
+" Brief vim-plug help
 " :PlugSnapshot   - lists configured plugins
 " :PlugInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PlugClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
-"let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
+" </Plugins>
+call plug#end()
+"""""""""""""""""""""""""""""""""
 
-" YouCompleteMe requires python.
-" pip2 install --user --upgrade neovim
-" pip3 install --user --upgrade neovim
-
-" It also has to be built. This is done by running `install.py` in:
-" `~/.vim/plugged/YouCompleteMe`
-
-
-" Language Server plugins
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
+" let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
 
 let mapleader = ','
+
+" Language Server plugins
 
 if executable('pyls')
   " pip install python-language-server
@@ -117,6 +105,9 @@ if executable('go-langserver')
         \ })
 endif
 
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
 " :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
 
@@ -126,17 +117,20 @@ set completeopt=noinsert,menuone,noselect
 " ncm2 settings
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=menuone,noselect,noinsert
-" make it FAST
+" make it very fast
 let ncm2#popup_delay = 5
 let ncm2#complete_length = [[1,1]]
 let g:ncm2#matcher = 'substrfuzzy'
 
+" number of suggestions in popup
 set pumheight=5
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" enter closes popup if nothing selected
+inoremap <silent> <expr> <CR> (pumvisible() && empty(v:completed_item)) ?  "\<c-y>\<cr>" : "\<CR>"
 
-" Jedi disable features (using ncm2 for those):
+" disable Jedi features (using ncm2 for those):
 let g:jedi#auto_initialization = 1
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
@@ -166,17 +160,7 @@ nnoremap <Leader>a :Ack!<Space>
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 
-" map paste, yank and delete to named register so the content
-" will not be overwritten
-nnoremap x "_x
-vnoremap x "_x
-
-"Default is same-buffer, but does not work with unsaved changes:
-"let g:ycm_goto_buffer_command = 'same-buffer'
-" let g:ycm_autoclose_preview_window_after_completion=1
-" map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" Below is handled by jedi with ,g and ,d
+" Below is handled by jedi (,g and ,d)
 " nnoremap K :LspHover<CR>
 " nnoremap <leader>d :LspDefinition<CR>
 
@@ -236,6 +220,13 @@ map <leader>z :vs term://zsh<CR>i
 " open vimrc
 nmap <leader>, :e ~/.vimrc<CR>
 
+" cd to current buffer
+map <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" map paste, yank and delete to named register so the content
+" will not be overwritten
+nnoremap x "_x
+vnoremap x "_x
 
 "set smartindent " Comments makes comments not be indented
 set tabstop=4
@@ -262,7 +253,7 @@ au FocusGained,BufEnter * :checktime
 " wrap markdown:
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
-"makes command use aliases, i.e. a user terminal session. this hack makes vim crash a lot
+"makes !command use .zshrc aliases, i.e. a user terminal session. this hack makes vim crash
 "set shellcmdflag+=i
 
 "Escape terminal mode in neovim:
@@ -282,7 +273,6 @@ set clipboard=unnamed
 
 " look for tags in parent dir if not found
 set tags=./tags;/
-
 
 " turn color syntax highlighting on by default
 " set term=builtin_beos-ansi
