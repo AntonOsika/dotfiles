@@ -1,0 +1,9 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "∇・",
+    "dontautoexpand" : true,
+    "uid" : "5D6C3341-A4F8-494E-95FD-FF2B5755E0CC",
+    "name" : "divergence",
+    "keyword" : "\\div("
+  }
+}

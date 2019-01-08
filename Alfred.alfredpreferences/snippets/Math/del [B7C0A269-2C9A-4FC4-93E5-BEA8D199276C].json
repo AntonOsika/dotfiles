@@ -1,0 +1,9 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "∂",
+    "dontautoexpand" : true,
+    "uid" : "B7C0A269-2C9A-4FC4-93E5-BEA8D199276C",
+    "name" : "del",
+    "keyword" : "\\del("
+  }
+}

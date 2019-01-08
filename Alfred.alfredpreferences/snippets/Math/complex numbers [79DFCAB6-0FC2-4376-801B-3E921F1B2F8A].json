@@ -1,0 +1,9 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "ℂ",
+    "dontautoexpand" : true,
+    "uid" : "79DFCAB6-0FC2-4376-801B-3E921F1B2F8A",
+    "name" : "complex numbers",
+    "keyword" : "\\Complex"
+  }
+}

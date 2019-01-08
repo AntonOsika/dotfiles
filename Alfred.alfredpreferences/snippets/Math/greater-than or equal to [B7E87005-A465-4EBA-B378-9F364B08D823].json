@@ -1,0 +1,9 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "≥",
+    "dontautoexpand" : true,
+    "uid" : "B7E87005-A465-4EBA-B378-9F364B08D823",
+    "name" : "greater-than or equal to",
+    "keyword" : ">="
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "import joblib\nimport itertools as it\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib as mpl\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\nmpl.style.use('seaborn-dark-palette')\n\nfont = {'family': 'normal',\n        'weight': 'normal',\n        'size'  : 16}\nplt.tight_layout()\n\nmpl.rc('font', **font)\n\nsns.set_style(\"whitegrid\")\n\npd.options.display.max_rows = 999\npd.options.display.max_columns = 999\n\npd.options.display.float_format = '{:,.4f}'.format",
+    "uid" : "60419B8B-B991-406A-98D5-1632617F790D",
+    "name" : "python data science imports",
+    "keyword" : ";pylab"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "∃",
+    "dontautoexpand" : true,
+    "uid" : "206B7664-0211-4A5A-8510-A0EE4057C81B",
+    "name" : "exists",
+    "keyword" : "\\Ex"
+  }
+}

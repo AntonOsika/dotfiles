@@ -1,0 +1,9 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "∮",
+    "dontautoexpand" : true,
+    "uid" : "97C00967-E456-4548-BC5D-4033723C6070",
+    "name" : "contour integral",
+    "keyword" : "\\contint("
+  }
+}
