@@ -1,6 +1,25 @@
-"Vundle setup:
 
-set nocompatible              " required (not comp old vi)
+" .vimrc of Anton Osika
+" 
+" Overview 
+" ========
+"
+" This .vimrc is made for neovim. It requires:
+" - vim-plug
+" - python3
+" - silver-searcher, fzf
+" - jedi, pylint, language servers
+"
+" Before installing necessary packages, set up your default python installation to a python 3.6, and set your
+" PYTHONPATH to point to this python installation.
+"
+" If some plugin functionality is not working, make sure that you have installed the corresponding packages.
+"
+" Note:
+" A lot of plugins are commented out so that I remember what I have decided to not use per default.
+
+
+set nocompatible              " required (not compatible with old vi)
 filetype off                  " required
 
 " set the runtime path to include vim-olug and initialize
@@ -31,9 +50,9 @@ Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
 Plug 'ncm2/ncm2-path'  " filepath completion
 Plug 'ncm2/ncm2-jedi'  " fast python completion compared to pyls
+" Plug 'davidhalter/jedi-vim'   " some additional features from pure jedi.
 
 
-" Plug 'davidhalter/jedi-vim'   " some additional features from pure jedi. Broken in virtualenvs with current installation
 " Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
 " Plug 'Vimjas/vim-python-pep8-indent' 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
@@ -73,7 +92,6 @@ endfunction
 
 " </Plugins>
 call plug#end()
-"""""""""""""""""""""""""""""""""
 
 " let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
 
@@ -154,16 +172,11 @@ endif
 " Search file content (ack uses ag)
 nnoremap <leader>a :Ack!<Space>
 
-" fzf.vim searching
-" nmap ; :Buffers<CR>
-" nmap <Leader>t :Files<CR>
-" nmap <Leader>r :Tags<CR>
-
-" Fast saving (less using pinky finger)
+" Fast saving (less use of pinky finger)
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 
-" Below is handled by jedi (,g and ,d)
+" Below is handled by jedi (,g and ,d) for python files
 " nnoremap K :LspHover<CR>
 " nnoremap <leader>d :LspDefinition<CR>
 
@@ -258,9 +271,6 @@ au FocusGained,BufEnter * :checktime
 " wrap markdown:
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
-"makes !command use .zshrc aliases, i.e. a user terminal session. this hack makes vim crash
-"set shellcmdflag+=i
-
 "Escape terminal mode in neovim:
 if exists(':tnoremap')
     tnoremap <Esc> <C-\><C-n>
@@ -339,7 +349,6 @@ inoremap [<CR> []<Esc>i
 inoremap [; [];<Esc>i<Esc>i
 inoremap [, [],<Esc>i<Esc>i
 
-
 " Set tab width etc
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
@@ -368,24 +377,6 @@ endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
-
-" Works poorly for git diffs:
-" hi Normal guibg=Black guifg=seashell ctermfg=White
-" hi NonText guifg=LavenderBlush ctermfg=LightMagenta
-" hi DiffDelete guibg=DarkRed guifg=Black ctermbg=DarkRed ctermfg=Black
-" hi DiffAdd guibg=DarkGreen ctermbg=DarkGreen ctermfg=Black
-" hi DiffChange guibg=Gray30 ctermbg=DarkCyan ctermfg=Black
-" hi DiffText gui=NONE guibg=Cyan ctermbg=Cyan ctermfg=Black
-" hi Comment guifg=LightBlue
-" hi Constant guifg=DeepPink
-" hi PreProc guifg=Magenta ctermfg=Magenta
-" hi StatusLine guibg=Black guifg=Gray30 cterm=NONE ctermfg=Black ctermbg=LightGray
-" hi StatusLineNC guifg=Gray
-" hi VertSplit guifg=Gray
-" hi Type gui=NONE
-" hi Identifier guifg=Cyan
-" hi Statement guifg=brown3 ctermfg=DarkRed
-
 
 " Colors for vimdiff:
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
