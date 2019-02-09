@@ -5,15 +5,17 @@
 " ========
 "
 " This .vimrc is made for neovim. It requires:
-" - vim-plug
 " - python3
-" - silver-searcher, fzf
 " - jedi, pylint, language servers
+" - silver-searcher, fzf
+" - vim-plug
 "
 " Before installing necessary packages, set up your default python installation to a python 3.6, and set your
 " PYTHONPATH to point to this python installation.
 "
-" If some plugin functionality is not working, make sure that you have installed the corresponding packages.
+" If you are using a virtual environment `pip install neovim` in the virtual environment.
+"
+" If some plugin functionality is not working, make sure that you have installed the corresponding packages globally.
 "
 " Note:
 " A lot of plugins are commented out so that I remember what I have decided to not use per default.
@@ -27,19 +29,21 @@ call plug#begin('~/.vim/plugged')
 
 " Add all your plugins here 
 
-Plug 'junegunn/vim-plug'        " package manager
-Plug 'elzr/vim-json'            "easier to read json
-Plug 'tpope/vim-commentary'     "gcc = comment
+Plug 'junegunn/vim-plug'         " package manager
+Plug 'elzr/vim-json'             " easier to read json
+Plug 'tpope/vim-commentary'      " gcc = comment
 Plug 'tpope/vim-surround'	     " yss) cs]} ds' etc to change surround etc
-Plug 'tpope/vim-sleuth'	            " detects indentation style for buffer
-Plug 'airblade/vim-gitgutter'   "shows changes since commit on the left
-Plug 'vim-scripts/taglist.vim'  "split window to see all tags for GUI vim :TlistOpen
+Plug 'tpope/vim-sleuth'	         " detects indentation style for buffer
+Plug 'airblade/vim-gitgutter'    " shows changes since commit on the left
+Plug 'vim-scripts/taglist.vim'   " split window to see all tags for GUI vim :TlistOpen
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
 Plug 'scrooloose/nerdtree'       " File system explorer
 Plug 'w0rp/ale'                  " Async lint engine, for all languages
 Plug 'mileszs/ack.vim'           " Search file content with :Ack [options] {pattern} [{directories}]
-Plug 'tpope/vim-fugitive'         "git wrapper
-Plug 'junegunn/fzf.vim'         " This or the above might have broken prezto completions ? 
+Plug 'tpope/vim-fugitive'        " git wrapper
+Plug 'junegunn/fzf.vim'          " ctrl-f to open files. This or the above might have broken prezto completions? 
+Plug 'osyo-manga/vim-over'       " incsearch for substitution
+Plug 'alfredodeza/pytest.vim'    " Run pytest
 
 " Completion Engine
 Plug 'prabirshrestha/async.vim'
@@ -50,7 +54,7 @@ Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
 Plug 'ncm2/ncm2-path'  " filepath completion
 Plug 'ncm2/ncm2-jedi'  " fast python completion compared to pyls
-" Plug 'davidhalter/jedi-vim'   " some additional features from pure jedi.
+Plug 'davidhalter/jedi-vim'   " some additional features from pure jedi.
 
 
 " Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
@@ -158,7 +162,7 @@ let g:jedi#auto_vim_configuration = 0
 let g:jedi#smart_auto_mappings = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#completions_command = ""
-let g:jedi#show_call_signatures = "1"
+let g:jedi#show_call_signatures = "0"
 let g:jedi#show_call_signatures_delay = 0
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#show_call_signatures_modes = 'i'  " ni = also in normal mode
@@ -175,6 +179,7 @@ nnoremap <leader>a :Ack!<Space>
 " Fast saving (less use of pinky finger)
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
+nmap <leader>wq :wq<CR>
 
 " Below is handled by jedi (,g and ,d) for python files
 " nnoremap K :LspHover<CR>
@@ -189,6 +194,9 @@ map <leader>f :ALEFix <CR>
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " nmap <leader>g <Plug>(ale_go_to_definition) " Not working
+
+nmap <leader>p :Pytest project<CR>
+nmap <leader>pn :Pytest next<CR>
 
 let g:ale_fix_on_save = 0
 let g:ale_completion_enabled = 0
@@ -216,6 +224,14 @@ highlight clear ALEWarningSign
 " Fuzzy search file
 nnoremap <C-f> :FZF! <CR>
 
+" Fuzzy search history
+nnoremap <C-S-f> :History <CR>
+
+" Better command history with q::
+command! CmdHist call fzf#vim#command_history({'right': '40'})
+nnoremap q: :CmdHist<CR>
+
+
 " Switch tabs
 nnoremap <C-h> :tabp <CR>
 nnoremap <C-l> :tabn <CR>
@@ -230,7 +246,7 @@ map gk <C-]>
 noremap <leader>l :TlistOpen<CR>
 
 " open nerdtree
-noremap <leader>n :NERDTreeToggle<CR>
+noremap <leader>t :NERDTreeToggle<CR>
 
 " Open zsh terminal
 map <leader>z :vs term://zsh<CR>i
@@ -240,11 +256,6 @@ nmap <leader>, :e ~/.vimrc<CR>
 
 " cd to current buffer
 map <leader>cd :cd %:p:h<CR>:pwd<CR>
-
-" map paste, yank and delete to named register so the content
-" will not be overwritten
-nnoremap x "_x
-vnoremap x "_x
 
 "set smartindent " Comments makes comments not be indented
 set tabstop=4

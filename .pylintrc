@@ -60,7 +60,10 @@ disable=
     missing-docstring,
     protected-access,
     too-few-public-methods,
-    # handled by black
+    len-as-condition
+    len-as-sequence
+    no-self-use
+    # handled by yapf
     format
 
 

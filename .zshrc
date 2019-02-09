@@ -13,8 +13,6 @@ export LANG=en_US.UTF-8
 export PATH="$HOME/anaconda3/bin:/usr/local/bin:/usr/local/python:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 export PYTHONPATH="$HOME/anaconda3/bin/lib/python3.6/site-packages:$PYTHONPATH"
 
-# needed by macbook air for brew python:
-# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
@@ -70,12 +68,12 @@ alias nofzf="export FZF_CTRL_R_OPTS='--exact'"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-#Pyenv guide from: https://medium.com/@henriquebastos/the-definitive-guide-to-setup-my-python-workspace-628d68552e14
 export WORKON_HOME=~/.ve
 export PROJECT_HOME=~/coding
 
+# Pyenv guide from: https://medium.com/@henriquebastos/the-definitive-guide-to-setup-my-python-workspace-628d68552e14
 # eval "$(pyenv init -)"
-#pyenv virtualenvwrapper_lazy
+# pyenv virtualenvwrapper_lazy
 
 export GOPATH=~/go
 
@@ -84,7 +82,7 @@ export PATH="$GOPATH/bin:$PATH"
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/anton/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/anton/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud. Very slow!
+# The next line enables shell command completion for gcloud. Too slow to be practical
 # if [ -f '/Users/anton/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/anton/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Matplotlib fix for virtualenvs:
@@ -105,11 +103,9 @@ function frameworkipython {
 
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
-# This is not working with prezto for some reason:
-# eval "$(direnv hook zsh)"
-
 # Adds conda to current path:
-# (Only using conda for this now)
+# (the alternative that works is adding conda to path and using it like they suggest)
+
 # function path_contains() {
 #   [[ ":$PATH:" == *":$1:"* ]]
 # }
@@ -150,7 +146,7 @@ kscore() {
   kaggle competitions submissions -c $C
 }
 
-# Edit / source dotfiles
+# Edit and source dotfiles
 ezh() {
   vim ~/.zshrc
 }
