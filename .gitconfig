@@ -20,8 +20,11 @@
 	# Add alias
 	a = add
 
+	# Commit
+	m = commit -m
+
 	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat --color-words"
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat --color-words | less"
 
 	# Diff with words
 	dw = git diff --color-words | less
@@ -52,7 +55,7 @@
 
 
 	# Switch to a branch, creating it if necessary
-	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+	go = checkout
 
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
@@ -197,6 +200,9 @@
 	# `git config --global push.default simple`. See http://git.io/mMah-w.
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
+
+	# Match local branch name with remote
+	default = current
 
 # URL shorthands
 

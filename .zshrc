@@ -11,7 +11,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 export PATH="$HOME/anaconda3/bin:/usr/local/bin:/usr/local/python:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
-export PYTHONPATH="$HOME/anaconda3/bin/lib/python3.6/site-packages:$PYTHONPATH"
+# export PYTHONPATH="$HOME/anaconda3/bin/python3.7/site-packages:$PYTHONPATH"
 
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -103,6 +103,8 @@ function frameworkipython {
 
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
+alias c="g++ -Wall -Wconversion -Wfatal-errors -g -std=c++14 -fsanitize=undefined,address"
+
 # Adds conda to current path:
 # (the alternative that works is adding conda to path and using it like they suggest)
 
@@ -154,3 +156,7 @@ ezh() {
 szh() {
   source ~/.zshrc
 }
+
+alias c1='g++ -Wall -Wconversion -Wfatal-errors -g -std=c++14 -fsanitize=undefined,address'
+
+alias c2='g++ -Wall -g -std=c++14 -O2'

@@ -14,7 +14,7 @@
 	<key>limit</key>
 	<integer>2</integer>
 	<key>persistFor</key>
-	<integer>2</integer>
+	<integer>3</integer>
 	<key>persistForFiles</key>
 	<integer>1</integer>
 	<key>persistForImages</key>

@@ -36,14 +36,15 @@ Plug 'tpope/vim-surround'	     " yss) cs]} ds' etc to change surround etc
 Plug 'tpope/vim-sleuth'	         " detects indentation style for buffer
 Plug 'airblade/vim-gitgutter'    " shows changes since commit on the left
 Plug 'vim-scripts/taglist.vim'   " split window to see all tags for GUI vim :TlistOpen
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
 Plug 'scrooloose/nerdtree'       " File system explorer
 Plug 'w0rp/ale'                  " Async lint engine, for all languages
 Plug 'mileszs/ack.vim'           " Search file content with :Ack [options] {pattern} [{directories}]
 Plug 'tpope/vim-fugitive'        " git wrapper
-Plug 'junegunn/fzf.vim'          " ctrl-f to open files. This or the above might have broken prezto completions? 
 Plug 'osyo-manga/vim-over'       " incsearch for substitution
 Plug 'alfredodeza/pytest.vim'    " Run pytest
+Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
+Plug 'junegunn/fzf.vim'          " ctrl-f to open files.
 
 " Completion Engine
 Plug 'prabirshrestha/async.vim'
@@ -98,6 +99,9 @@ endfunction
 call plug#end()
 
 " let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
+
+" Set python path for neovim:
+let g:python_host_prog='$HOME/anaconda3/bin/python'
 
 let mapleader = ','
 
@@ -179,7 +183,7 @@ nnoremap <leader>a :Ack!<Space>
 " Fast saving (less use of pinky finger)
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
-nmap <leader>wq :wq<CR>
+nmap <leader>x :x<CR>
 
 " Below is handled by jedi (,g and ,d) for python files
 " nnoremap K :LspHover<CR>
@@ -224,13 +228,9 @@ highlight clear ALEWarningSign
 " Fuzzy search file
 nnoremap <C-f> :FZF! <CR>
 
-" Fuzzy search history
-nnoremap <C-S-f> :History <CR>
-
 " Better command history with q::
 command! CmdHist call fzf#vim#command_history({'right': '40'})
 nnoremap q: :CmdHist<CR>
-
 
 " Switch tabs
 nnoremap <C-h> :tabp <CR>
@@ -264,6 +264,9 @@ set expandtab
 
 " set auto-indenting on for programming
 set ai
+
+" highlight current line
+set cul
 
 " Disable automatic comments.  These get annoying
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -309,6 +312,9 @@ set vb
 
 " highlight words when searching for them. it's distracting.
 set hlsearch
+
+" highlight visual selection
+vnoremap // y/<C-R>"<CR>gv
 
 " case insensitive. Put \C anywhere in search to do case sensitive (opposite of \c)
 set ignorecase
@@ -389,8 +395,11 @@ endif
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
+set termguicolors
+colo mycolo
+
 " Colors for vimdiff:
-highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+" highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+" highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+" highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+" highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
