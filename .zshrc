@@ -35,13 +35,14 @@ else
 fi
 
 alias g=git
+alias gl='g l'
 alias pc='open -a /Applications/PyCharm\ CE.app'
 
 # Creating tags for vim
 alias ct='ctags -R .'
 
 # TTS pasted content 500 wpm
-alias sp='pbp|xargs say -r 500 --'
+alias sp='say -r 500 -- "$(pbp)"'
 
 function tb() { tensorboard --logdir "$1" --host=localhost }
 

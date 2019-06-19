@@ -130,7 +130,7 @@ brew cask install caskroom/fonts/font-hack
 brew cask install caskroom/fonts/font-source-code-pro
 
 echo "installing python with brew, should end up in /usr/local/bin/python."
-brew install python
+brew install python2
 brew install python3
 
 echo "python and pip ended up in:"

@@ -32,6 +32,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>3D2A87B8-CF6D-4BEB-A068-04B19822333E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A7E5C06A-070C-4B87-B6E4-CA4DF2A9DB6B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>4B478CA3-B2AD-4D07-8984-3163F10E0B0E</key>
 		<array>
 			<dict>
@@ -120,11 +133,11 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>5</integer>
+				<integer>32</integer>
 				<key>hotmod</key>
 				<integer>1179648</integer>
 				<key>hotstring</key>
-				<string>G</string>
+				<string>U</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -135,7 +148,7 @@
 			<key>type</key>
 			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
-			<string>22CCAE82-6E95-41C6-A551-2115F7837234</string>
+			<string>4B478CA3-B2AD-4D07-8984-3163F10E0B0E</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -168,11 +181,11 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>32</integer>
+				<integer>5</integer>
 				<key>hotmod</key>
 				<integer>1179648</integer>
 				<key>hotstring</key>
-				<string>U</string>
+				<string>G</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -183,7 +196,7 @@
 			<key>type</key>
 			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
-			<string>4B478CA3-B2AD-4D07-8984-3163F10E0B0E</string>
+			<string>22CCAE82-6E95-41C6-A551-2115F7837234</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -201,6 +214,54 @@
 			<string>alfred.workflow.action.launchfiles</string>
 			<key>uid</key>
 			<string>E5BCB518-4A52-4334-B041-A6532BAD3885</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>18</integer>
+				<key>hotmod</key>
+				<integer>1179648</integer>
+				<key>hotstring</key>
+				<string>1</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>2</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>3D2A87B8-CF6D-4BEB-A068-04B19822333E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Slack.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>A7E5C06A-070C-4B87-B6E4-CA4DF2A9DB6B</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -257,23 +318,6 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/Notion.app</string>
-				</array>
-				<key>toggle</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.launchfiles</string>
-			<key>uid</key>
-			<string>A8593F49-028B-4BA9-8EC9-1D2D26800456</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>paths</key>
-				<array>
 					<string>/Applications/Anki.app</string>
 				</array>
 				<key>toggle</key>
@@ -283,6 +327,23 @@
 			<string>alfred.workflow.action.launchfiles</string>
 			<key>uid</key>
 			<string>72145584-BC38-4A32-88EE-1C4F958117B2</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Notion.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>A8593F49-028B-4BA9-8EC9-1D2D26800456</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -470,10 +531,17 @@
 			<key>ypos</key>
 			<integer>260</integer>
 		</dict>
+		<key>3D2A87B8-CF6D-4BEB-A068-04B19822333E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>310</integer>
+			<key>ypos</key>
+			<integer>130</integer>
+		</dict>
 		<key>4B478CA3-B2AD-4D07-8984-3163F10E0B0E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>510</integer>
+			<integer>310</integer>
 			<key>ypos</key>
 			<integer>10</integer>
 		</dict>
@@ -504,6 +572,13 @@
 			<integer>10</integer>
 			<key>ypos</key>
 			<integer>140</integer>
+		</dict>
+		<key>A7E5C06A-070C-4B87-B6E4-CA4DF2A9DB6B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>470</integer>
+			<key>ypos</key>
+			<integer>130</integer>
 		</dict>
 		<key>A8593F49-028B-4BA9-8EC9-1D2D26800456</key>
 		<dict>
@@ -543,7 +618,7 @@
 		<key>E5BCB518-4A52-4334-B041-A6532BAD3885</key>
 		<dict>
 			<key>xpos</key>
-			<integer>670</integer>
+			<integer>470</integer>
 			<key>ypos</key>
 			<integer>10</integer>
 		</dict>
