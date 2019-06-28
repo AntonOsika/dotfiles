@@ -1,0 +1,172 @@
+
+" .vimrc of Anton Osika
+let mapleader = ','
+
+
+" Let ack use silver searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" Search file content (ack uses ag)
+nnoremap <leader>a :Ack!<Space>
+
+" Fast saving (less use of pinky finger)
+nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
+nmap <leader>x :x<CR>
+
+" Fuzzy search file
+nnoremap <C-f> :FZF! <CR>
+
+" Switch tabs
+nnoremap <C-h> :tabp <CR>
+nnoremap <C-l> :tabn <CR>
+
+" follow tags without pinky finger 
+map gk <C-]>
+
+" open tlist
+noremap <leader>l :TlistOpen<CR>
+
+" open nerdtree
+noremap <leader>t :NERDTreeToggle<CR>
+
+" open vimrc
+nmap <leader>, :e ~/.ideavimrc<CR>
+
+" cd to current buffer
+map <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+"set smartindent " Comments makes comments not be indented
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" set auto-indenting on for programming
+set ai
+
+" highlight current line
+set cul
+
+" Disable automatic comments.  These get annoying
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" set line numbers
+set nu
+
+" make :diffsplit {filename} split vertically
+set diffopt+=vertical
+
+" Reload file when changed (e.g. with git) 
+set autoread
+au CursorHold,CursorHoldI * checktime
+au FocusGained,BufEnter * :checktime
+
+" wrap markdown:
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
+"Escape terminal mode in neovim:
+if exists(':tnoremap')
+    tnoremap <Esc> <C-\><C-n>
+endif
+
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+
+" paste in visual mode with p"
+vnoremap p "_dP
+
+" Clipboard sharing on mac osx (requires later versions)
+set clipboard=unnamed
+
+" turn color syntax highlighting on by default
+" set term=builtin_beos-ansi
+syntax on
+
+" turn on the "visual bell" - which is much quieter than the "audio blink"
+set vb
+
+" highlight words when searching for them. it's distracting.
+set hlsearch
+
+" highlight visual selection
+vnoremap // y/<C-R>"<CR>gv
+
+" case insensitive. Put \C anywhere in search to do case sensitive (opposite of \c)
+set ignorecase
+
+" automatically use case sensitive if it contains upper case chars (unless \c or \C is used)
+set smartcase
+
+" case-insensitive vim command line completion. vim-ambicmd does this and more.
+set wildignorecase
+
+" automatically show matching brackets. works like it does in bbedit.
+set showmatch
+
+" do NOT put a carriage return at the end of the last line! if you are programming
+" for the web the default will cause http headers to be sent. that's bad.
+set noeol
+
+" make that backspace key work the way it should
+set backspace=indent,eol,start
+
+" Mouse. Really necessary in nvim?
+set mouse=a
+set mousef
+
+" set margin wrapping
+set wrap
+
+set splitright   " spawn vertical splits to the right instead of left"
+set splitbelow   " spawn splits below
+
+"emacs in command line
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
+
+" Set tab width etc
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable 
+
+try
+    colorscheme desert
+catch
+endtry
+
+set background=dark
+
+" Set extra options when running in GUI mode
+if has("gui_running")
+    set guioptions-=T
+    set guioptions-=e
+    set t_Co=256
+    set guitablabel=%M\ %t
+endif
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+set termguicolors
+colo mycolo
+
+" Colors for vimdiff:
+" highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+" highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+" highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+" highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
