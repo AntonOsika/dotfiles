@@ -1,3 +1,6 @@
+" emulated extension
+set surround
+set multiple-cursors
 
 " .vimrc of Anton Osika
 let mapleader = ','
