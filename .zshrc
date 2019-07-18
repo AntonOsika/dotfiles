@@ -135,8 +135,6 @@ alias c="g++ -Wall -Wconversion -Wfatal-errors -g -std=c++14 -fsanitize=undefine
 #   remove_from_path "$HOME/anaconda3/bin"
 # }
 
-. $HOME/anaconda3/etc/profile.d/conda.sh
-
 # Kaggle submit
 ksub() {
   C=`basename $(pwd)`
