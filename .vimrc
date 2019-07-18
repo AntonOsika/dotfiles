@@ -134,9 +134,6 @@ endif
 " endif
 
 
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
 " :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
 
@@ -299,6 +296,7 @@ vnoremap p "_dP
 
 " Clipboard sharing on mac osx (requires later versions)
 set clipboard=unnamed
+set clipboard+=unnamedplus
 
 " look for tags in parent dir if not found
 set tags=./tags;/

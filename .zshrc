@@ -17,16 +17,6 @@ export LANG=en_US.UTF-8
 
 export MANPATH="/usr/local/man:$MANPATH"
 
-# Find functions
-function f() { find . -iname "*$1*" ${@:2} }
-function fr() { grep "$1" ${@:2} -R . }
-
-# Kill process listening on port
-function killport { pid=$(lsof -i:"$1" -t); kill -TERM $pid || kill -KILL $pid }
-
-# Get manual of builtin commands
-function bashman { man bash | less -p "^       $1 "; }
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -34,40 +24,12 @@ else
   export EDITOR='nvim'
 fi
 
-alias g=git
-alias gl='g l'
-alias pc='open -a /Applications/PyCharm\ CE.app'
-
-# Creating tags for vim
-alias ct='ctags -R .'
-
-# TTS pasted content 500 wpm
-alias sp='say -r 500 -- "$(pbp)"'
-
-function tb() { tensorboard --logdir "$1" --host=localhost }
-
-if test $(which nvim); then
-  alias vim=nvim
-  alias vimdiff='nvim -d'
-fi
-
-alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
-
 # Style by jeromedalbert.com:
 
 export LSCOLORS="exfxcxdxbxegedabagacad"
 
-alias ll="ls -lh"
-alias la="ls -A"
-
 # activates fzf, use **<TAB> (or e.g. kill -9 <TAB>) to start searching:
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-alias nofzf="export FZF_CTRL_R_OPTS='--exact'"
-
-#Fix python locale error
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
 
 export WORKON_HOME=~/.ve
 export PROJECT_HOME=~/coding
@@ -135,6 +97,39 @@ alias c="g++ -Wall -Wconversion -Wfatal-errors -g -std=c++14 -fsanitize=undefine
 #   remove_from_path "$HOME/anaconda3/bin"
 # }
 
+# Find functions
+function f() { find . -iname "*$1*" ${@:2} }
+function fr() { grep "$1" ${@:2} -R . }
+
+# Kill process listening on port
+function killport { pid=$(lsof -i:"$1" -t); kill -TERM $pid || kill -KILL $pid }
+
+# Get manual of builtin commands
+function bashman { man bash | less -p "^       $1 "; }
+
+alias g=git
+alias gl='g l'
+
+# Creating tags for vim
+alias ct='ctags -R .'
+
+# TTS pasted content 500 wpm
+alias sp='say -r 500 -- "$(pbp)"'
+
+function tb() { tensorboard --logdir "$1" --host=localhost }
+
+if test $(which nvim); then
+  alias vim=nvim
+  alias vimdiff='nvim -d'
+fi
+
+alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+
+alias ll="ls -lh"
+alias la="ls -A"
+
+alias nofzf="export FZF_CTRL_R_OPTS='--exact'"
+
 # Kaggle submit
 ksub() {
   C=`basename $(pwd)`
@@ -159,3 +154,5 @@ szh() {
 alias c1='g++ -Wall -Wconversion -Wfatal-errors -g -std=c++14 -fsanitize=undefined,address'
 
 alias c2='g++ -Wall -g -std=c++14 -O2'
+
+alias python=python3
