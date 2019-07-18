@@ -7,15 +7,15 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Source locals
+if [[ -s "$HOME/.localrc" ]]; then
+  source "$HOME/.localrc"
+fi
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export PATH="$HOME/anaconda3/bin:/usr/local/bin:/usr/local/python:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
-# export PYTHONPATH="$HOME/anaconda3/bin/python3.7/site-packages:$PYTHONPATH"
-
 export MANPATH="/usr/local/man:$MANPATH"
-
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 # Find functions
 function f() { find . -iname "*$1*" ${@:2} }
