@@ -66,4 +66,4 @@ Useful things that are not installed with these scripts.
 - (Clipy or Alfred PowerPack)
 - Mendeley
 - Rescue Time
-- translate shell [github](https://github.com/soimort/translate-shell)
+- Context for switching between windows in one app

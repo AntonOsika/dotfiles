@@ -11,11 +11,19 @@ sudo apt-get install -y \
     chromium-browser \
     curl \
     libssl-dev \
-    git
+    git \ 
+    docker.io \
+    tmux
 
+# Utils
+sudo apt install -y
+    copyq
+
+# Python
+sudo apt-get install python-dev python-pip python3-dev python3-pip
+sudo apt-get install python3-distutils
 sudo apt-get install -y python-pip python-dev python-virtualenv
 sudo pip install virtualenvwrapper
-sudo apt-get install -y tmux
 
 # Neovim
 sudo apt-get install software-properties-common
@@ -38,8 +46,6 @@ ln -sv $HOME/.vimrc $HOME/config/nvim/init.vim
 
 sudo apt-get install exuberant-ctags
 
-# Python
-sudo apt-get install python-dev python-pip python3-dev python3-pip
 
 # zsh
 sudo apt-get update && sudo apt-get -y install zsh
@@ -49,4 +55,32 @@ chsh -s $(which zsh)
 sudo apt install snapd
 snap install intellij-idea-ultimate --classic
 
+# Git credentials
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=604800'  # = 1 week
+
+# Java
+sudo apt install openjdk-8-jdk
+
+# Gcloud
+# Add the Cloud SDK distribution URI as a package source
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+# Import the Google Cloud Platform public key
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+# Update the package list and install the Cloud SDK
+sudo apt-get update && sudo apt-get install google-cloud-sdk
+
+# AWS
+sudo apt-get install awscli
+
+# Create swap file 
+# (https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/)
+sudo fallocate -l 8G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo bash -c "echo '/swapfile swap swap defaults 0 0' >> /etc/fstab"
+sudo swapon --show
+
+# zram (compression) ...
 

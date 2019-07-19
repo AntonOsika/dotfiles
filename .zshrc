@@ -156,3 +156,4 @@ alias c1='g++ -Wall -Wconversion -Wfatal-errors -g -std=c++14 -fsanitize=undefin
 alias c2='g++ -Wall -g -std=c++14 -O2'
 
 alias python=python3
+alias pip=pip3
