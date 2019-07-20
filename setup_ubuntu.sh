@@ -84,3 +84,11 @@ sudo swapon --show
 
 # zram (compression) ...
 
+
+# temp:
+sudo apt-get install konsole
+sudo apt install powertop
+# sudo apt-get install autokey
+# sudo update-alternatives --config x-terminal-emulator
+# sudo apt install pm-utils  # pm-powersave true
+# sudo apt install tlp tlp-rdw  # tlp start
