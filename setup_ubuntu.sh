@@ -13,7 +13,8 @@ sudo apt-get install -y \
     libssl-dev \
     git \ 
     docker.io \
-    tmux
+    tmux \
+    silversearcher-ag
 
 # Utils
 sudo apt install -y
@@ -24,12 +25,15 @@ sudo apt-get install python-dev python-pip python3-dev python3-pip
 sudo apt-get install python3-distutils
 sudo apt-get install -y python-pip python-dev python-virtualenv
 sudo pip install virtualenvwrapper
+pip install black yapf
 
 # Neovim
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
 sudo apt-get install neovim
+sudo apt-get install vim-python-jedi \
+    pylint
 
 sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
 sudo update-alternatives --config vi
@@ -84,11 +88,14 @@ sudo swapon --show
 
 # zram (compression) ...
 
+# power management
+sudo apt install powertop
+sudo apt install pm-utils  # pm-powersave true
+sudo apt install tlp tlp-rdw  # tlp start
 
 # temp:
 sudo apt-get install konsole
-sudo apt install powertop
+# sudo update-alternatives --config x-terminal-emulator  # -> Select default
 # sudo apt-get install autokey
-# sudo update-alternatives --config x-terminal-emulator
-# sudo apt install pm-utils  # pm-powersave true
-# sudo apt install tlp tlp-rdw  # tlp start
+sudo apt-get install festival
+sudo apt-get install xsel

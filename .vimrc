@@ -98,6 +98,9 @@ endfunction
 " </Plugins>
 call plug#end()
 
+let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
+
 " let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
 
 " Set python path for neovim:
@@ -192,8 +195,8 @@ map <leader>f :ALEFix <CR>
 
 " Go to next error/warning
 " TODO(ao): Maybe replace this with only 'errors' or lsp bindings
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-k> <Plug>(ale_previous_error)
+nmap <silent> <C-j> <Plug>(ale_next_error)
 " nmap <leader>g <Plug>(ale_go_to_definition) " Not working
 
 nmap <leader>p :Pytest project<CR>
@@ -211,7 +214,7 @@ let g:ale_linters.html = []
 
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier']
-let g:ale_fixers.python = ['yapf', 'trim_whitespace']
+let g:ale_fixers.python = ['black', 'trim_whitespace']
 
 let g:ale_python_flake8_options = "max-line-length = 81"
 
@@ -394,7 +397,7 @@ endif
 set encoding=utf8
 
 set termguicolors
-colo mycolo
+" colo mycolo
 
 " Colors for vimdiff:
 " highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red

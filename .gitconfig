@@ -192,6 +192,7 @@
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 	tool = vimdiff
+	keepBackup = false
 
 [push]
 
@@ -225,7 +226,6 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+
 [credential]
 	helper = cache --timeout=604800
-[mergetool]
-	keepBackup = false

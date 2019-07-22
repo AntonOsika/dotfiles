@@ -5,7 +5,9 @@ FILES=".vimrc
 .gitconfig
 .gitignore
 .gitattributes
-.pylintrc"
+.pylintrc
+.ideavimrc
+"
 
 echo "not sure this will indeed overwrite, perhaps change setup_symlinks.sh to use: ln -f"
 
