@@ -95,9 +95,6 @@ sysctl vm.swappiness=1
 sudo apt install powertop
 sudo apt install pm-utils  # pm-powersave true
 sudo apt install tlp tlp-rdw  # tlp start
-git clone https://github.com/teleshoes/tpacpi-bat
-cd tpacpi-bat
-./install.pl
 
 # Shift + scroll = horizontal
 sudo apt install xbindkeys xautomation
