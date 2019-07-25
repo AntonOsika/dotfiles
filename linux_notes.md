@@ -5,9 +5,10 @@
 * `dpkg` handles installed packages. apt handles dependency chain.
 
 ## Power usage
-* Don't let chrome run in background (advanced settings)
 * Uninstall e.g. habitlab (30% cpu usage)
-* Prefer firefox to chrome. GPU acceleration should improve battery etc (test!)
+* Suspend and should work out of the box. sudo systemctl suspend -i makes it suspend faster
+* sudo tlp start and sudo pm-powersave true potentially help save power
+* decided to not bother with complicated tpacpi-bat although recommended by medium tweak post
 
 ## Workflow
 * Shrink dock to minimal

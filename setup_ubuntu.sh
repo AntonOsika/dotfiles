@@ -8,13 +8,14 @@ sudo apt install gnome-tweak-tool
 # Necessities
 sudo apt-get install -y \
     build-essential \
-    chromium-browser \
     curl \
     libssl-dev \
     git \ 
     docker.io \
     tmux \
     silversearcher-ag
+
+# Install google chrome!
 
 # Utils
 sudo apt install -y
@@ -85,13 +86,24 @@ sudo mkswap /swapfile
 sudo swapon /swapfile
 sudo bash -c "echo '/swapfile swap swap defaults 0 0' >> /etc/fstab"
 sudo swapon --show
+# Minimal swapiness recommended
+sysctl vm.swappiness=1
 
-# zram (compression) ...
+# zram, takes battery (compression) ...
 
 # power management
 sudo apt install powertop
 sudo apt install pm-utils  # pm-powersave true
 sudo apt install tlp tlp-rdw  # tlp start
+git clone https://github.com/teleshoes/tpacpi-bat
+cd tpacpi-bat
+./install.pl
+
+# Shift + scroll = horizontal
+sudo apt install xbindkeys xautomation
+echo "; bind shift + vertical scroll to horizontal scroll events\
+  (xbindkey '(shift \"b:4\") \"xte 'mouseclick 6'\")\
+  (xbindkey '(shift \"b:5\") \"xte 'mouseclick 7'\")" >> .xbindkeysrc.scm
 
 # temp:
 sudo apt-get install konsole
@@ -99,3 +111,4 @@ sudo apt-get install konsole
 # sudo apt-get install autokey
 sudo apt-get install festival
 sudo apt-get install xsel
+
