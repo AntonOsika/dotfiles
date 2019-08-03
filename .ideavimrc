@@ -1,6 +1,7 @@
 " emulated extension
 set surround
 set multiple-cursors
+set commentary
 
 " .vimrc of Anton Osika
 let mapleader = ','
@@ -93,6 +94,7 @@ set vb
 
 " highlight words when searching for them. it's distracting.
 set hlsearch
+set incsearch
 
 " highlight visual selection
 vnoremap // y/<C-R>"<CR>gv

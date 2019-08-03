@@ -5,6 +5,11 @@
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+
+  # Avoid double virtualenv names on linux
+  if [[ ! "$OSTYPE" == "darwin"* ]]; then
+    export VIRTUAL_ENV_DISABLE_PROMPT=true
+  fi
 fi
 
 # Source locals
@@ -17,11 +22,15 @@ export LANG=en_US.UTF-8
 
 export MANPATH="/usr/local/man:$MANPATH"
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
+export EDITOR='vim'
+if test $(which nvim); then
+  # alias vim=nvim
+  alias vimdiff='nvim -d'
+
+  # Preferred editor for local and remote sessions
+  if [[ $SSH_CONNECTION ]]; then
+    export EDITOR='nvim'
+  fi
 fi
 
 # Style by jeromedalbert.com:
@@ -43,10 +52,8 @@ export GOPATH=~/go
 export PATH="$GOPATH/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/anton/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/anton/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud. Too slow to be practical
-# if [ -f '/Users/anton/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/anton/google-cloud-sdk/completion.zsh.inc'; fi
+  # zsh autocomplete can be enabled, but typically slow
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then source '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 
 # Matplotlib fix for virtualenvs:
 function frameworkpython {
@@ -109,6 +116,7 @@ function bashman { man bash | less -p "^       $1 "; }
 
 alias g=git
 alias gl='g l'
+alias gs='g s'
 
 # Creating tags for vim
 alias ct='ctags -R .'
@@ -117,11 +125,6 @@ alias ct='ctags -R .'
 alias sp='say -r 500 -- "$(pbp)"'
 
 function tb() { tensorboard --logdir "$1" --host=localhost }
-
-if test $(which nvim); then
-  alias vim=nvim
-  alias vimdiff='nvim -d'
-fi
 
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
@@ -157,3 +160,11 @@ alias c2='g++ -Wall -g -std=c++14 -O2'
 
 alias python=python3
 alias pip=pip3
+
+# swap alt win on gnome
+if [[ ! "$OSTYPE" == "darwin"* ]]; then
+  alias mk='noglob gsettings set org.gnome.desktop.input-sources xkb-options [\"caps:escape\",\"altwin:swap_lalt_lwin\",\"compose:sclk\"]'
+  alias tk='noglob gsettings set org.gnome.desktop.input-sources xkb-options [\"caps:escape\",\"compose:sclk\"]'
+  gsettings set org.gnome.desktop.peripherals.keyboard delay 200
+  gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 11
+fi

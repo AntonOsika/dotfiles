@@ -1,6 +1,11 @@
 # Repeat speed
-gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 15
-gsettings set org.gnome.desktop.peripherals.keyboard delay 250
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 11
+gsettings set org.gnome.desktop.peripherals.keyboard delay 200
+
+# ctrl tab in terminal
+# (this might have broken fn backspace functionality?)
+gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
+gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
 
 # Tweak tool for caps esc remap, compose key (shift + " + a -> ae)
 sudo apt install gnome-tweak-tool
@@ -20,6 +25,7 @@ sudo apt-get install -y \
 # Utils
 sudo apt install -y
     copyq
+sudo apt install anki
 
 # Python
 sudo apt-get install python-dev python-pip python3-dev python3-pip
@@ -27,6 +33,7 @@ sudo apt-get install python3-distutils
 sudo apt-get install -y python-pip python-dev python-virtualenv
 sudo pip install virtualenvwrapper
 pip install black yapf
+pip install ipython jupyterlab
 
 # Neovim
 sudo apt-get install software-properties-common
@@ -94,7 +101,8 @@ sysctl vm.swappiness=1
 # power management
 sudo apt install powertop
 sudo apt install pm-utils  # pm-powersave true
-sudo apt install tlp tlp-rdw  # tlp start
+sudo apt install tlp tlp-rdw  # tlp start, tlp fullcharge
+# Used gui to setup thinkpad battery policy
 
 # Shift + scroll = horizontal
 sudo apt install xbindkeys xautomation
@@ -108,4 +116,3 @@ sudo apt-get install konsole
 # sudo apt-get install autokey
 sudo apt-get install festival
 sudo apt-get install xsel
-

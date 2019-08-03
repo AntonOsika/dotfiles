@@ -103,9 +103,6 @@ let g:python_host_prog = '/usr/bin/python2'
 
 " let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
 
-" Set python path for neovim:
-let g:python_host_prog='$HOME/anaconda3/bin/python'
-
 let mapleader = ','
 
 " Language Server plugins
@@ -194,7 +191,6 @@ map <leader>e :ALEToggle <CR>
 map <leader>f :ALEFix <CR>
 
 " Go to next error/warning
-" TODO(ao): Maybe replace this with only 'errors' or lsp bindings
 nmap <silent> <C-k> <Plug>(ale_previous_error)
 nmap <silent> <C-j> <Plug>(ale_next_error)
 " nmap <leader>g <Plug>(ale_go_to_definition) " Not working
@@ -313,6 +309,7 @@ set vb
 
 " highlight words when searching for them. it's distracting.
 set hlsearch
+set incsearch
 
 " highlight visual selection
 vnoremap // y/<C-R>"<CR>gv
