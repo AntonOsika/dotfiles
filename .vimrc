@@ -103,6 +103,9 @@ let g:python_host_prog = '/usr/bin/python2'
 
 " let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
 
+" Set mac python path for neovim:
+let g:python3_host_prog='/Users/anton/anaconda3/bin/python'
+
 let mapleader = ','
 
 " Language Server plugins

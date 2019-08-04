@@ -84,6 +84,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>9B44DA92-CA0A-4E14-B0D8-0AD39A5B2AA0</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>DE144510-05CA-48BA-B50B-26836B515EF9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>C89B16A9-785C-4856-9033-D36C0F873AB2</key>
 		<array>
 			<dict>
@@ -168,6 +181,54 @@
 			<string>CEAEBE33-715D-4BB0-89F4-9CB7CDD88E38</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/iTerm.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>DE144510-05CA-48BA-B50B-26836B515EF9</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>19</integer>
+				<key>hotmod</key>
+				<integer>1179648</integer>
+				<key>hotstring</key>
+				<string>2</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>2</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>9B44DA92-CA0A-4E14-B0D8-0AD39A5B2AA0</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -318,23 +379,6 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/Anki.app</string>
-				</array>
-				<key>toggle</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.launchfiles</string>
-			<key>uid</key>
-			<string>72145584-BC38-4A32-88EE-1C4F958117B2</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>paths</key>
-				<array>
 					<string>/Applications/Notion.app</string>
 				</array>
 				<key>toggle</key>
@@ -344,6 +388,23 @@
 			<string>alfred.workflow.action.launchfiles</string>
 			<key>uid</key>
 			<string>A8593F49-028B-4BA9-8EC9-1D2D26800456</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Anki.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>72145584-BC38-4A32-88EE-1C4F958117B2</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -573,6 +634,13 @@
 			<key>ypos</key>
 			<integer>140</integer>
 		</dict>
+		<key>9B44DA92-CA0A-4E14-B0D8-0AD39A5B2AA0</key>
+		<dict>
+			<key>xpos</key>
+			<integer>610</integer>
+			<key>ypos</key>
+			<integer>10</integer>
+		</dict>
 		<key>A7E5C06A-070C-4B87-B6E4-CA4DF2A9DB6B</key>
 		<dict>
 			<key>xpos</key>
@@ -614,6 +682,13 @@
 			<integer>170</integer>
 			<key>ypos</key>
 			<integer>140</integer>
+		</dict>
+		<key>DE144510-05CA-48BA-B50B-26836B515EF9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>770</integer>
+			<key>ypos</key>
+			<integer>10</integer>
 		</dict>
 		<key>E5BCB518-4A52-4334-B041-A6532BAD3885</key>
 		<dict>
