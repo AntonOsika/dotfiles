@@ -168,3 +168,10 @@ if [[ ! "$OSTYPE" == "darwin"* ]]; then
   gsettings set org.gnome.desktop.peripherals.keyboard delay 200
   gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 11
 fi
+
+
+# Mac specific stuff moved from .localrc
+if [[ ! "$OSTYPE" == "darwin"* ]]; then
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+  alias ij='open -a "/Applications/IntelliJ IDEA.app"'
+fi

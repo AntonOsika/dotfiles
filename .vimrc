@@ -98,12 +98,13 @@ endfunction
 " </Plugins>
 call plug#end()
 
+" let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
+
 let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 
-" let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
-
 " Set mac python path for neovim:
+" TODO: Use $PYTHONPATH env for this
 let g:python3_host_prog='/Users/anton/anaconda3/bin/python'
 
 let mapleader = ','
