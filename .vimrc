@@ -100,12 +100,16 @@ call plug#end()
 
 " let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
 
-let g:python3_host_prog = '/usr/bin/python3'
-let g:python_host_prog = '/usr/bin/python2'
-
 " Set mac python path for neovim:
-" TODO: Use $PYTHONPATH env for this
-let g:python3_host_prog='/Users/anton/anaconda3/bin/python'
+let g:os = substitute(system('uname'), '\n', '', '')
+if g:os == "Darwin"
+  let g:python3_host_prog = '/Users/anton/anaconda3/bin/python'
+  let g:python_host_prog  = '/Users/anton/anaconda3/bin/python'
+else " Linux
+  let g:python3_host_prog = '/usr/bin/python3'
+  let g:python_host_prog  = '/usr/bin/python2'
+endif
+
 
 let mapleader = ','
 

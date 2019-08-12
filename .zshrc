@@ -24,7 +24,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 
 export EDITOR='vim'
 if test $(which nvim); then
-  # alias vim=nvim
+  alias vim=nvim
   alias vimdiff='nvim -d'
 
   # Preferred editor for local and remote sessions
