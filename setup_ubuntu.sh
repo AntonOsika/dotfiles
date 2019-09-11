@@ -87,7 +87,7 @@ sudo apt-get install awscli
 
 # Create swap file 
 # (https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/)
-sudo fallocate -l 8G /swapfile
+sudo fallocate -l 16G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
@@ -95,6 +95,11 @@ sudo bash -c "echo '/swapfile swap swap defaults 0 0' >> /etc/fstab"
 sudo swapon --show
 # Minimal swapiness recommended
 sysctl vm.swappiness=1
+
+# Hibernate after 10 minutes
+# Might be this that forces me to restart on plugging out display:
+# echo "[Sleep]
+# HibernateDelaySec=600" >> /etc/systemd/sleep.conf
 
 # zram, takes battery (compression) ...
 
@@ -110,8 +115,14 @@ echo "; bind shift + vertical scroll to horizontal scroll events\
   (xbindkey '(shift \"b:4\") \"xte 'mouseclick 6'\")\
   (xbindkey '(shift \"b:5\") \"xte 'mouseclick 7'\")" >> .xbindkeysrc.scm
 
+# Do not disturb
+sudo add-apt-repository ppa:vlijm/nonotifs
+sudo apt-get update
+sudo apt-get install nonotifs
+
 # temp:
-sudo apt-get install konsole
+
+# sudo apt-get install konsole
 # sudo update-alternatives --config x-terminal-emulator  # -> Select default
 # sudo apt-get install autokey
 sudo apt-get install festival

@@ -7,9 +7,8 @@ FILES=".vimrc
 .gitattributes
 .pylintrc
 .ideavimrc
-"
-
-echo "not sure this will indeed overwrite, perhaps change setup_symlinks.sh to use: ln -f"
+.xsessionrc
+" echo "not sure this will indeed overwrite, perhaps change setup_symlinks.sh to use: ln -f"
 
 for f in $FILES
 do
@@ -33,7 +32,6 @@ echo    # move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     ln -sv $PWD/karabiner.json $HOME/.config/karabiner/karabiner.json
-
 fi
 
 read -p "Do you want to symlink prezto and necessary prezto runcoms from home dir? Old .zprezto will be moved to .zprezto_old" -n 1 -r
@@ -57,16 +55,22 @@ then
     done
 fi
 
-# the following is zsh script:
-#echo ""
-#read -p "Do you want to symlink the prezto runcoms in $PWD/prezto/runcoms?" -n 1 -r
-#echo ""
-#
-#if [[ $REPLY =~ ^[Yy]$ ]]
-#then
-#   echo "Trying to symlink prezto runcoms in $HOME to $PWD/prezto/runcoms"
-#   setopt EXTENDED_GLOB
-#   for rcfile in "$PWD"/prezto/runcoms/^README.md(.N); do
-#       ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-#   done
-#fi
+
+# Haven't made this work yet (see xkeysnail repo):
+# read -p "Do you want to sudo symlink xkeysnail service" -n 1 -r
+# echo    # move to a new line
+
+# if [[ $REPLY =~ ^[Yy]$ ]]
+# then
+#     sudo ln -sv $PWD/xkeysnail.service /etc/systemd/system/xkeysnail.service
+#     echo "Run systemctl start xkeysnail.service to start manually, systemctl preset [] to start at boot, and systemctl status []"
+# fi
+
+# This stuff could be done with `echo >` instead
+# read -p "Do you want to sudo symlink apparmor xkeysnail" -n 1 -r
+# echo    # move to a new line
+
+# if [[ $REPLY =~ ^[Yy]$ ]]
+# then
+#     sudo ln -sv $PWD/usr.local.bin.xkeysnail /etc/apparmor.d/usr.local.bin.xkeysnail
+# fi

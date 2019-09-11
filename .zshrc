@@ -167,6 +167,8 @@ if [[ ! "$OSTYPE" == "darwin"* ]]; then
   alias tk='noglob gsettings set org.gnome.desktop.input-sources xkb-options [\"caps:escape\",\"compose:sclk\"]'
   gsettings set org.gnome.desktop.peripherals.keyboard delay 200
   gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 11
+  alias go='/usr/lib/go-1.12/bin/go'
+  alias idea='intellij-idea-ultimate'
 fi
 
 

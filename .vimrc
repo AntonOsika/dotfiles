@@ -297,6 +297,9 @@ nnoremap <esc>^[ <esc>^[
 " paste in visual mode with p"
 vnoremap p "_dP
 
+" Search without special character treatment with :SS
+command! -nargs=1 S let @/ = '\V'.escape(<q-args>, '\')
+
 " Clipboard sharing on mac osx (requires later versions)
 set clipboard=unnamed
 set clipboard+=unnamedplus

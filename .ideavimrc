@@ -85,6 +85,9 @@ vnoremap p "_dP
 " Clipboard sharing on mac osx (requires later versions)
 set clipboard=unnamed
 
+" share clipboard intellij
+set clipboard+=ideaput
+
 " turn color syntax highlighting on by default
 " set term=builtin_beos-ansi
 syntax on
