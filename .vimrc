@@ -371,9 +371,6 @@ inoremap (<CR> ()<Esc>i
 inoremap {<CR> {<CR>}<Esc>O
 inoremap {; {<CR>};<Esc>O
 inoremap {, {<CR>},<Esc>O
-inoremap [<CR> []<Esc>i
-inoremap [; [];<Esc>i<Esc>i
-inoremap [, [],<Esc>i<Esc>i
 
 " Set tab width etc
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
