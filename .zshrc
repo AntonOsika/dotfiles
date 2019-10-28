@@ -51,6 +51,8 @@ export GOPATH=~/go
 
 export PATH="$GOPATH/bin:$PATH"
 
+# export GOOGLE_APPLICATION_CREDENTIALS="$HOME/google/secrets/verdant-bus-169112-70cec0ccdc22.json"
+
 # The next line updates PATH for the Google Cloud SDK.
   # zsh autocomplete can be enabled, but typically slow
 if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then source '$HOME/google-cloud-sdk/path.zsh.inc'; fi

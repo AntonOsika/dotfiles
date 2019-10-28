@@ -7,9 +7,12 @@
 	enabled = true
 
 [alias]
-
-	# Always use rebase
+	
+	# Always rebase
 	up = pull --rebase
+
+	# push to remote branch
+	p = push origin HEAD:refs/heads/$1 $2 }
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -n 20 --graph --abbrev-commit
@@ -27,13 +30,13 @@
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat --color-words | less"
 
 	# Diff with words
-	dw = git diff --color-words | less
+	dw = diff --color-words | less
 
 	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
 	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
 	# Pull in remote changes for the current repository and all its submodules
-	p = !"git pull --rebase; git submodule foreach git pull origin master"
+	pr = !"git pull --rebase; git submodule foreach git pull origin master"
 
 	# Clone a repository including all submodules
 	c = clone --recursive

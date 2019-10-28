@@ -79,11 +79,14 @@ endif
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 
+nnoremap <C-q> <C-v>
+
 " paste in visual mode with p"
 vnoremap p "_dP
 
 " Clipboard sharing on mac osx (requires later versions)
-set clipboard=unnamed
+set clipboard+=unnamed
+
 
 " share clipboard intellij
 set clipboard+=ideaput
