@@ -8,11 +8,10 @@
 
 [alias]
 	
+	# NOTE: I have strated putting these in .zshrc
+
 	# Always rebase
 	up = pull --rebase
-
-	# push to remote branch
-	p = push origin HEAD:refs/heads/$1 $2 }
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -n 20 --graph --abbrev-commit
@@ -54,7 +53,9 @@
 		echo "git pull --rebase" && read tmp && git pull --rebase && echo "" && \
 		echo "git push" && read tmp && git push
 
-	graph = log --oneline --graph --decorate --all
+	# Graph
+	g = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	graph = log --graph --all --decorate --oneline
 
 
 	# Switch to a branch, creating it if necessary

@@ -73,7 +73,12 @@ function frameworkipython {
     fi
 }
 
+# Ipython in virtualenv
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+
+# push to remote branch
+gp() { git push origin HEAD:refs/heads/$1 $2 }
+
 
 alias c="g++ -Wall -Wconversion -Wfatal-errors -g -std=c++14 -fsanitize=undefined,address"
 
