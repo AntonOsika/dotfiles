@@ -41,7 +41,7 @@ echo    # move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     mv $HOME/.zprezto $HOME/.zprezto_old
-    ln -sv $PWD/prezto $HOME/.zprezto
+    ln -svf $PWD/prezto $HOME/.zprezto
 
     RUNCOM_FILES="zlogin
     zlogout
@@ -52,7 +52,7 @@ then
 
     for f in $RUNCOM_FILES
     do
-        ln -sv $HOME/.zprezto/runcoms/$f $HOME/.$f
+        ln -svf $HOME/.zprezto/runcoms/$f $HOME/.$f
     done
 fi
 
