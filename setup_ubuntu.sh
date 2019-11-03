@@ -41,9 +41,9 @@ sudo update-alternatives --config editor
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-mkdir $HOME/config
-mkdir $HOME/config/nvim
-ln -sv $HOME/.vimrc $HOME/config/nvim/init.vim
+mkdir $HOME/.config
+mkdir $HOME/.config/nvim
+ln -sv $HOME/.vimrc $HOME/.config/nvim/init.vim
 # then run :PlugInstall from neovim
 
 sudo apt-get install exuberant-ctags

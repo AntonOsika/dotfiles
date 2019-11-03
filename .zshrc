@@ -6,6 +6,11 @@
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
+  # Use minimal prompt
+  autoload -Uz promptinit
+  promptinit
+  prompt minimal
+
   # Avoid double virtualenv names on linux
   if [[ ! "$OSTYPE" == "darwin"* ]]; then
     export VIRTUAL_ENV_DISABLE_PROMPT=true
