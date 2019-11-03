@@ -4,6 +4,10 @@
 * `powertop` / `powerstat` to see if battery can be optimised
 * `dpkg` handles installed packages. apt handles dependency chain.
 
+## Setup
+* Use 'intl. with dead keys' keyboard -> alt + qw = äå
+* caps to esc through tweaks
+
 ## Power usage
 * Uninstall e.g. habitlab (30% cpu usage)
 * Suspend and should work out of the box. sudo systemctl suspend -i makes it suspend faster

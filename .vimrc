@@ -24,6 +24,12 @@
 set nocompatible              " required (not compatible with old vi)
 filetype off                  " required
 
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+              \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " set the runtime path to include vim-olug and initialize
 call plug#begin('~/.vim/plugged')
 

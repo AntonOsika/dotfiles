@@ -8,7 +8,8 @@ FILES=".vimrc
 .pylintrc
 .ideavimrc
 .xsessionrc
-" echo "not sure this will indeed overwrite, perhaps change setup_symlinks.sh to use: ln -f"
+" 
+echo "not sure this will indeed overwrite, perhaps change setup_symlinks.sh to use: ln -f"
 
 for f in $FILES
 do

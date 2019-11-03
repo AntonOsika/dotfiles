@@ -1,3 +1,4 @@
+
 # Repeat speed
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 11
 gsettings set org.gnome.desktop.peripherals.keyboard delay 200
@@ -8,7 +9,7 @@ gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/k
 gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
 
 # Tweak tool for caps esc remap, compose key (shift + " + a -> ae)
-sudo apt install gnome-tweak-tool
+sudo apt install -y gnome-tweak-tool
 
 # Necessities
 sudo apt-get install -y \
@@ -22,26 +23,14 @@ sudo apt-get install -y \
 
 # Install google chrome!
 
-# Utils
-sudo apt install -y
-    copyq
-sudo apt install anki
-
-# Python
-sudo apt-get install python-dev python-pip python3-dev python3-pip
-sudo apt-get install python3-distutils
-sudo apt-get install -y python-pip python-dev python-virtualenv
-sudo pip install virtualenvwrapper
-pip install black yapf
-pip install ipython jupyterlab
-
 # Neovim
-sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get install -y software-properties-common
+# sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
-sudo apt-get install neovim
-sudo apt-get install vim-python-jedi \
-    pylint
+sudo apt-get install -y neovim
+sudo apt-get install -y \
+	vim-python-jedi \ 
+	pylint
 
 sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
 sudo update-alternatives --config vi
@@ -52,11 +41,26 @@ sudo update-alternatives --config editor
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+mkdir $HOME/config
 mkdir $HOME/config/nvim
 ln -sv $HOME/.vimrc $HOME/config/nvim/init.vim
 # then run :PlugInstall from neovim
 
 sudo apt-get install exuberant-ctags
+
+
+# Utils
+sudo apt install -y copyq
+sudo apt install -y anki
+sudo apt-get install -y xsel
+
+# Python
+sudo apt-get install python3-dev python3-pip python-dev python-pip 
+sudo apt-get install python3-distutils
+sudo apt-get install -y python3-virtualenv
+sudo pip3 install virtualenvwrapper
+sudo pip3 install black yapf
+sudo pip3 install ipython jupyterlab
 
 
 # zsh
@@ -87,14 +91,15 @@ sudo apt-get install awscli
 
 # Create swap file 
 # (https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/)
-sudo fallocate -l 16G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-sudo bash -c "echo '/swapfile swap swap defaults 0 0' >> /etc/fstab"
-sudo swapon --show
+# sudo fallocate -l 16G /swapfile
+# sudo chmod 600 /swapfile
+# sudo mkswap /swapfile
+# sudo swapon /swapfile
+# sudo bash -c "echo '/swapfile swap swap defaults 0 0' >> /etc/fstab"
+# sudo swapon --show
+
 # Minimal swapiness recommended
-sysctl vm.swappiness=1
+# sysctl vm.swappiness=1
 
 # Hibernate after 10 minutes
 # Might be this that forces me to restart on plugging out display:
@@ -104,9 +109,9 @@ sysctl vm.swappiness=1
 # zram, takes battery (compression) ...
 
 # power management
-sudo apt install powertop
-sudo apt install pm-utils  # pm-powersave true
-sudo apt install tlp tlp-rdw  # tlp start, tlp fullcharge
+# sudo apt install powertop
+# sudo apt install pm-utils  # pm-powersave true
+# sudo apt install tlp tlp-rdw  # tlp start, tlp fullcharge
 # Used gui to setup thinkpad battery policy
 
 # Shift + scroll = horizontal
@@ -115,15 +120,8 @@ echo "; bind shift + vertical scroll to horizontal scroll events\
   (xbindkey '(shift \"b:4\") \"xte 'mouseclick 6'\")\
   (xbindkey '(shift \"b:5\") \"xte 'mouseclick 7'\")" >> .xbindkeysrc.scm
 
-# Do not disturb
-sudo add-apt-repository ppa:vlijm/nonotifs
-sudo apt-get update
-sudo apt-get install nonotifs
-
-# temp:
 
 # sudo apt-get install konsole
 # sudo update-alternatives --config x-terminal-emulator  # -> Select default
 # sudo apt-get install autokey
-sudo apt-get install festival
-sudo apt-get install xsel
+# sudo apt-get install festival
