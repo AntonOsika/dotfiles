@@ -47,7 +47,6 @@ then
     zlogout
     zshenv
     zpreztorc
-    zshrc
     zprofile"
 
     for f in $RUNCOM_FILES
