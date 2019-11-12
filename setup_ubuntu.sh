@@ -90,6 +90,11 @@ sudo apt-get update && sudo apt-get install google-cloud-sdk
 # AWS
 sudo apt-get install awscli
 
+# Notification on finished tasks. `notify-send "done"`
+sudo apt-get install -y notify-osd pulseaudio-utils libnotify-bin
+curl https://raw.githubusercontent.com/kaustubhhiware/NotiFyre/master/notifyre.sh -o ~/notifyre.sh
+curl https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh -o ~/bash-preexec.sh
+
 # Create swap file 
 # (https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/)
 # sudo fallocate -l 16G /swapfile

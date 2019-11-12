@@ -45,7 +45,6 @@ brew outdated
 brew upgrade --all
 ```
 
-
 ```bash
 pip list --outdated
 pip install --upgrade pip
@@ -58,7 +57,7 @@ Useful things that are not installed with these scripts.
 - uBlock
 - Pocket
 - Evernote
-- Quick Tabs/Snipe (search browser tabs)
+- Quick Tabs (search browser tabs)
 - The Great Suspender
 
 ### Useful mac apps

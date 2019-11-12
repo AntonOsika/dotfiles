@@ -51,6 +51,7 @@ Plug 'alfredodeza/pytest.vim'    " Run pytest
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
 Plug 'junegunn/fzf.vim'          " ctrl-f to open files.
+Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 
 " Completion Engine
 Plug 'prabirshrestha/async.vim'

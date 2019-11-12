@@ -168,6 +168,9 @@ alias c2='g++ -Wall -g -std=c++14 -O2'
 alias python=python3
 alias pip=pip3
 
+alias nf='notify-send "Done."'
+
+
 # swap alt win on gnome
 if [[ ! "$OSTYPE" == "darwin"* ]]; then
   alias mk='noglob gsettings set org.gnome.desktop.input-sources xkb-options [\"caps:escape\",\"altwin:swap_lalt_lwin\",\"compose:sclk\"]'
@@ -183,4 +186,13 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
   alias ij='open -a "/Applications/IntelliJ IDEA.app"'
+fi
+
+
+# Delay in notifications, stopped using
+# Activate notifications
+if [[ ! "$OSTYPE" == "darwin"* ]]; then
+  # source ~/notifyre.sh
+  # Comment out below and use `nf CMD` when you want notifications if it gets annoying:
+  # source ~/bash-preexec.sh
 fi
