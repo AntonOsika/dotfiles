@@ -20,7 +20,9 @@ sudo apt-get install -y \
     docker.io \
     tmux \
     silversearcher-ag \ 
-    fzf
+    fzf \ 
+    gitk \
+    htop
 
 # Install google chrome!
 
