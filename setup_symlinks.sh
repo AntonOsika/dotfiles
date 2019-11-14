@@ -55,6 +55,14 @@ then
     done
 fi
 
+read -p "Do you want to symlink copyq command?" -n 1 -r
+echo    # move to a new line
+
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    ln -sv $PWD/copyq-commands.ini ~/.config/copyq/copyq-commands.ini
+    echo "Linked copyq commands to ~/.config/copyq"
+fi
 
 # Haven't made this work yet (see xkeysnail repo):
 # read -p "Do you want to sudo symlink xkeysnail service" -n 1 -r
