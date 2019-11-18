@@ -26,3 +26,10 @@
 ## run as root on startup (fix IR webcam)
 * Add it in /etc/init.d/rc.local
 * configure default webcam by removing the incorrect one `rm -f /dev/video0
+
+## suspend on T480
+* Can sometimes not restore after suspend
+* Seems related to using an external monitor eetc
+* Can disable suspend like so: https://askubuntu.com/questions/15520/how-can-i-tell-ubuntu-to-do-nothing-when-i-close-my-laptop-lid
+* Created bindings of ss and hn to suspend and hibernate
+

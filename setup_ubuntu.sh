@@ -24,6 +24,9 @@ sudo apt-get install -y \
     gitk \
     htop
 
+# Generate keybindings for zsh
+~/.fzf/install.sh
+
 # Install google chrome!
 
 # Neovim

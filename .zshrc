@@ -189,9 +189,12 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 
-# Delay in notifications, stopped using
-# Activate notifications
 if [[ ! "$OSTYPE" == "darwin"* ]]; then
+  alias ss='systemctl suspend'
+  alias hn='systemctl hibernate'
+
+  # Delay in notifications, stopped using
+  # Activate notifications
   # source ~/notifyre.sh
   # Comment out below and use `nf CMD` when you want notifications if it gets annoying:
   # source ~/bash-preexec.sh
