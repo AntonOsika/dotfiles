@@ -25,7 +25,7 @@
 
 ## run as root on startup (fix IR webcam)
 * Add it in /etc/init.d/rc.local
-* configure default webcam by removing the incorrect one `rm -f /dev/video0
+* configure default webcam by removing the incorrect one `rm -f /dev/video0`
 
 ## suspend on T480
 * Can sometimes not restore after suspend

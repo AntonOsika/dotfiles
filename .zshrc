@@ -191,7 +191,7 @@ fi
 
 if [[ ! "$OSTYPE" == "darwin"* ]]; then
   alias ss='systemctl suspend'
-  alias hn='systemctl hibernate'
+  alias hn='sudo systemctl hibernate'
 
   # Delay in notifications, stopped using
   # Activate notifications

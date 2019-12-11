@@ -61,12 +61,12 @@ sudo apt install -y anki
 sudo apt-get install -y xsel
 
 # Python
-sudo apt-get install python3-dev python3-pip python-dev python-pip 
-sudo apt-get install python3-distutils
+sudo apt-get install -y python3-dev python3-pip python-dev python-pip 
+sudo apt-get install -y python3-distutils
 sudo apt-get install -y python3-virtualenv
-sudo pip3 install virtualenvwrapper
-sudo pip3 install black yapf
-sudo pip3 install ipython jupyterlab
+sudo pip3 install -q virtualenvwrapper
+sudo pip3 install -q black yapf
+sudo pip3 install -q ipython jupyterlab
 
 
 # zsh
@@ -102,20 +102,22 @@ curl https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec
 
 # Create swap file 
 # (https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/)
-# sudo fallocate -l 16G /swapfile
-# sudo chmod 600 /swapfile
-# sudo mkswap /swapfile
-# sudo swapon /swapfile
-# sudo bash -c "echo '/swapfile swap swap defaults 0 0' >> /etc/fstab"
-# sudo swapon --show
+sudo fallocate -l 32G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo bash -c "echo '/swapfile swap swap defaults 0 0' >> /etc/fstab"
+sudo swapon --show
 
 # Minimal swapiness recommended
-# sysctl vm.swappiness=1
+sysctl vm.swappiness=1
 
 # Hibernate after 10 minutes
-# Might be this that forces me to restart on plugging out display:
 # echo "[Sleep]
 # HibernateDelaySec=600" >> /etc/systemd/sleep.conf
+
+# Suspend forced me to restart on plugging out display:
+sudo echo "HandleLidSwitch=ignore" >>  /etc/systemd/logind.conf
 
 # zram, takes battery (compression) ...
 
