@@ -76,9 +76,6 @@ function frameworkipython {
 # Ipython in virtualenv
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
-# push to remote branch
-gp() { git push origin HEAD:refs/heads/$1 $2 }
-
 
 alias c="g++ -Wall -Wconversion -Wfatal-errors -g -std=c++14 -fsanitize=undefined,address"
 
@@ -124,6 +121,11 @@ function bashman { man bash | less -p "^       $1 "; }
 alias g=git
 alias gl='g l'
 alias gs='g s'
+alias gd='g d'
+
+# push to remote branch
+gp() { git push origin HEAD:refs/heads/$1 $2 }
+
 
 # Creating tags for vim
 alias ct='ctags -R .'
@@ -162,8 +164,12 @@ szh() {
 }
 
 alias c1='g++ -Wall -Wconversion -Wfatal-errors -g -std=c++14 -fsanitize=undefined,address'
-
 alias c2='g++ -Wall -g -std=c++14 -O2'
+kt() {
+  DEST=/'tmp/$1.jar'
+  kotlinc $1 -include-runtime -d $DEST
+  java -jar $DEST
+}
 
 alias python=python3
 alias pip=pip3
@@ -192,6 +198,8 @@ fi
 if [[ ! "$OSTYPE" == "darwin"* ]]; then
   alias ss='systemctl suspend'
   alias hn='sudo systemctl hibernate'
+
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
   # Delay in notifications, stopped using
   # Activate notifications

@@ -117,7 +117,7 @@ sysctl vm.swappiness=1
 # HibernateDelaySec=600" >> /etc/systemd/sleep.conf
 
 # Suspend forced me to restart on plugging out display:
-sudo echo "HandleLidSwitch=ignore" >>  /etc/systemd/logind.conf
+# sudo echo "HandleLidSwitch=ignore" >>  /etc/systemd/logind.conf
 
 # zram, takes battery (compression) ...
 
