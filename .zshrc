@@ -165,10 +165,17 @@ szh() {
 
 alias c1='g++ -Wall -Wconversion -Wfatal-errors -g -std=c++14 -fsanitize=undefined,address'
 alias c2='g++ -Wall -g -std=c++14 -O2'
+
 kt() {
-  DEST=/'tmp/$1.jar'
+  DEST="/tmp/$(basename $1).jar"
   kotlinc $1 -include-runtime -d $DEST
-  java -jar $DEST
+  eval java -jar $DEST $2
+}
+
+ktp() {
+  DEST="/tmp/$(basename $1).jar"
+  kotlinc $1 -include-runtime -d $DEST
+  eval java -jar $DEST < $2
 }
 
 alias python=python3
