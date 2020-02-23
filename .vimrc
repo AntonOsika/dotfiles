@@ -43,7 +43,6 @@ Plug 'tpope/vim-sleuth'	         " detects indentation style for buffer
 Plug 'airblade/vim-gitgutter'    " shows changes since commit on the left
 Plug 'vim-scripts/taglist.vim'   " split window to see all tags for GUI vim :TlistOpen
 Plug 'scrooloose/nerdtree'       " File system explorer
-Plug 'w0rp/ale'                  " Async lint engine, for all languages
 Plug 'mileszs/ack.vim'           " Search file content with :Ack [options] {pattern} [{directories}]
 Plug 'tpope/vim-fugitive'        " git wrapper
 Plug 'osyo-manga/vim-over'       " incsearch for substitution
@@ -51,23 +50,9 @@ Plug 'alfredodeza/pytest.vim'    " Run pytest
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
 Plug 'junegunn/fzf.vim'          " ctrl-f to open files.
-Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Completion Engine
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-vim-lsp'
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
-Plug 'ncm2/ncm2-path'  " filepath completion
-Plug 'ncm2/ncm2-jedi'  " fast python completion compared to pyls
-Plug 'davidhalter/jedi-vim'   " some additional features from pure jedi.
-
-
-" Plug 'Valloric/YouCompleteMe', { 'dir': '~/.vim/plugged/YouCompleteMe', 'do': './install.py --js-completer' }   "completion and goto. Can add flags to install for more languages!
 " Plug 'Vimjas/vim-python-pep8-indent' 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
 " Plug 'Vimjas/vim-python-pep8-indent' 
@@ -122,10 +107,9 @@ endif
 
 let mapleader = ','
 
-" Language Server plugins
+" ####### COC #######
 
 " coc intellisense
-" TODO: Create a file for this
 
 " " if hidden is not set, TextEdit might fail.
 " set hidden
@@ -160,17 +144,13 @@ let mapleader = ','
 " endfunction
 
 " " Use <c-space> to trigger completion.
-" inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-space> coc#refresh()
 
 " " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " " Coc only does snippet and additional edit on confirm.
 " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " " Or use `complete_info` if your vim support it, like:
 " " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" " Use `[g` and `]g` to navigate diagnostics
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " " Remap keys for gotos
 " nmap <silent> gd <Plug>(coc-definition)
@@ -192,9 +172,6 @@ let mapleader = ','
 " " Highlight symbol under cursor on CursorHold
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" " Remap for rename current word
-" nmap <leader>rn <Plug>(coc-rename)
-
 " " Remap for format selected region
 " xmap <leader>f  <Plug>(coc-format-selected)
 " nmap <leader>f  <Plug>(coc-format-selected)
@@ -208,11 +185,12 @@ let mapleader = ','
 " augroup end
 
 " " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-" xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " " Remap for do codeAction of current line
-" nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>ac  <Plug>(coc-codeaction)
+
 " " Fix autofix problem of current line
 " nmap <leader>qf  <Plug>(coc-fix-current)
 
@@ -276,51 +254,79 @@ let mapleader = ','
 "         \ })
 " endif
 
-" jedi is much faster than pyls so we use that instead:
-if executable('pyls')
-  " pip install python-language-server
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
+let g:coc_global_extensions = [
+        \ 'coc-css',
+        \ 'coc-json',
+        \ 'coc-tsserver',
+        \ 'coc-git',
+        \ 'coc-eslint',
+        \ 'coc-tslint-plugin',
+        \ 'coc-pairs',
+        \ 'coc-sh',
+        \ 'coc-vimlsp',
+        \ 'coc-emmet',
+        \ 'coc-prettier',
+        \ 'coc-ultisnips',
+        \ 'coc-explorer'
+        \ ]
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" coc-format
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+nmap <leader>f <Plug>(coc-format)
+
+" coc-git
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+nmap gs <Plug>(coc-git-chunkinfo)
+nmap gu :CocCommand git.chunkUndo<cr>
+
+nmap <silent> <leader>k :CocCommand explorer<cr>
+
+"remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gh <Plug>(coc-doHover)
+
+" diagnostics navigation
+nmap <silent> <C-k> <Plug>(coc-diagnostic-prev)
+nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
 
 
-" :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
+" rename
+nmap <silent> <leader>rn <Plug>(coc-rename)
 
-" NOTE: you need to install completion sources to get completions. Check
-" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+" organize imports
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 
-" ncm2 settings
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=menuone,noselect,noinsert
-" make it very fast
-let ncm2#popup_delay = 5
-let ncm2#complete_length = [[1,1]]
-let g:ncm2#matcher = 'substrfuzzy'
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" number of suggestions in popup
-set pumheight=5
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" enter closes popup if nothing selected
-inoremap <silent> <expr> <CR> (pumvisible() && empty(v:completed_item)) ?  "\<c-y>\<cr>" : "\<CR>"
+"tab completion
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" disable Jedi features (using ncm2 for those):
-let g:jedi#auto_initialization = 1
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#smart_auto_mappings = 0
-let g:jedi#popup_on_dot = 0
-let g:jedi#completions_command = ""
-let g:jedi#show_call_signatures = "0"
-let g:jedi#show_call_signatures_delay = 0
-let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#show_call_signatures_modes = 'i'  " ni = also in normal mode
-let g:jedi#enable_speed_debugging=0
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+
+" ####### SEARCH #######
 
 " Let ack use silver searcher
 if executable('ag')
@@ -335,51 +341,16 @@ nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>x :x<CR>
 
-" Below is handled by jedi (,g and ,d) for python files
-nnoremap K :LspHover<CR>
-nnoremap <leader>d :LspDefinition<CR>
-
-" " Toggle ale linter
-map <leader>e :ALEToggle <CR>
-map <leader>f :ALEFix <CR>
-
-" Go to next error/warning
-nmap <silent> <C-k> <Plug>(ale_previous_error)
-nmap <silent> <C-j> <Plug>(ale_next_error)
-" nmap <leader>g <Plug>(ale_go_to_definition) " Not working
-
-nmap <leader>p :Pytest project<CR>
-nmap <leader>pn :Pytest next<CR>
-
-let g:ale_fix_on_save = 0
-let g:ale_completion_enabled = 0
-let g:ale_maximum_file_size = 500000                " Don't lint large files (> 500KB), it can slow things down
-
-let g:ale_linters = {}
-let g:ale_linters.python = ['pylint']
-let g:ale_linters.go = ['go', 'golint', 'errcheck']
-let g:ale_linters.javascript = ['eslint', 'xo']
-let g:ale_linters.html = []
-
-let g:ale_fixers = {}
-let g:ale_fixers.javascript = ['prettier']
-let g:ale_fixers.python = ['black', 'trim_whitespace']
-
-let g:ale_python_flake8_options = "max-line-length = 81"
-
-let g:ale_sign_error = '💣'
-let g:ale_sign_warning = '⚠'
-
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-
-
 " Fuzzy search file
 nnoremap <C-f> :FZF! <CR>
 
 " Better command history with q::
 command! CmdHist call fzf#vim#command_history({'right': '40'})
 nnoremap q: :CmdHist<CR>
+
+" pytest
+nmap <leader>p :Pytest project<CR>
+nmap <leader>pn :Pytest next<CR>
 
 " Switch tabs
 nnoremap <C-h> :tabp <CR>
