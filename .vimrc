@@ -107,6 +107,15 @@ endif
 
 let mapleader = ','
 
+" ####### Multi Cursor #######
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-n>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+
 " ####### COC #######
 
 " coc intellisense
@@ -169,9 +178,6 @@ inoremap <silent><expr> <c-space> coc#refresh()
 "   endif
 " endfunction
 
-" " Highlight symbol under cursor on CursorHold
-" autocmd CursorHold * silent call CocActionAsync('highlight')
-
 " " Remap for format selected region
 " xmap <leader>f  <Plug>(coc-format-selected)
 " nmap <leader>f  <Plug>(coc-format-selected)
@@ -210,9 +216,6 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " " Use `:Fold` to fold current buffer
 " command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-" " use `:OR` for organize import of current buffer
-" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
 " " Add status line support, for integration with other plugin, checkout `:h coc-status`
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
@@ -234,26 +237,6 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " " Resume latest coc list
 " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-" let g:coc_global_extensions = ['coc-python', 'coc-json', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-spell-checker']
-
-" LS stuff:
-
-" if executable('docker-langserver')
-"   au User lsp_setup call lsp#register_server({
-"         \ 'name': 'docker-langserver',
-"         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'docker-langserver --stdio']},
-"         \ 'whitelist': ['dockerfile'],
-"         \ })
-" endif
-
-" if executable('go-langserver')
-"   au User lsp_setup call lsp#register_server({
-"         \ 'name': 'go-langserver',
-"         \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
-"         \ 'whitelist': ['go'],
-"         \ })
-" endif
-
 let g:coc_global_extensions = [
         \ 'coc-css',
         \ 'coc-json',
@@ -270,6 +253,7 @@ let g:coc_global_extensions = [
         \ 'coc-explorer'
         \ ]
 
+" Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " coc-format
@@ -334,7 +318,7 @@ if executable('ag')
 endif
 
 " Search file content (ack uses ag)
-nnoremap <leader>a :Ack!<Space>
+nnoremap <leader>p :Ack!<Space>
 
 " Fast saving (less use of pinky finger)
 nmap <leader>w :w<CR>
