@@ -20,9 +20,6 @@ nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>x :x<CR>
 
-" Fuzzy search file
-nnoremap <C-f> :FZF! <CR>
-
 " Switch tabs
 nnoremap <C-h> :tabp <CR>
 nnoremap <C-l> :tabn <CR>

@@ -55,7 +55,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Plug 'Vimjas/vim-python-pep8-indent' 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
-" Plug 'Vimjas/vim-python-pep8-indent' 
+Plug 'Vimjas/vim-python-pep8-indent' 
 " Pip instal black and flak8 instead
 " Plug 'ambv/black'                " Autofix python code
 " Plug 'goerz/ipynb_notedown.vim'  " When opening .ipynb files this should do something useful ?
@@ -117,8 +117,6 @@ let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 
 " ####### COC #######
-
-" coc intellisense
 
 " " if hidden is not set, TextEdit might fail.
 " set hidden
@@ -192,7 +190,6 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " " Remap for do codeAction of current line
 nmap <leader>ac  <Plug>(coc-codeaction)
@@ -250,7 +247,8 @@ let g:coc_global_extensions = [
         \ 'coc-emmet',
         \ 'coc-prettier',
         \ 'coc-ultisnips',
-        \ 'coc-explorer'
+        \ 'coc-explorer',
+        \ 'coc-python',
         \ ]
 
 " Highlight symbol under cursor on CursorHold
@@ -269,7 +267,7 @@ nmap gu :CocCommand git.chunkUndo<cr>
 nmap <silent> <leader>k :CocCommand explorer<cr>
 
 "remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> <leader>d <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -318,7 +316,7 @@ if executable('ag')
 endif
 
 " Search file content (ack uses ag)
-nnoremap <leader>p :Ack!<Space>
+nnoremap <leader>g :Ack!<Space>
 
 " Fast saving (less use of pinky finger)
 nmap <leader>w :w<CR>
@@ -464,13 +462,6 @@ cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
-
-" Jonas valfridssons {} creation:
-
-inoremap (<CR> ()<Esc>i
-inoremap {<CR> {<CR>}<Esc>O
-inoremap {; {<CR>};<Esc>O
-inoremap {, {<CR>},<Esc>O
 
 " Set tab width etc
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
