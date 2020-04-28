@@ -249,6 +249,7 @@ let g:coc_global_extensions = [
         \ 'coc-ultisnips',
         \ 'coc-explorer',
         \ 'coc-python',
+        \ 'coc-go'
         \ ]
 
 " Highlight symbol under cursor on CursorHold

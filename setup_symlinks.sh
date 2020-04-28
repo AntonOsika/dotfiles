@@ -8,6 +8,7 @@ FILES=".vimrc
 .pylintrc
 .ideavimrc
 .xsessionrc
+.tmux.conf
 " 
 echo "not sure this will indeed overwrite, perhaps change setup_symlinks.sh to use: ln -f"
 
