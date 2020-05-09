@@ -214,3 +214,4 @@ if [[ ! "$OSTYPE" == "darwin"* ]]; then
   # Comment out below and use `nf CMD` when you want notifications if it gets annoying:
   # source ~/bash-preexec.sh
 fi
+PROMPT='%{$fg[yellow]%}%D{%T} '$PROMPT
