@@ -215,3 +215,7 @@ if [[ ! "$OSTYPE" == "darwin"* ]]; then
   # source ~/bash-preexec.sh
 fi
 PROMPT='%{$fg[yellow]%}%D{%T} '$PROMPT
+[[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)
+
+# Used for e.g.  `npm config set prefix ~/.local`
+PATH=~/.local/bin/:$PATH  

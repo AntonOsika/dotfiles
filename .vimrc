@@ -36,7 +36,7 @@ call plug#begin('~/.vim/plugged')
 " Add all your plugins here 
 
 Plug 'junegunn/vim-plug'         " package manager
-Plug 'elzr/vim-json'             " easier to read json
+" Plug 'elzr/vim-json'             " easier to read json
 Plug 'tpope/vim-commentary'      " gcc = comment
 Plug 'tpope/vim-surround'	     " yss) cs]} ds' etc to change surround etc
 Plug 'tpope/vim-sleuth'	         " detects indentation style for buffer
