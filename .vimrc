@@ -55,7 +55,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Plug 'Vimjas/vim-python-pep8-indent' 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
-Plug 'Vimjas/vim-python-pep8-indent' 
+" Plug 'Vimjas/vim-python-pep8-indent' 
 " Pip instal black and flak8 instead
 " Plug 'ambv/black'                " Autofix python code
 " Plug 'goerz/ipynb_notedown.vim'  " When opening .ipynb files this should do something useful ?
@@ -331,6 +331,8 @@ nnoremap <C-f> :FZF! <CR>
 command! CmdHist call fzf#vim#command_history({'right': '40'})
 nnoremap q: :CmdHist<CR>
 
+" ##### MISC #####
+
 " pytest
 nmap <leader>p :Pytest project<CR>
 nmap <leader>pn :Pytest next<CR>
@@ -338,6 +340,10 @@ nmap <leader>pn :Pytest next<CR>
 " Switch tabs
 nnoremap <C-h> :tabp <CR>
 nnoremap <C-l> :tabn <CR>
+
+" Next buffer
+nnoremap <C-p> :bprevious<CR>
+nnoremap <C-b> :bnext<CR>
 
 " follow tags without pinky finger 
 map gk <C-]>

@@ -38,7 +38,6 @@ fi
 export LSCOLORS="exfxcxdxbxegedabagacad"
 
 # activates fzf, use **<TAB> (or e.g. kill -9 <TAB>) to start searching:
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export WORKON_HOME=~/.ve
 export PROJECT_HOME=~/coding
@@ -215,6 +214,7 @@ if [[ ! "$OSTYPE" == "darwin"* ]]; then
   # source ~/bash-preexec.sh
 fi
 PROMPT='%{$fg[yellow]%}%D{%T} '$PROMPT
+
 [[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)
 
 # Used for e.g.  `npm config set prefix ~/.local`
