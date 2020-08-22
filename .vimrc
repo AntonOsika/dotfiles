@@ -53,7 +53,7 @@ Plug 'junegunn/fzf.vim'          " ctrl-f to open files.
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Plug 'Vimjas/vim-python-pep8-indent' 
+Plug 'Vimjas/vim-python-pep8-indent' 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
 " Plug 'Vimjas/vim-python-pep8-indent' 
 " Pip instal black and flak8 instead
@@ -251,6 +251,10 @@ let g:coc_global_extensions = [
         \ 'coc-python',
         \ 'coc-go'
         \ ]
+
+hi! CocErrorSign guifg=#d1666a
+" hi! CocInfoSign guibg=#353b45
+" hi! CocWarningSign guifg=#d1cd66
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')

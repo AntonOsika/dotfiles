@@ -183,14 +183,16 @@ alias pip=pip3
 alias nf='notify-send "Done."'
 
 
-# swap alt win on gnome
 if [[ ! "$OSTYPE" == "darwin"* ]]; then
-  alias mk='noglob gsettings set org.gnome.desktop.input-sources xkb-options [\"caps:escape\",\"altwin:swap_lalt_lwin\",\"compose:sclk\"]'
-  alias tk='noglob gsettings set org.gnome.desktop.input-sources xkb-options [\"caps:escape\",\"compose:sclk\"]'
   gsettings set org.gnome.desktop.peripherals.keyboard delay 200
   gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 11
   alias go='/usr/lib/go-1.12/bin/go'
   alias idea='intellij-idea-ultimate'
+  alias open=xdg-open
+
+  # swap alt win for using mac keyboard:
+  alias mk='noglob gsettings set org.gnome.desktop.input-sources xkb-options [\"caps:escape\",\"altwin:swap_lalt_lwin\",\"compose:sclk\"]'
+  alias tk='noglob gsettings set org.gnome.desktop.input-sources xkb-options [\"caps:escape\",\"compose:sclk\"]'
 fi
 
 
@@ -207,7 +209,7 @@ if [[ ! "$OSTYPE" == "darwin"* ]]; then
 
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-  # Delay in notifications, stopped using
+  # Delay in notifications, stopped using:
   # Activate notifications
   # source ~/notifyre.sh
   # Comment out below and use `nf CMD` when you want notifications if it gets annoying:
@@ -219,3 +221,6 @@ PROMPT='%{$fg[yellow]%}%D{%T} '$PROMPT
 
 # Used for e.g.  `npm config set prefix ~/.local`
 PATH=~/.local/bin/:$PATH  
+
+# Parallell docker build
+# export DOCKER_BUILDKIT=1
