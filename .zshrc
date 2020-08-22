@@ -38,6 +38,7 @@ fi
 export LSCOLORS="exfxcxdxbxegedabagacad"
 
 # activates fzf, use **<TAB> (or e.g. kill -9 <TAB>) to start searching:
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export WORKON_HOME=~/.ve
 export PROJECT_HOME=~/coding
@@ -176,9 +177,6 @@ ktp() {
   kotlinc $1 -include-runtime -d $DEST
   eval java -jar $DEST < $2
 }
-
-alias python=python3
-alias pip=pip3
 
 alias nf='notify-send "Done."'
 
