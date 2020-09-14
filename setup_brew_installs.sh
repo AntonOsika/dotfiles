@@ -108,6 +108,7 @@ brew cask install webpquicklook
 brew cask install suspicious-package
 
 brew cask install --appdir="/Applications" alfred
+brew cask install --appdir="/Applications" karabiner-elements
 brew cask install --appdir="/Applications" visual-studio-code
 brew cask install --appdir="/Applications" docker
 brew cask install --appdir="/Applications" iterm2

@@ -33,6 +33,7 @@ echo    # move to a new line
 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
+    mkdir -p $HOME/.karabiner/configuration/
     ln -sv $PWD/karabiner.json $HOME/.config/karabiner/karabiner.json
 fi
 
