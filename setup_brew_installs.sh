@@ -1,12 +1,9 @@
 echo ""
 echo "Have you read through the script you're about to run and " $red
 echo "understood that it will make changes to your computer? (y/n)" $red
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  CONTINUE=true
-fi
 
-if ! $CONTINUE; then
+read -r response
+if [[ ! $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
   # Check if we're continuing and output a message if not
   echo "Please go read the script, it only takes a few minutes" $red
   exit
@@ -25,10 +22,6 @@ brew doctor
 echo "do you want to continue?"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  CONTINUE=true
-fi
-
-if ! $CONTINUE; then
   # Check if we're continuing and output a message if not
   echo "skipping more installs, please brew health and fix with brew doctor" $red
   exit
@@ -60,7 +53,9 @@ brew install gnu-sed --with-default-names
 
 
 brew install zsh 
-brew install zsh-completions
+# brew install zsh-completions
+brew install zsh-autosuggestions
+
 
 echo "" 
 echo "Setting zsh as default shell"
@@ -74,10 +69,9 @@ brew install the_silver_searcher # like ack but faster (ack codesnippet .)
 # Install git
 brew install git
 
-brew install git-flow 		# very strict aliases for developing with feature branches https://danielkummer.github.io/git-flow-cheatsheet/
-# brew install git-lfs 		# large file storage
-# brew install git-extras 	# too many (useful) commands, e.g. 'git fork', https://github.com/tj/git-extras/blob/master/Commands.md
-# brew install ssh-copy-id
+brew install git-lfs 		# large file storage
+brew install git-extras 	# too many (useful) commands, e.g. 'git fork', https://github.com/tj/git-extras/blob/master/Commands.md
+brew install ssh-copy-id
 
 brew install vim --override-system-vi
 
@@ -95,6 +89,8 @@ brew install rust
 # database
 brew install postgresql
 
+brew install tldr
+
 # Install Cask
 echo "Installing Applications"
 
@@ -111,17 +107,21 @@ brew cask install betterzipql
 brew cask install webpquicklook
 brew cask install suspicious-package
 
+brew cask install --appdir="/Applications" alfred
+brew cask install --appdir="/Applications" visual-studio-code
+brew cask install --appdir="/Applications" docker
 brew cask install --appdir="/Applications" iterm2
 brew cask install --appdir="/Applications" google-chrome
 brew cask install --appdir="/Applications" evernote
-brew cask install --appdir="/Applications" spectacle #panes for mac
+brew cask install --appdir="/Applications" rectangle
 brew cask install --appdir="/Applications" vlc
-brew cask install --appdir="/Applications" latexian         # ?
 brew cask install --appdir="/Applications" anki
 brew cask install --appdir="/Applications" spotify
-brew cask install --appdir="/Applications" vimr
 brew cask install --appdir="/Applications" disk-inventory-x
-brew cask install --appdir="/Applications" MacDown          # markdown
+
+# brew cask install --appdir="/Applications" MacDown          # markdown
+# brew cask install --appdir="/Applications" latexian         # ?
+# brew cask install --appdir="/Applications" vimr
 
 #brew cask install --appdir="/Applications" virtualbox
 #brew cask install --appdir="/Applications" vagrant
@@ -130,7 +130,6 @@ brew cask install caskroom/fonts/font-hack
 brew cask install caskroom/fonts/font-source-code-pro
 
 echo "installing python with brew, should end up in /usr/local/bin/python."
-brew install python2
 brew install python3
 
 echo "python and pip ended up in:"
@@ -176,6 +175,7 @@ pip install python-dateutil
 pip install pep8
 pip install pylint
 pip install flak8
+pip install black
 
 pip install notedown
 
