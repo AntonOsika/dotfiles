@@ -197,8 +197,9 @@ fi
 
 # Mac specific stuff moved from .localrc
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-  alias ij='open -a "/Applications/IntelliJ IDEA.app"'
+  alias python=python3
+  alias pip=pip3
+  # export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 fi
 
 

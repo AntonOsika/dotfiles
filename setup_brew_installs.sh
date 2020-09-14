@@ -132,9 +132,9 @@ brew cask install caskroom/fonts/font-source-code-pro
 echo "installing python with brew, should end up in /usr/local/bin/python."
 brew install python3
 
-echo "python and pip ended up in:"
+echo "python and pip3 ended up in:"
 which python
-which pip
+which pip3
 
 echo "do you want to continue? You can use pyenv instead to manage python installations."
 
@@ -149,16 +149,14 @@ if ! $CONTINUE; then
   exit
 fi
 
-# brew install pyenv
+# pip3 and setuptools was installed with python, upgrade it:
+pip3 install --upgrade setuptools
+pip3 install --upgrade pip3
 
-# pip and setuptools was installed with python, upgrade it:
-pip install --upgrade setuptools
-pip install --upgrade pip
+pip3 install --upgrade vim
+pip3 install --upgrade neovim
 
-pip install --upgrade vim
-pip install --upgrade neovim
-
-pip install gsutil #google cloud
+pip3 install gsutil #google cloud
 
 # Installing Qt4 for matplotlib
 brew tap cartr/qt4
@@ -167,17 +165,17 @@ brew install qt
 brew install pyside
 
 
-pip install virtualenv
-pip install virtualenvwrapper
-pip install nose
-pip install pyparsing
-pip install python-dateutil
-pip install pep8
-pip install pylint
-pip install flak8
-pip install black
+pip3 install virtualenv
+pip3 install virtualenvwrapper
+pip3 install nose
+pip3 install pyparsing
+pip3 install python-dateutil
+pip3 install pep8
+pip3 install pylint
+pip3 install flak8
+pip3 install black
 
-pip install notedown
+pip3 install notedown
 
 brew tap samueljohn/python
 brew tap homebrew/science
