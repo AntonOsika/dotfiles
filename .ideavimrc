@@ -24,7 +24,7 @@ nmap <leader>x :x<CR>
 nnoremap <C-h> :tabp <CR>
 nnoremap <C-l> :tabn <CR>
 
-" follow tags without pinky finger 
+" follow tags without pinky finger
 map gk <C-]>
 
 " open tlist
@@ -59,7 +59,7 @@ set nu
 " make :diffsplit {filename} split vertically
 set diffopt+=vertical
 
-" Reload file when changed (e.g. with git) 
+" Reload file when changed (e.g. with git)
 set autoread
 au CursorHold,CursorHoldI * checktime
 au FocusGained,BufEnter * :checktime
@@ -83,7 +83,6 @@ vnoremap p "_dP
 
 " Clipboard sharing on mac osx (requires later versions)
 set clipboard+=unnamed
-
 
 " share clipboard intellij
 set clipboard+=ideaput
@@ -150,7 +149,7 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable 
+syntax enable
 
 try
     colorscheme desert

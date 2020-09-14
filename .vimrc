@@ -116,6 +116,11 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 
+augroup XML
+    autocmd!
+    autocmd FileType xml setlocal foldmethod=indent foldlevelstart=999 foldminlines=0
+augroup END
+
 " ####### COC #######
 
 " " if hidden is not set, TextEdit might fail.
@@ -338,7 +343,7 @@ nnoremap q: :CmdHist<CR>
 " ##### MISC #####
 
 " pytest
-nmap <leader>p :Pytest project<CR>
+nmap <leader>pt :Pytest project<CR>
 nmap <leader>pn :Pytest next<CR>
 
 " Switch tabs
@@ -416,6 +421,18 @@ command! -nargs=1 S let @/ = '\V'.escape(<q-args>, '\')
 " Clipboard sharing on mac osx (requires later versions)
 set clipboard=unnamed
 set clipboard+=unnamedplus
+
+"  Copy to clipboard
+"vnoremap  <leader>y  "+y
+"nnoremap  <leader>Y  "+yg_
+"nnoremap  <leader>y  "+y
+"nnoremap  <leader>yy  "+yy
+"
+"" Paste from clipboard
+"nnoremap <leader>p "+p
+"nnoremap <leader>P "+P
+"vnoremap <leader>p "+p
+"vnoremap <leader>P "+P
 
 " look for tags in parent dir if not found
 set tags=./tags;/

@@ -182,8 +182,9 @@ alias nf='notify-send "Done."'
 
 
 if [[ ! "$OSTYPE" == "darwin"* ]]; then
-  gsettings set org.gnome.desktop.peripherals.keyboard delay 200
   gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 11
+  gsettings set org.gnome.desktop.peripherals.keyboard delay 200
+
   alias go='/usr/lib/go-1.12/bin/go'
   alias idea='intellij-idea-ultimate'
   alias open=xdg-open
@@ -207,11 +208,7 @@ if [[ ! "$OSTYPE" == "darwin"* ]]; then
 
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-  # Delay in notifications, stopped using:
-  # Activate notifications
-  # source ~/notifyre.sh
-  # Comment out below and use `nf CMD` when you want notifications if it gets annoying:
-  # source ~/bash-preexec.sh
+  alias togglecaps=xdotool key Caps_Lock
 fi
 PROMPT='%{$fg[yellow]%}%D{%T} '$PROMPT
 
