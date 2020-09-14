@@ -503,7 +503,7 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 syntax enable 
 
 try
-    colorscheme desert
+    " colorscheme desert
 catch
 endtry
 
@@ -520,7 +520,7 @@ endif
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
-set termguicolors
+" set termguicolors
 " colo mycolo
 
 " Colors for vimdiff:
