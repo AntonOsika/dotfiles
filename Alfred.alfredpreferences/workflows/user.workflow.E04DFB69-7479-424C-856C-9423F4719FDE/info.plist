@@ -170,7 +170,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Open Chrome</string>
+	<string>Shortcuts</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -257,7 +257,7 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/IntelliJ IDEA.app</string>
+					<string>/Applications/PyCharm CE.app</string>
 				</array>
 				<key>toggle</key>
 				<false/>
@@ -538,11 +538,11 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>10</integer>
+				<integer>50</integer>
 				<key>hotmod</key>
 				<integer>1179648</integer>
 				<key>hotstring</key>
-				<string>±</string>
+				<string>~</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>

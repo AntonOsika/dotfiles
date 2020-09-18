@@ -102,7 +102,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "w",
+                                    "key_code": "f",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_option"
@@ -376,7 +376,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "w",
+                                    "key_code": "f",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_option",
