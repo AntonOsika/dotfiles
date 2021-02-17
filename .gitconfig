@@ -175,7 +175,7 @@
 
 [diff]
 
-	tool = vimdiff
+	tool = gitk
 	# Detect copies as well as renames
 	renames = copies
 	# Enable an experimental heuristic that shifts the hunk boundary in an

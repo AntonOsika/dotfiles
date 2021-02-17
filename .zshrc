@@ -178,7 +178,12 @@ ktp() {
   eval java -jar $DEST < $2
 }
 
-alias nf='notify-send "Done."'
+if [[ ! "$OSTYPE" == "darwin"* ]]; then
+  alias nf='notify-send "Done."'
+else
+  # banner is commented out:
+  alias nf="afplay /System/Library/Sounds/Ping.aiff -v 2 && osascript -e $'display notification \'Job done\' with title \'Done\''"
+fi
 
 
 if [[ ! "$OSTYPE" == "darwin"* ]]; then
@@ -199,7 +204,11 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias python=python3
   alias pip=pip3
+  # gsutil -m didnt support python 3.8 
+  export CLOUDSDK_PYTHON=/usr/local/opt/python@3.7/bin/python3
   # export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+  # Disable fork security feature for python multiprocessing
+  export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 fi
 
 
@@ -210,8 +219,9 @@ if [[ ! "$OSTYPE" == "darwin"* ]]; then
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
   alias togglecaps=xdotool key Caps_Lock
+  # See time when command was executed, included in iterm2
+  PROMPT='%{$fg[yellow]%}%D{%T} '$PROMPT
 fi
-PROMPT='%{$fg[yellow]%}%D{%T} '$PROMPT
 
 [[ -f /usr/bin/kubectl ]] && source <(kubectl completion zsh)
 
@@ -220,3 +230,9 @@ PATH=~/.local/bin/:$PATH
 
 # Parallell docker build
 # export DOCKER_BUILDKIT=1
+
+# eval "$(direnv hook zsh)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+getargo(){argo list -o name | grep $1 | head -n 1 | xargs argo get}
+getlogs(){gcloud logging read resource.labels.pod_name="$1" --format=json ${@:2} --order asc | jq ".[].textPayload"}

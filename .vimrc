@@ -50,10 +50,19 @@ Plug 'alfredodeza/pytest.vim'    " Run pytest
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
 Plug 'junegunn/fzf.vim'          " ctrl-f to open files.
+Plug 'morhetz/gruvbox'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'Vimjas/vim-python-pep8-indent' 
+
+Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
+" disable autocompletion, because we use deoplete for completion
+let g:jedi#completions_enabled = 0
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "right"
+
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
 " Plug 'Vimjas/vim-python-pep8-indent' 
 " Pip instal black and flak8 instead
@@ -97,8 +106,8 @@ call plug#end()
 " Set mac python path for neovim:
 let g:os = substitute(system('uname'), '\n', '', '')
 if g:os == "Darwin"
-  let g:python3_host_prog = '/Users/anton/anaconda3/bin/python'
-  let g:python_host_prog  = '/Users/anton/anaconda3/bin/python'
+  let g:python3_host_prog = '/usr/local/bin/python3'
+  let g:python_host_prog  = '/usr/bin/python2'
 else " Linux
   let g:python3_host_prog = '/usr/bin/python3'
   let g:python_host_prog  = '/usr/bin/python2'
@@ -277,7 +286,7 @@ nmap gu :CocCommand git.chunkUndo<cr>
 nmap <silent> <leader>k :CocCommand explorer<cr>
 
 "remap keys for gotos
-nmap <silent> <leader>d <Plug>(coc-definition)
+" nmap <silent> <leader>d <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -440,6 +449,7 @@ set tags=./tags;/
 " turn color syntax highlighting on by default
 " set term=builtin_beos-ansi
 syntax on
+autocmd vimenter * colorscheme gruvbox
 
 " turn on the "visual bell" - which is much quieter than the "audio blink"
 set vb
@@ -503,7 +513,7 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 syntax enable 
 
 try
-    colorscheme desert
+    " colorscheme desert
 catch
 endtry
 
