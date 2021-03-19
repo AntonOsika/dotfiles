@@ -262,7 +262,7 @@ let g:coc_global_extensions = [
         \ 'coc-prettier',
         \ 'coc-ultisnips',
         \ 'coc-explorer',
-        \ 'coc-python',
+        \ 'coc-jedi',
         \ 'coc-go'
         \ ]
 
