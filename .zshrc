@@ -234,11 +234,6 @@ PATH=~/.local/bin/:$PATH
 # eval "$(direnv hook zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-getargo(){argo list -o name | grep $1 | head -n 1 | xargs argo get}
-getlogs(){gcloud logging read resource.labels.pod_name="$1" --format=json ${@:2} | jq ".[].textPayload" | tac}
-submit(){argo cron list -o name | grep $1 | xargs -I {} argo submit --from cronwf/{}}
 
-dlocal(){ unlink /Users/anton/depict.ai/recommender-systems/data && ln -s  ~/data/depictai-data-local /Users/anton/depict.ai/recommender-systems/data }
-dremote(){ unlink /Users/anton/depict.ai/recommender-systems/data && ln -s  ~/data/depictai-data-remote /Users/anton/depict.ai/recommender-systems/data }
-remount(){ sudo diskutil umount /Users/anton/data/depictai-data-remote ; sshfs -o IdentityFile=~/.ssh/google_compute_engine -o idmap=user root@filestore-proxy.europe-west1-b.depict-ai-production:/mnt/depict_artifacts/ /Users/anton/data/depictai-data-remote }
-
+export DEPICT_DATA_PATH=~/data/depictai-data-local
+source ~/depict.ai/depict.rc
