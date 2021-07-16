@@ -130,7 +130,7 @@ augroup XML
     autocmd FileType xml setlocal foldmethod=indent foldlevelstart=999 foldminlines=0
 augroup END
 
-####### COC #######
+" ####### COC #######
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -326,13 +326,13 @@ command! -nargs=1 S let @/ = '\V'.escape(<q-args>, '\')
 set clipboard=unnamed
 set clipboard+=unnamedplus
 
-"  Copy to clipboard
+"  Copy to clipboard, useful on some OS where clipboard sharing is more difficult
 "vnoremap  <leader>y  "+y
 "nnoremap  <leader>Y  "+yg_
 "nnoremap  <leader>y  "+y
 "nnoremap  <leader>yy  "+yy
 "
-"" Paste from clipboard
+"" Paste from clipboard, useful on some OS where clipboard sharing is more difficult
 "nnoremap <leader>p "+p
 "nnoremap <leader>P "+P
 "vnoremap <leader>p "+p
@@ -431,7 +431,7 @@ hi Normal guibg=NONE ctermbg=NONE
 
 " colo mycolo
 
-" Colors for vimdiff:
+" Colors for vimdiff, messed up on current terminal manager
 " highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 " highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 " highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
