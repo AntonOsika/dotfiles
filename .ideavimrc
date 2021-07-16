@@ -1,7 +1,7 @@
 " emulated extension
-set surround
-set multiple-cursors
-set commentary
+" set surround
+" set multiple-cursors
+" set commentary
 
 " .vimrc of Anton Osika
 let mapleader = ','
@@ -19,13 +19,6 @@ nnoremap <leader>a :Ack!<Space>
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>x :x<CR>
-
-" Switch tabs
-nnoremap <C-h> :tabp <CR>
-nnoremap <C-l> :tabn <CR>
-
-" follow tags without pinky finger
-map gk <C-]>
 
 " open tlist
 noremap <leader>l :TlistOpen<CR>
@@ -73,8 +66,8 @@ if exists(':tnoremap')
 endif
 
 " Clear highlighting on escape in normal mode
-nnoremap <esc> :noh<return><esc>
-nnoremap <esc>^[ <esc>^[
+" nnoremap <esc> :noh<return><esc>
+" nnoremap <esc>^[ <esc>^[
 
 nnoremap <C-q> <C-v>
 
@@ -98,9 +91,6 @@ set vb
 set hlsearch
 set incsearch
 
-" highlight visual selection
-vnoremap // y/<C-R>"<CR>gv
-
 " case insensitive. Put \C anywhere in search to do case sensitive (opposite of \c)
 set ignorecase
 
@@ -112,10 +102,6 @@ set wildignorecase
 
 " automatically show matching brackets. works like it does in bbedit.
 set showmatch
-
-" do NOT put a carriage return at the end of the last line! if you are programming
-" for the web the default will cause http headers to be sent. that's bad.
-set noeol
 
 " make that backspace key work the way it should
 set backspace=indent,eol,start
