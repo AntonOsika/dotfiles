@@ -197,6 +197,8 @@ if [[ ! "$OSTYPE" == "darwin"* ]]; then
   alias tk='noglob gsettings set org.gnome.desktop.input-sources xkb-options [\"caps:escape\",\"compose:sclk\"]'
 fi
 
+alias pw="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+
 
 # Mac specific stuff moved from .localrc
 if [[ "$OSTYPE" == "darwin"* ]]; then

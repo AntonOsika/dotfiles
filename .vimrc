@@ -50,18 +50,21 @@ Plug 'alfredodeza/pytest.vim'    " Run pytest
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
 Plug 'junegunn/fzf.vim'          " ctrl-f to open files.
-Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'           " Colorshcema
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'Vimjas/vim-python-pep8-indent' 
 
-Plug 'zchee/deoplete-jedi'
-Plug 'davidhalter/jedi-vim'
+" Plug 'zchee/deoplete-jedi'
+" Plug 'davidhalter/jedi-vim'
 " disable autocompletion, because we use deoplete for completion
-let g:jedi#completions_enabled = 0
+" let g:jedi#completions_enabled = 0
 " open the go-to function in split, not another buffer
-let g:jedi#use_splits_not_buffers = "right"
+" let g:jedi#use_splits_not_buffers = "right"
 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
 " Plug 'Vimjas/vim-python-pep8-indent' 
@@ -104,17 +107,22 @@ call plug#end()
 " let g:markdown_composer_external_renderer='pandoc -f markdown -t html'
 
 " Set mac python path for neovim:
-let g:os = substitute(system('uname'), '\n', '', '')
-if g:os == "Darwin"
-  let g:python3_host_prog = '/usr/local/bin/python3'
-  let g:python_host_prog  = '/usr/bin/python2'
-else " Linux
-  let g:python3_host_prog = '/usr/bin/python3'
-  let g:python_host_prog  = '/usr/bin/python2'
-endif
+" let g:os = substitute(system('uname'), '\n', '', '')
+" if g:os == "Darwin"
+"   let g:python3_host_prog = '/usr/local/bin/python3'
+"   let g:python_host_prog  = '/usr/bin/python2'
+" else " Linux
+"   let g:python3_host_prog = '/usr/bin/python3'
+"   let g:python_host_prog  = '/usr/bin/python2'
+" endif
 
 
 let mapleader = ','
+
+" lsp
+lua << EOF
+require'lspconfig'.pyright.setup{}
+EOF
 
 " ####### Multi Cursor #######
 let g:multi_cursor_use_default_mapping=0
@@ -133,93 +141,93 @@ augroup END
 " ####### COC #######
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+"inoremap <silent><expr> <c-space> coc#refresh()
 
 
-" " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
+"" " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+"xmap <leader>a  <Plug>(coc-codeaction-selected)
 
-" " Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
-
-
-let g:coc_global_extensions = [
-        \ 'coc-css',
-        \ 'coc-json',
-        \ 'coc-tsserver',
-        \ 'coc-git',
-        \ 'coc-eslint',
-        \ 'coc-tslint-plugin',
-        \ 'coc-pairs',
-        \ 'coc-sh',
-        \ 'coc-vimlsp',
-        \ 'coc-emmet',
-        \ 'coc-prettier',
-        \ 'coc-ultisnips',
-        \ 'coc-explorer',
-        \ 'coc-jedi',
-        \ 'coc-go'
-        \ ]
-
-hi! CocErrorSign guifg=#d1666a
-" hi! CocInfoSign guibg=#353b45
-" hi! CocWarningSign guifg=#d1cd66
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" coc-format
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-nmap <leader>f <Plug>(coc-format)
-
-" coc-git
-nmap [g <Plug>(coc-git-prevchunk)
-nmap ]g <Plug>(coc-git-nextchunk)
-nmap gs <Plug>(coc-git-chunkinfo)
-nmap gu :CocCommand git.chunkUndo<cr>
-
-nmap <silent> <leader>k :CocCommand explorer<cr>
-
-"remap keys for gotos
-" nmap <silent> <leader>d <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gh <Plug>(coc-doHover)
-
-" diagnostics navigation
-nmap <silent> <C-k> <Plug>(coc-diagnostic-prev)
-nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
+"" " Remap for do codeAction of current line
+"nmap <leader>ac  <Plug>(coc-codeaction)
 
 
-" rename
-nmap <silent> <leader>rn <Plug>(coc-rename)
+"let g:coc_global_extensions = [
+"        \ 'coc-css',
+"        \ 'coc-json',
+"        \ 'coc-tsserver',
+"        \ 'coc-git',
+"        \ 'coc-eslint',
+"        \ 'coc-tslint-plugin',
+"        \ 'coc-pairs',
+"        \ 'coc-sh',
+"        \ 'coc-vimlsp',
+"        \ 'coc-emmet',
+"        \ 'coc-prettier',
+"        \ 'coc-ultisnips',
+"        \ 'coc-explorer',
+"        \ 'coc-jedi',
+"        \ 'coc-go'
+"        \ ]
 
-" organize imports
-command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+"hi! CocErrorSign guifg=#d1666a
+"" hi! CocInfoSign guibg=#353b45
+"" hi! CocWarningSign guifg=#d1cd66
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+"" Highlight symbol under cursor on CursorHold
+"autocmd CursorHold * silent call CocActionAsync('highlight')
 
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
+"" coc-format
+"command! -nargs=0 Prettier :CocCommand prettier.formatFile
+"nmap <leader>f <Plug>(coc-format)
 
-"tab completion
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"" coc-git
+"nmap [g <Plug>(coc-git-prevchunk)
+"nmap ]g <Plug>(coc-git-nextchunk)
+"nmap gs <Plug>(coc-git-chunkinfo)
+"nmap gu :CocCommand git.chunkUndo<cr>
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+"nmap <silent> <leader>k :CocCommand explorer<cr>
+
+""remap keys for gotos
+"" nmap <silent> <leader>d <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
+"nmap <silent> gh <Plug>(coc-doHover)
+
+"" diagnostics navigation
+"nmap <silent> <C-k> <Plug>(coc-diagnostic-prev)
+"nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
+
+
+"" rename
+"nmap <silent> <leader>rn <Plug>(coc-rename)
+
+"" organize imports
+"command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+
+"" Use K to show documentation in preview window
+"nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+"function! s:show_documentation()
+"    if (index(['vim','help'], &filetype) >= 0)
+"        execute 'h '.expand('<cword>')
+"    else
+"        call CocAction('doHover')
+"    endif
+"endfunction
+
+""tab completion
+"inoremap <silent><expr> <TAB>
+"    \ pumvisible() ? "\<C-n>" :
+"    \ <SID>check_back_space() ? "\<TAB>" :
+"    \ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+"function! s:check_back_space() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
 
 
 " ####### SEARCH #######

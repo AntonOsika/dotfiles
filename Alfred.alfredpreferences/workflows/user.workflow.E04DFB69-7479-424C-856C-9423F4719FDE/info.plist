@@ -558,7 +558,7 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/Vimcal.app</string>
+					<string>/Applications/Cron.app</string>
 				</array>
 				<key>toggle</key>
 				<false/>
