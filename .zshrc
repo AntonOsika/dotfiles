@@ -234,5 +234,5 @@ PATH=~/.local/bin/:$PATH
 # eval "$(direnv hook zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-export DEPICT_ROOT=~/depict.ai
-source ~/depict.ai/depict.rc
+# export DEPICT_ROOT=~/depict.ai
+# source ~/depict.ai/depict.rc

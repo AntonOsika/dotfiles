@@ -196,7 +196,7 @@
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
-	tool = vimdiff
+	tool = nvimdiff
 	keepBackup = false
 
 [push]
@@ -240,3 +240,10 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+[diff]
+    tool = nvimdiff
+
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
