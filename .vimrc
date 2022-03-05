@@ -20,6 +20,11 @@
 " Note:
 " A lot of plugins are commented out so that I remember what I have decided to not use per default.
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 set nocompatible              " required (not compatible with old vi)
 filetype off                  " required

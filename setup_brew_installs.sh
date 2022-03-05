@@ -13,7 +13,7 @@ fi
 # Install if we don't have it
 if test $(which brew); then
 	echo "Installing homebrew..."
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 echo "brew doctor"
@@ -56,6 +56,8 @@ brew install zsh
 # brew install zsh-completions
 brew install zsh-autosuggestions
 
+brew install bat
+
 
 echo "" 
 echo "Setting zsh as default shell"
@@ -64,6 +66,8 @@ chsh -s /usr/local/bin/zsh
 # cli tools
 brew install tree
 brew install fzf
+$(brew --prefix)/opt/fzf/install
+
 brew install the_silver_searcher # like ack but faster (ack codesnippet .)
 
 # Install git
@@ -96,29 +100,32 @@ echo "Installing Applications"
 
 # Install quick look plugins for developers; see
 # https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlimagesize 
-brew cask install qlcolorcode
-brew cask install qlstephen
-brew cask install qlmarkdown
-brew cask install quicklook-json
-brew cask install qlprettypatch
-brew cask install quicklook-csv
-brew cask install betterzipql
-brew cask install webpquicklook
-brew cask install suspicious-package
-
-brew cask install --appdir="/Applications" alfred
-brew cask install --appdir="/Applications" karabiner-elements
-brew cask install --appdir="/Applications" visual-studio-code
-brew cask install --appdir="/Applications" docker
-brew cask install --appdir="/Applications" iterm2
-brew cask install --appdir="/Applications" google-chrome
-brew cask install --appdir="/Applications" evernote
-brew cask install --appdir="/Applications" rectangle
-brew cask install --appdir="/Applications" vlc
-brew cask install --appdir="/Applications" anki
-brew cask install --appdir="/Applications" spotify
-brew cask install --appdir="/Applications" disk-inventory-x
+brew install --cask qlimagesize 
+brew install --cask qlcolorcode
+brew install --cask qlstephen
+brew install --cask qlmarkdown
+brew install --cask quicklook-json
+brew install --cask qlprettypatch
+brew install --cask quicklook-csv
+brew install --cask betterzipql
+brew install --cask webpquicklook
+brew install --cask suspicious-package
+                  
+brew install --cask --appdir="/Applications" alfred
+brew install --cask --appdir="/Applications" karabiner-elements
+brew install --cask --appdir="/Applications" visual-studio-code
+brew install --cask --appdir="/Applications" docker
+brew install --cask --appdir="/Applications" iterm2
+brew install --cask --appdir="/Applications" google-chrome
+brew install --cask --appdir="/Applications" evernote
+brew install --cask --appdir="/Applications" rectangle
+brew install --cask --appdir="/Applications" vlc
+brew install --cask --appdir="/Applications" anki
+brew install --cask --appdir="/Applications" spotify
+brew install --cask --appdir="/Applications" disk-inventory-x
+                  
+brew install --cask caskroom/fonts/font-hack
+brew install --cask caskroom/fonts/font-source-code-pro
 
 # brew cask install --appdir="/Applications" MacDown          # markdown
 # brew cask install --appdir="/Applications" latexian         # ?
@@ -127,8 +134,6 @@ brew cask install --appdir="/Applications" disk-inventory-x
 #brew cask install --appdir="/Applications" virtualbox
 #brew cask install --appdir="/Applications" vagrant
 
-brew cask install caskroom/fonts/font-hack
-brew cask install caskroom/fonts/font-source-code-pro
 
 echo "installing python with brew, should end up in /usr/local/bin/python."
 brew install python3

@@ -25,6 +25,10 @@ Iterm2 needs to manually be set to sync with this folder to use the settings.
 
 Note that `.zsh` will set `vim=nvim` if it exists.
 
+### Manual steps
+
+- If using alfred 3 you need to point the config file to the dotfiles directory.
+
 ## Updating things
 
 Prezto: 
@@ -56,13 +60,11 @@ Useful things that are not installed with these scripts.
 ### Browser extensions
 - uBlock
 - Pocket
-- Evernote
-- Quick Tabs (search browser tabs)
-- The Great Suspender
+- The Great Discarder
 
 ### Useful mac apps
-- Alfred 3, with snippets for math utf8 characters
-- (Clipy or Alfred PowerPack)
-- Mendeley
+- Alfred 3, with snippets for math utf8 characters.
+- (copyq or Alfred PowerPack), clipboard history
 - Rescue Time
 - Context for switching between windows in one app
+- Notion

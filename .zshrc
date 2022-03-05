@@ -23,7 +23,7 @@ export LANG=en_US.UTF-8
 export MANPATH="/usr/local/man:$MANPATH"
 
 export EDITOR='vim'
-if test $(which nvim); then
+if [[ $(which nvim) ]]; then
   alias vim=nvim
   alias vimdiff='nvim -d'
 
@@ -75,7 +75,7 @@ function frameworkipython {
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
 
-alias c="g++ -Wall -Wconversion -Wfatal-errors -g -std=c++14 -fsanitize=undefined,address"
+alias gcc="g++ -Wall -Wconversion -Wfatal-errors -g -std=c++14 -fsanitize=undefined,address"
 
 # Adds conda to current path:
 # (the alternative that works is adding conda to path and using it like they suggest)
@@ -236,3 +236,5 @@ PATH=~/.local/bin/:$PATH
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # export DEPICT_ROOT=~/depict.ai
 # source ~/depict.ai/depict.rc
+export PATH=/opt/homebrew/bin:$PATH
+
