@@ -56,6 +56,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " :FZF. Last part not necessary if brew install
 Plug 'junegunn/fzf.vim'          " ctrl-f to open files.
 Plug 'morhetz/gruvbox'           " Colorshcema
+Plug 'dpelle/vim-LanguageTool'           " grammarly ish
+
+let g:languagetool_jar='$HOME/Applications/LanguageTool-5.2/languagetool-commandline.jar'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
