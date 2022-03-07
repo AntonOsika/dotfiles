@@ -623,7 +623,7 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/Superhuman.app</string>
+					<string>~/Applications/Chrome Apps.localized/Gmail.app</string>
 				</array>
 				<key>toggle</key>
 				<false/>
