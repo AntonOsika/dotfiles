@@ -71,32 +71,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>4B478CA3-B2AD-4D07-8984-3163F10E0B0E</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>E5BCB518-4A52-4334-B041-A6532BAD3885</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>4E019B28-2093-4B87-9595-2351F67AE3C9</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>FA02DEFB-7522-42F4-BEED-83F1F00BE988</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>6AFFF5F8-46C8-4A99-BC14-048ECB27D7C4</key>
 		<array>
 			<dict>
@@ -551,37 +525,6 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>14</integer>
-				<key>hotmod</key>
-				<integer>1179648</integer>
-				<key>hotstring</key>
-				<string>E</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>2</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>4E019B28-2093-4B87-9595-2351F67AE3C9</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
 				<integer>15</integer>
 				<key>hotmod</key>
 				<integer>524288</integer>
@@ -606,7 +549,7 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/Cron.app</string>
+					<string>~/Applications/Chrome Apps.localized/Google Calendar.app</string>
 				</array>
 				<key>toggle</key>
 				<false/>
@@ -632,23 +575,6 @@
 			<string>alfred.workflow.action.launchfiles</string>
 			<key>uid</key>
 			<string>CEAEBE33-715D-4BB0-89F4-9CB7CDD88E38</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>paths</key>
-				<array>
-					<string>/System/Applications/Notes.app</string>
-				</array>
-				<key>toggle</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.launchfiles</string>
-			<key>uid</key>
-			<string>FA02DEFB-7522-42F4-BEED-83F1F00BE988</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -682,54 +608,6 @@
 			<string>DAF15CAF-41A3-4AE5-9852-8AF816480261</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>32</integer>
-				<key>hotmod</key>
-				<integer>1179648</integer>
-				<key>hotstring</key>
-				<string>U</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>2</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>4B478CA3-B2AD-4D07-8984-3163F10E0B0E</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>paths</key>
-				<array>
-					<string>/Applications/Spotify.app</string>
-				</array>
-				<key>toggle</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.launchfiles</string>
-			<key>uid</key>
-			<string>E5BCB518-4A52-4334-B041-A6532BAD3885</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1078,20 +956,6 @@
 			<key>ypos</key>
 			<integer>620</integer>
 		</dict>
-		<key>4B478CA3-B2AD-4D07-8984-3163F10E0B0E</key>
-		<dict>
-			<key>xpos</key>
-			<integer>590</integer>
-			<key>ypos</key>
-			<integer>460</integer>
-		</dict>
-		<key>4E019B28-2093-4B87-9595-2351F67AE3C9</key>
-		<dict>
-			<key>xpos</key>
-			<integer>580</integer>
-			<key>ypos</key>
-			<integer>290</integer>
-		</dict>
 		<key>50DD45A9-97DF-4F7D-8362-F0B20E762E2F</key>
 		<dict>
 			<key>xpos</key>
@@ -1232,13 +1096,6 @@
 			<key>ypos</key>
 			<integer>580</integer>
 		</dict>
-		<key>E5BCB518-4A52-4334-B041-A6532BAD3885</key>
-		<dict>
-			<key>xpos</key>
-			<integer>750</integer>
-			<key>ypos</key>
-			<integer>460</integer>
-		</dict>
 		<key>F2B19B19-E294-462A-95A4-C1F5E1275089</key>
 		<dict>
 			<key>xpos</key>
@@ -1252,13 +1109,6 @@
 			<integer>1070</integer>
 			<key>ypos</key>
 			<integer>580</integer>
-		</dict>
-		<key>FA02DEFB-7522-42F4-BEED-83F1F00BE988</key>
-		<dict>
-			<key>xpos</key>
-			<integer>720</integer>
-			<key>ypos</key>
-			<integer>290</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
