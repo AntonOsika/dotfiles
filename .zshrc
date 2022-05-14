@@ -118,6 +118,10 @@ source $ZSH/oh-my-zsh.sh
 #   fi
 # fi
 
+# ctrl n/p = downarrow/uparrow
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
+
 # Source locals
 if [[ -s "$HOME/.localrc" ]]; then
   source "$HOME/.localrc"
@@ -228,7 +232,7 @@ alias gs='g s'
 alias gd='g d'
 
 # push to remote branch
-function gp() { git push origin HEAD:refs/heads/$1 $2 }
+function gp() { git push origin HEAD:$1 }
 
 
 # Creating tags for vim
@@ -308,8 +312,6 @@ alias pw="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}
 
 # Mac specific stuff moved from .localrc
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias python=python3
-  alias pip=pip3
   # gsutil -m didnt support python 3.8 
   export CLOUDSDK_PYTHON=/usr/local/opt/python@3.7/bin/python3
   # export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)

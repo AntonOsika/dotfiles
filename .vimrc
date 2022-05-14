@@ -63,10 +63,10 @@ let g:languagetool_jar='$HOME/Applications/LanguageTool-5.2/languagetool-command
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'Vimjas/vim-python-pep8-indent' 
+Plug 'github/copilot.vim'
 
+" TODO cleanup
 " Plug 'zchee/deoplete-jedi'
 " Plug 'davidhalter/jedi-vim'
 " disable autocompletion, because we use deoplete for completion
@@ -130,6 +130,50 @@ let mapleader = ','
 " lsp
 lua << EOF
 require'lspconfig'.pyright.setup{}
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+end
+
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
+for _, lsp in pairs(servers) do
+  require('lspconfig')[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      -- This will be the default in neovim 0.7+
+      debounce_text_changes = 150,
+    }
+  }
+end
+
 EOF
 
 " ####### Multi Cursor #######
@@ -145,97 +189,6 @@ augroup XML
     autocmd!
     autocmd FileType xml setlocal foldmethod=indent foldlevelstart=999 foldminlines=0
 augroup END
-
-" ####### COC #######
-
-" Use <c-space> to trigger completion.
-"inoremap <silent><expr> <c-space> coc#refresh()
-
-
-"" " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-"xmap <leader>a  <Plug>(coc-codeaction-selected)
-
-"" " Remap for do codeAction of current line
-"nmap <leader>ac  <Plug>(coc-codeaction)
-
-
-"let g:coc_global_extensions = [
-"        \ 'coc-css',
-"        \ 'coc-json',
-"        \ 'coc-tsserver',
-"        \ 'coc-git',
-"        \ 'coc-eslint',
-"        \ 'coc-tslint-plugin',
-"        \ 'coc-pairs',
-"        \ 'coc-sh',
-"        \ 'coc-vimlsp',
-"        \ 'coc-emmet',
-"        \ 'coc-prettier',
-"        \ 'coc-ultisnips',
-"        \ 'coc-explorer',
-"        \ 'coc-jedi',
-"        \ 'coc-go'
-"        \ ]
-
-"hi! CocErrorSign guifg=#d1666a
-"" hi! CocInfoSign guibg=#353b45
-"" hi! CocWarningSign guifg=#d1cd66
-
-"" Highlight symbol under cursor on CursorHold
-"autocmd CursorHold * silent call CocActionAsync('highlight')
-
-"" coc-format
-"command! -nargs=0 Prettier :CocCommand prettier.formatFile
-"nmap <leader>f <Plug>(coc-format)
-
-"" coc-git
-"nmap [g <Plug>(coc-git-prevchunk)
-"nmap ]g <Plug>(coc-git-nextchunk)
-"nmap gs <Plug>(coc-git-chunkinfo)
-"nmap gu :CocCommand git.chunkUndo<cr>
-
-"nmap <silent> <leader>k :CocCommand explorer<cr>
-
-""remap keys for gotos
-"" nmap <silent> <leader>d <Plug>(coc-definition)
-"nmap <silent> gy <Plug>(coc-type-definition)
-"nmap <silent> gi <Plug>(coc-implementation)
-"nmap <silent> gr <Plug>(coc-references)
-"nmap <silent> gh <Plug>(coc-doHover)
-
-"" diagnostics navigation
-"nmap <silent> <C-k> <Plug>(coc-diagnostic-prev)
-"nmap <silent> <C-j> <Plug>(coc-diagnostic-next)
-
-
-"" rename
-"nmap <silent> <leader>rn <Plug>(coc-rename)
-
-"" organize imports
-"command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
-
-"" Use K to show documentation in preview window
-"nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-"function! s:show_documentation()
-"    if (index(['vim','help'], &filetype) >= 0)
-"        execute 'h '.expand('<cword>')
-"    else
-"        call CocAction('doHover')
-"    endif
-"endfunction
-
-""tab completion
-"inoremap <silent><expr> <TAB>
-"    \ pumvisible() ? "\<C-n>" :
-"    \ <SID>check_back_space() ? "\<TAB>" :
-"    \ coc#refresh()
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-"function! s:check_back_space() abort
-"  let col = col('.') - 1
-"  return !col || getline('.')[col - 1]  =~# '\s'
-"endfunction
 
 
 " ####### SEARCH #######
