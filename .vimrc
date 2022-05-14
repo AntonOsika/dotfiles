@@ -61,32 +61,18 @@ Plug 'dpelle/vim-LanguageTool'           " grammarly ish
 let g:languagetool_jar='$HOME/Applications/LanguageTool-5.2/languagetool-commandline.jar'
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+
+Plug 'pocco81/autosave.nvim'
 
 Plug 'Vimjas/vim-python-pep8-indent' 
 Plug 'github/copilot.vim'
+Plug 'mhartington/formatter.nvim'
 
-" TODO cleanup
-" Plug 'zchee/deoplete-jedi'
-" Plug 'davidhalter/jedi-vim'
-" disable autocompletion, because we use deoplete for completion
-" let g:jedi#completions_enabled = 0
-" open the go-to function in split, not another buffer
-" let g:jedi#use_splits_not_buffers = "right"
 
 " Plug 'maxbrunsfeld/vim-yankstack' " alt/meta-p to cycle yanks. Will remap y and d internally.
-" Plug 'Vimjas/vim-python-pep8-indent' 
-" Pip instal black and flak8 instead
-" Plug 'ambv/black'                " Autofix python code
-" Plug 'goerz/ipynb_notedown.vim'  " When opening .ipynb files this should do something useful ?
-" Plug 'nvie/vim-flake8'            " python lint, use F7 or: autocmd BufWritePost *.py call Flake8()
-"Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" Plug 'bling/vim-airline' " a smooth status/tabline for vim
-"Plug 'suan/vim-instant-markdown' " like compose but slower
-"Plug 'ivanov/vim-ipython'      "should send commands to most recent ipython, not working.
+
 "Plug 'xolox/vim-misc'           "prereq for vim-easytags
 "Plug 'xolox/vim-easytags'       "auto update of global tags https://github.com/xolox/vim-easytags
-"Plug 'chrisbra/Recover.vim'     " adds option to diff when swap file exists. Does not display message or Delete option in neovim atm.
 "Plug 'easymotion/vim-easymotion' ",,w = jump to word
 "Plug 'vim-pandoc/vim-pandoc'     "markdown thing
 "Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -127,9 +113,37 @@ call plug#end()
 
 let mapleader = ','
 
-" lsp
+
+" LUA for lsp stuff
 lua << EOF
-require'lspconfig'.pyright.setup{}
+require'lspconfig'.tsserver.setup{}
+-- Autosave
+local autosave = require("autosave")
+
+autosave.setup(
+    {
+        enabled = true,
+        execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
+        events = {"InsertLeave", "TextChanged"},
+        conditions = {
+            exists = true,
+            filename_is_not = {},
+            filetype_is_not = {},
+            modifiable = true
+        },
+        write_all_buffers = false,
+        on_off_commands = true,
+        clean_command_line_interval = 0,
+        debounce_delay = 135
+    }
+)
+
+-- Disable swapfile
+vim.opt.swapfile = false
+
+-- LSP
+require'lspconfig'.tsserver.setup{}
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -174,6 +188,24 @@ for _, lsp in pairs(servers) do
   }
 end
 
+-- formatter
+
+-- Provides the Format and FormatWrite commands
+require('formatter').setup {
+  filetype = {
+    -- see defaults: https://github.com/mhartington/formatter.nvim/tree/master/lua/formatter/filetypes
+    lua = {
+      require('formatter.filetypes.lua').stylua,
+    },
+    python = {
+      require('formatter.filetypes.python').black,
+    },
+    javascript = {
+      require('formatter.filetypes.javascript').prettier,
+      require('formatter.filetypes.javascript').eslint,
+    }
+  }
+}
 EOF
 
 " ####### Multi Cursor #######
@@ -197,6 +229,10 @@ augroup END
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+
+" Format with formatter.nvim
+nnoremap <silent> <leader>f :Format<CR>
 
 " Search file content (ack uses ag)
 nnoremap <leader>g :Ack!<Space>
