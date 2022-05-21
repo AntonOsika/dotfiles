@@ -116,7 +116,6 @@ let mapleader = ','
 
 " LUA for lsp stuff
 lua << EOF
-require'lspconfig'.tsserver.setup{}
 -- Autosave
 local autosave = require("autosave")
 
@@ -142,7 +141,6 @@ autosave.setup(
 vim.opt.swapfile = false
 
 -- LSP
-require'lspconfig'.tsserver.setup{}
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -191,11 +189,16 @@ end
 -- formatter
 
 -- Provides the Format and FormatWrite commands
+
+local util = require("formatter.util")
 require('formatter').setup {
   filetype = {
     -- see defaults: https://github.com/mhartington/formatter.nvim/tree/master/lua/formatter/filetypes
     lua = {
       require('formatter.filetypes.lua').stylua,
+    },
+    json = {
+      require('formatter.filetypes.json').prettier,
     },
     python = {
       require('formatter.filetypes.python').black,
@@ -203,10 +206,37 @@ require('formatter').setup {
     javascript = {
       require('formatter.filetypes.javascript').prettier,
       require('formatter.filetypes.javascript').eslint,
+    },
+    sql = {
+      function()
+        return {
+          exe = "sqlfluff fix -f --dialect bigquery -",
+          args = { },
+          stdin = true,
+        }
+      end
     }
   }
 }
 EOF
+
+
+" PERSISTENT UNDO
+" guard for distributions lacking the 'persistent_undo' feature.
+if has('persistent_undo')
+    " define a path to store persistent undo files.
+    let target_path = expand('~/.config/vim-persisted-undo/')
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call system('mkdir -p ' . target_path)
+    endif
+    " point Vim to the defined undo directory.
+    let &undodir = target_path
+    " finally, enable undo persistence.
+    set undofile
+endif
+
 
 " ####### Multi Cursor #######
 let g:multi_cursor_use_default_mapping=0
@@ -225,17 +255,20 @@ augroup END
 
 " ####### SEARCH #######
 
-" Let ack use silver searcher
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
 
 " Format with formatter.nvim
 nnoremap <silent> <leader>f :Format<CR>
 
-" Search file content (ack uses ag)
-nnoremap <leader>g :Ack!<Space>
+" override for sql
+autocmd FileType sql nnoremap <silent> <leader>l :!sqlfluff lint --dialect bigquery %<CR>
+autocmd FileType sql nnoremap <silent> <leader>f :!sqlfluff fix -f --dialect bigquery %<CR>
+
+
+" Search file content
+nnoremap <C-a> :Ag<CR>
+
+" git blame
+nnoremap <Leader>gb :Git blame<CR>  
 
 " Fast saving (less use of pinky finger)
 nmap <leader>w :w<CR>
@@ -244,6 +277,9 @@ nmap <leader>x :x<CR>
 
 " Fuzzy search file
 nnoremap <C-f> :FZF! <CR>
+
+" Fuzzy search buffers
+nnoremap <leader>b :Buffer <CR>
 
 " Better command history with q::
 command! CmdHist call fzf#vim#command_history({'right': '40'})
@@ -265,12 +301,6 @@ nnoremap <C-b> :bnext<CR>
 
 " follow tags without pinky finger 
 map gk <C-]>
-
-" create tags
-" map <leader>t :!ctags -R -f ./tags . &<CR>
-
-" open tlist
-noremap <leader>l :TlistOpen<CR>
 
 " open nerdtree
 noremap <leader>t :NERDTreeToggle<CR>

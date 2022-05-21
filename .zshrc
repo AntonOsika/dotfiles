@@ -313,10 +313,12 @@ alias pw="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}
 # Mac specific stuff moved from .localrc
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # gsutil -m didnt support python 3.8 
-  export CLOUDSDK_PYTHON=/usr/local/opt/python@3.7/bin/python3
+  # export CLOUDSDK_PYTHON=/usr/local/opt/python@3.7/bin/python3
   # export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
   # Disable fork security feature for python multiprocessing
   export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+  source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 fi
 
 
@@ -360,3 +362,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+

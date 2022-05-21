@@ -54,6 +54,9 @@ defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
 # set repeat after that even faster
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 
+# For VSCode
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
