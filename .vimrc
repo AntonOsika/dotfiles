@@ -265,7 +265,7 @@ autocmd FileType sql nnoremap <silent> <leader>f :!sqlfluff fix -f --dialect big
 
 
 " Search file content
-nnoremap <C-a> :Ag<CR>
+nnoremap <C-g> :Ag<CR>
 
 " git blame
 nnoremap <Leader>gb :Git blame<CR>  

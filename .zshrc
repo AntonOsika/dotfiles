@@ -72,7 +72,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -232,14 +232,14 @@ alias gs='g s'
 alias gd='g d'
 
 # push to remote branch
-function gp() { git push origin HEAD:$1 }
+function gp() { set -ex; git push origin HEAD:$1 }
 
 
 # Creating tags for vim
 alias ct='ctags -R .'
 
 # TTS pasted content 500 wpm
-alias sp='say -r 500 -- "$(pbp)"'
+alias sp='pbpaste | say -r 500'
 
 function tb() { tensorboard --logdir "$1" --host=localhost }
 
@@ -344,8 +344,8 @@ PATH=~/.local/bin/:$PATH
 # eval "$(direnv hook zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-# export DEPICT_ROOT=~/depict.ai
-# source ~/depict.ai/depict.rc
+export DEPICT_ROOT=~/code/depict.ai
+source ${DEPICT_ROOT}/depict.rc
 export PATH=/opt/homebrew/bin:$PATH
 
 # >>> conda initialize >>>
@@ -363,3 +363,34 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+
+# JINA_CLI_BEGIN
+
+## autocomplete
+if [[ ! -o interactive ]]; then
+    return
+fi
+
+compctl -K _jina jina
+
+_jina() {
+  local words completions
+  read -cA words
+
+  if [ "${#words}" -eq 2 ]; then
+    completions="$(jina commands)"
+  else
+    completions="$(jina completions ${words[2,-2]})"
+  fi
+
+  reply=(${(ps:\n:)completions})
+}
+
+# session-wise fix
+ulimit -n 4096
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+# default workspace for Executors
+export JINA_DEFAULT_WORKSPACE_BASE="${HOME}/.jina/executor-workspace"
+
+# JINA_CLI_END
