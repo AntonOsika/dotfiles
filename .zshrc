@@ -118,6 +118,8 @@ source $ZSH/oh-my-zsh.sh
 #   fi
 # fi
 
+alias docker=podman
+
 # ctrl n/p = downarrow/uparrow
 bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
@@ -288,6 +290,9 @@ function ktp() {
 
 if [[ ! "$OSTYPE" == "darwin"* ]]; then
   alias nf='notify-send "Done."'
+
+  # Use gnu sed on mac
+  PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 else
   # banner is commented out:
   alias nf="afplay /System/Library/Sounds/Ping.aiff -v 2 && osascript -e $'display notification \'Job done\' with title \'Done\''"
@@ -384,13 +389,15 @@ _jina() {
     completions="$(jina completions ${words[2,-2]})"
   fi
 
-  reply=(${(ps:\n:)completions})
+  reply=(${(ps:
+:)completions})
 }
 
 # session-wise fix
 ulimit -n 4096
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-# default workspace for Executors
-export JINA_DEFAULT_WORKSPACE_BASE="${HOME}/.jina/executor-workspace"
 
 # JINA_CLI_END
+
+DBT_PROFILES_DIR=~/.dbt
+
