@@ -162,6 +162,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>BC0727CC-8BFB-4710-8B61-7A762765165D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D3D9AB11-EAD4-4AAE-81D9-23CDF94DAA5D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>C87409C6-F23D-4728-B0E7-2C139B164678</key>
 		<array>
 			<dict>
@@ -352,7 +365,7 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/Visual Studio Code.app</string>
+					<string>/Applications/Beeper.app</string>
 				</array>
 				<key>toggle</key>
 				<false/>
@@ -567,6 +580,54 @@
 			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
 			<string>22CCAE82-6E95-41C6-A551-2115F7837234</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Clay.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>D3D9AB11-EAD4-4AAE-81D9-23CDF94DAA5D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>8</integer>
+				<key>hotmod</key>
+				<integer>1179648</integer>
+				<key>hotstring</key>
+				<string>C</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>2</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>BC0727CC-8BFB-4710-8B61-7A762765165D</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -1183,6 +1244,13 @@
 			<key>ypos</key>
 			<integer>580</integer>
 		</dict>
+		<key>BC0727CC-8BFB-4710-8B61-7A762765165D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>880</integer>
+			<key>ypos</key>
+			<integer>290</integer>
+		</dict>
 		<key>C87409C6-F23D-4728-B0E7-2C139B164678</key>
 		<dict>
 			<key>xpos</key>
@@ -1201,6 +1269,13 @@
 		<dict>
 			<key>xpos</key>
 			<integer>150</integer>
+			<key>ypos</key>
+			<integer>290</integer>
+		</dict>
+		<key>D3D9AB11-EAD4-4AAE-81D9-23CDF94DAA5D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1020</integer>
 			<key>ypos</key>
 			<integer>290</integer>
 		</dict>

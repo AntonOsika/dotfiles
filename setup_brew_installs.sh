@@ -13,7 +13,7 @@ fi
 # Install if we don't have it
 if test $(which brew); then
 	echo "Installing homebrew..."
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)
 fi
 
 echo "brew doctor"
@@ -136,6 +136,20 @@ brew install --cask caskroom/fonts/font-source-code-pro
 
 
 echo "installing python with brew, should end up in /usr/local/bin/python."
+
+echo "do you want to continue?"
+
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  CONTINUE=true
+fi
+
+if ! $CONTINUE; then
+  # Check if we're continuing and output a message if not
+  echo "skipping further python installs, might be good to brew uninstall python and use pyenv and brew doctor" $red
+  exit
+fi
+
 brew install python3
 
 echo "python and pip3 ended up in:"
@@ -151,7 +165,7 @@ fi
 
 if ! $CONTINUE; then
   # Check if we're continuing and output a message if not
-  echo "skipping further python installs, might be good to brew uninstall python and use pyenv (and brew doctor)" $red
+  echo "skipping further python installs, might be good to brew uninstall python and use pyenv and brew doctor" $red
   exit
 fi
 
