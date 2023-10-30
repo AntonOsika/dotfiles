@@ -175,6 +175,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>C19B4B04-C244-4577-A6DF-47635C8B3E7A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>163E697B-415A-4F15-994F-6EDAFCAC948D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>C87409C6-F23D-4728-B0E7-2C139B164678</key>
 		<array>
 			<dict>
@@ -206,19 +219,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>567B9896-6C7C-412E-BED3-D59D92DC86BE</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>DAF15CAF-41A3-4AE5-9852-8AF816480261</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>F2B19B19-E294-462A-95A4-C1F5E1275089</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -269,7 +269,7 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/iTerm.app</string>
+					<string>/Applications/Warp.app</string>
 				</array>
 				<key>toggle</key>
 				<false/>
@@ -634,23 +634,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>paths</key>
-				<array>
-					<string>~/Applications/Chrome Apps.localized/Google Calendar.app</string>
-				</array>
-				<key>toggle</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.launchfiles</string>
-			<key>uid</key>
-			<string>F2B19B19-E294-462A-95A4-C1F5E1275089</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
@@ -682,40 +665,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>paths</key>
-				<array>
-					<string>~/Applications/Chrome Apps.localized/Gmail.app</string>
-				</array>
-				<key>toggle</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.launchfiles</string>
-			<key>uid</key>
-			<string>CEAEBE33-715D-4BB0-89F4-9CB7CDD88E38</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>paths</key>
-				<array>
-					<string>/Applications/Obsidian.app</string>
-				</array>
-				<key>toggle</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.launchfiles</string>
-			<key>uid</key>
-			<string>9A2B37B2-ABDD-49CC-99D2-BB9971AF2399</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
@@ -740,9 +689,60 @@
 			<key>type</key>
 			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
-			<string>DAF15CAF-41A3-4AE5-9852-8AF816480261</string>
+			<string>C19B4B04-C244-4577-A6DF-47635C8B3E7A</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>~/Applications/Chrome Apps.localized/Gmail.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>CEAEBE33-715D-4BB0-89F4-9CB7CDD88E38</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Cron.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>163E697B-415A-4F15-994F-6EDAFCAC948D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Obsidian.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>9A2B37B2-ABDD-49CC-99D2-BB9971AF2399</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1097,6 +1097,13 @@
 			<key>ypos</key>
 			<integer>140</integer>
 		</dict>
+		<key>163E697B-415A-4F15-994F-6EDAFCAC948D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>440</integer>
+			<key>ypos</key>
+			<integer>290</integer>
+		</dict>
 		<key>20E2F4B8-6E6B-47A6-BDBF-CCCD25104368</key>
 		<dict>
 			<key>xpos</key>
@@ -1251,6 +1258,13 @@
 			<key>ypos</key>
 			<integer>290</integer>
 		</dict>
+		<key>C19B4B04-C244-4577-A6DF-47635C8B3E7A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>290</integer>
+		</dict>
 		<key>C87409C6-F23D-4728-B0E7-2C139B164678</key>
 		<dict>
 			<key>xpos</key>
@@ -1286,13 +1300,6 @@
 			<key>ypos</key>
 			<integer>590</integer>
 		</dict>
-		<key>DAF15CAF-41A3-4AE5-9852-8AF816480261</key>
-		<dict>
-			<key>xpos</key>
-			<integer>290</integer>
-			<key>ypos</key>
-			<integer>290</integer>
-		</dict>
 		<key>DB036E4A-B47D-49D1-8C04-75F36C50460E</key>
 		<dict>
 			<key>xpos</key>
@@ -1320,13 +1327,6 @@
 			<integer>950</integer>
 			<key>ypos</key>
 			<integer>580</integer>
-		</dict>
-		<key>F2B19B19-E294-462A-95A4-C1F5E1275089</key>
-		<dict>
-			<key>xpos</key>
-			<integer>430</integer>
-			<key>ypos</key>
-			<integer>290</integer>
 		</dict>
 		<key>F4CD508C-1ABD-4A2B-82EA-6ADBBBAA514C</key>
 		<dict>
