@@ -20,7 +20,7 @@
 	<key>persistForFiles</key>
 	<integer>1</integer>
 	<key>persistForImages</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>snippetKeyword</key>
 	<string>s</string>
 </dict>

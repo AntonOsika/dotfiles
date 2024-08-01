@@ -27,7 +27,10 @@
 	m = commit -m
 
 	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat --color-words | less"
+	d = !"git diff-index --quiet HEAD -- || git --no-pager diff --patch-with-stat --color-words | less"
+
+	# Clear as well
+	dd = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat --color-words | less"
 
 	# Diff with words
 	dw = diff --color-words | less

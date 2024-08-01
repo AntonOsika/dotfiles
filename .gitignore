@@ -52,7 +52,7 @@ local.properties
 [Dd]ebug/
 [Rr]elease/
 x64/
-build/
+# build/
 # [Bb]in/
 [Oo]bj/
 
@@ -199,7 +199,7 @@ $RECYCLE.BIN/
 *.egg
 *.egg-info
 dist/
-build/
+# build/
 eggs/
 parts/
 var/

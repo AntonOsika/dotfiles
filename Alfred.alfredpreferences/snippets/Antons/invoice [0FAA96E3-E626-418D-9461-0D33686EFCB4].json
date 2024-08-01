@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "Company: Lovable Labs Incorporated\ninvoice@lovable.dev\nTax ID \/ TIN (EIN): 32-0749731\nOneliner address: 1111b South Governors Avenue Dover, DE 19904\n\nOr:\nAddress: 1111b South Governors Avenue\nPostal Code: 19904\nCity: Dover, DE\n",
+    "uid" : "0FAA96E3-E626-418D-9461-0D33686EFCB4",
+    "name" : "invoice",
+    "keyword" : ";invoice"
+  }
+}

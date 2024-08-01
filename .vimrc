@@ -41,7 +41,7 @@ call plug#begin('~/.vim/plugged')
 " Add all your plugins here 
 
 Plug 'junegunn/vim-plug'         " package manager
-Plug 'elzr/vim-json'             " easier to read json
+" Plug 'elzr/vim-json'             " easier to read json
 Plug 'tpope/vim-commentary'      " gcc = comment
 Plug 'tpope/vim-surround'	     " yss) cs]} ds' etc to change surround etc
 Plug 'tpope/vim-sleuth'	         " detects indentation style for buffer
@@ -239,13 +239,13 @@ endif
 
 
 " ####### Multi Cursor #######
-let g:multi_cursor_use_default_mapping=0
+" let g:multi_cursor_use_default_mapping=0
 
 " Default mapping
-let g:multi_cursor_start_word_key      = '<C-n>'
-let g:multi_cursor_next_key            = '<C-n>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
+" let g:multi_cursor_start_word_key      = '<C-n>'
+" let g:multi_cursor_next_key            = '<C-n>'
+" let g:multi_cursor_prev_key            = '<C-p>'
+" let g:multi_cursor_skip_key            = '<C-x>'
 
 augroup XML
     autocmd!
@@ -265,7 +265,7 @@ autocmd FileType sql nnoremap <silent> <leader>f :!sqlfluff fix -f --dialect big
 
 
 " Search file content
-nnoremap <C-g> :Ag<CR>
+nnoremap <C-a> :Ag<CR>
 
 " git blame
 nnoremap <Leader>gb :Git blame<CR>  
@@ -297,7 +297,7 @@ nnoremap <C-l> :tabn <CR>
 
 " Next buffer
 nnoremap <C-p> :bprevious<CR>
-nnoremap <C-b> :bnext<CR>
+nnoremap <C-n> :bnext<CR>
 
 " follow tags without pinky finger 
 map gk <C-]>
