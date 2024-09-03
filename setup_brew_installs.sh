@@ -13,7 +13,7 @@ fi
 # Install if we don't have it
 if test $(which brew); then
 	echo "Installing homebrew..."
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 echo "brew doctor"
