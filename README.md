@@ -7,7 +7,7 @@ This repo contains:
 - prezto (zsh setup) fork, as submodule
 - gitconfig aliases
 - iterm preferences
-- (depracted files for windows etc)
+- (deprecated files for windows etc)
 
 ## Installation
 
