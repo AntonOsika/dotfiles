@@ -774,9 +774,13 @@
 	<string>Arrangement 1</string>
 	<key>Default Bookmark Guid</key>
 	<string>E2F0964E-06B0-42B6-B54E-9D1EF6248500</string>
+	<key>Default Browser Profile Guid</key>
+	<string>DA4A9022-4298-44E6-91A0-AF951CB4D5F0</string>
 	<key>DimOnlyText</key>
 	<false/>
 	<key>DoubleClickPerformsSmartSelection</key>
+	<true/>
+	<key>EnableAPIServer</key>
 	<true/>
 	<key>EscapeShellCharsWithBackslash</key>
 	<false/>

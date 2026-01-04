@@ -58,6 +58,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>40BFB66B-B562-4FD2-9C40-751D5093F914</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A10C99BC-66F9-4DC6-BE4A-1F26AC0D03EC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>47C5ECA8-EC63-418E-81E8-8B36E5496D31</key>
 		<array>
 			<dict>
@@ -579,7 +592,7 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/Spotify.app</string>
+					<string>/Applications/Spotify (old).app</string>
 				</array>
 				<key>toggle</key>
 				<false/>
@@ -802,7 +815,7 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/Superhuman.app</string>
+					<string>~/Applications/Chrome Apps.localized/Shortwave.app</string>
 				</array>
 				<key>toggle</key>
 				<false/>
@@ -1026,6 +1039,54 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>16</integer>
+				<key>hotmod</key>
+				<integer>524288</integer>
+				<key>hotstring</key>
+				<string>Y</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>2</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>40BFB66B-B562-4FD2-9C40-751D5093F914</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>~/Applications/Chrome Apps.localized/log.app</string>
+				</array>
+				<key>toggle</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>A10C99BC-66F9-4DC6-BE4A-1F26AC0D03EC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>count</key>
 				<integer>1</integer>
 				<key>keychar</key>
@@ -1214,7 +1275,7 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/PyCharm CE.app</string>
+					<string>/Applications/Linear.app</string>
 				</array>
 				<key>toggle</key>
 				<false/>
@@ -1335,6 +1396,13 @@
 			<key>ypos</key>
 			<real>140</real>
 		</dict>
+		<key>40BFB66B-B562-4FD2-9C40-751D5093F914</key>
+		<dict>
+			<key>xpos</key>
+			<real>295</real>
+			<key>ypos</key>
+			<real>575</real>
+		</dict>
 		<key>47C5ECA8-EC63-418E-81E8-8B36E5496D31</key>
 		<dict>
 			<key>xpos</key>
@@ -1439,6 +1507,13 @@
 			<real>435</real>
 			<key>ypos</key>
 			<real>440</real>
+		</dict>
+		<key>A10C99BC-66F9-4DC6-BE4A-1F26AC0D03EC</key>
+		<dict>
+			<key>xpos</key>
+			<real>435</real>
+			<key>ypos</key>
+			<real>575</real>
 		</dict>
 		<key>A7E5C06A-070C-4B87-B6E4-CA4DF2A9DB6B</key>
 		<dict>

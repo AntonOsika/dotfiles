@@ -4,7 +4,7 @@
 
 [rerere]
 	# Caches conflict resolutions and reuses them
-	enabled = true
+	enabled = false
 
 [alias]
 	
