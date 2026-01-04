@@ -234,10 +234,6 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
-
-[credential]
-	helper = cache --timeout=604800
-
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -252,3 +248,5 @@
 
 [init]
 	defaultBranch = main
+[credential]
+	helper = osxkeychain
