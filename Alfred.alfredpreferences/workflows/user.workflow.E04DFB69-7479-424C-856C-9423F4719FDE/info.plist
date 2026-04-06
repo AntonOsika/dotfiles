@@ -58,19 +58,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>40BFB66B-B562-4FD2-9C40-751D5093F914</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A10C99BC-66F9-4DC6-BE4A-1F26AC0D03EC</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>47C5ECA8-EC63-418E-81E8-8B36E5496D31</key>
 		<array>
 			<dict>
@@ -579,7 +566,7 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>/Applications/Spotify (old).app</string>
+					<string>/Applications/Spotify.app</string>
 				</array>
 				<key>toggle</key>
 				<false/>
@@ -699,11 +686,11 @@
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>15</integer>
+				<integer>5</integer>
 				<key>hotmod</key>
 				<integer>524288</integer>
 				<key>hotstring</key>
-				<string>R</string>
+				<string>G</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -802,7 +789,7 @@
 			<dict>
 				<key>paths</key>
 				<array>
-					<string>~/Applications/Chrome Apps.localized/Shortwave.app</string>
+					<string>/Applications/Granola.app</string>
 				</array>
 				<key>toggle</key>
 				<false/>
@@ -974,54 +961,6 @@
 			<string>8268F7CC-2EEF-4E96-9D1E-3EFDB2308D29</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>16</integer>
-				<key>hotmod</key>
-				<integer>524288</integer>
-				<key>hotstring</key>
-				<string>Y</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>2</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>40BFB66B-B562-4FD2-9C40-751D5093F914</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>paths</key>
-				<array>
-					<string>~/Applications/Chrome Apps.localized/log.app</string>
-				</array>
-				<key>toggle</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.launchfiles</string>
-			<key>uid</key>
-			<string>A10C99BC-66F9-4DC6-BE4A-1F26AC0D03EC</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
